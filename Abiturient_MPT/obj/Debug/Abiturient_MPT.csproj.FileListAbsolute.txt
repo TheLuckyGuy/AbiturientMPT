@@ -1,0 +1,10 @@
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\bin\Debug\Abiturient_MPT.exe.config
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\bin\Debug\Abiturient_MPT.exe
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\bin\Debug\Abiturient_MPT.pdb
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csprojAssemblyReference.cache
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Auth.resources
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Properties.Resources.resources
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.GenerateResource.cache
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.CoreCompileInputs.cache
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.exe
+C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.pdb
