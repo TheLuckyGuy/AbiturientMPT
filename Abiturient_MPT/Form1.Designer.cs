@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EnrolleePage = new System.Windows.Forms.TabPage();
             this.deleteEnrolleeButton = new System.Windows.Forms.Button();
@@ -62,17 +65,17 @@
             this.button12 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.AchievementsPage = new System.Windows.Forms.TabPage();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.AddAchievementButton = new System.Windows.Forms.Button();
+            this.deleteAchievementButton = new System.Windows.Forms.Button();
+            this.editAchievementButton = new System.Windows.Forms.Button();
+            this.addAchievementButton = new System.Windows.Forms.Button();
             this.achGridView = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.achRecGridView = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl1.SuspendLayout();
             this.EnrolleePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeGridView)).BeginInit();
@@ -169,6 +172,8 @@
             this.enrolleeGridView.Location = new System.Drawing.Point(15, 15);
             this.enrolleeGridView.MultiSelect = false;
             this.enrolleeGridView.Name = "enrolleeGridView";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.enrolleeGridView.Size = new System.Drawing.Size(880, 595);
             this.enrolleeGridView.TabIndex = 0;
             // 
@@ -426,16 +431,11 @@
             this.AchievementsPage.Text = "Достижения";
             this.AchievementsPage.UseVisualStyleBackColor = true;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button16);
-            this.groupBox5.Controls.Add(this.button17);
-            this.groupBox5.Controls.Add(this.AddAchievementButton);
+            this.groupBox5.Controls.Add(this.deleteAchievementButton);
+            this.groupBox5.Controls.Add(this.editAchievementButton);
+            this.groupBox5.Controls.Add(this.addAchievementButton);
             this.groupBox5.Controls.Add(this.achGridView);
             this.groupBox5.Location = new System.Drawing.Point(506, 18);
             this.groupBox5.Name = "groupBox5";
@@ -444,39 +444,45 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Словарь достижений";
             // 
-            // button16
+            // deleteAchievementButton
             // 
-            this.button16.Location = new System.Drawing.Point(182, 31);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(75, 23);
-            this.button16.TabIndex = 6;
-            this.button16.Text = "Удалить";
-            this.button16.UseVisualStyleBackColor = true;
+            this.deleteAchievementButton.Location = new System.Drawing.Point(182, 31);
+            this.deleteAchievementButton.Name = "deleteAchievementButton";
+            this.deleteAchievementButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteAchievementButton.TabIndex = 6;
+            this.deleteAchievementButton.Text = "Удалить";
+            this.deleteAchievementButton.UseVisualStyleBackColor = true;
+            this.deleteAchievementButton.Click += new System.EventHandler(this.AchievementButtons_Click);
             // 
-            // button17
+            // editAchievementButton
             // 
-            this.button17.Location = new System.Drawing.Point(101, 31);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(75, 23);
-            this.button17.TabIndex = 5;
-            this.button17.Text = "Изменить";
-            this.button17.UseVisualStyleBackColor = true;
+            this.editAchievementButton.Location = new System.Drawing.Point(101, 31);
+            this.editAchievementButton.Name = "editAchievementButton";
+            this.editAchievementButton.Size = new System.Drawing.Size(75, 23);
+            this.editAchievementButton.TabIndex = 5;
+            this.editAchievementButton.Text = "Изменить";
+            this.editAchievementButton.UseVisualStyleBackColor = true;
+            this.editAchievementButton.Click += new System.EventHandler(this.AchievementButtons_Click);
             // 
-            // AddAchievementButton
+            // addAchievementButton
             // 
-            this.AddAchievementButton.Location = new System.Drawing.Point(20, 31);
-            this.AddAchievementButton.Name = "AddAchievementButton";
-            this.AddAchievementButton.Size = new System.Drawing.Size(75, 23);
-            this.AddAchievementButton.TabIndex = 4;
-            this.AddAchievementButton.Text = "Добавить";
-            this.AddAchievementButton.UseVisualStyleBackColor = true;
-            this.AddAchievementButton.Click += new System.EventHandler(this.AddAchievementButton_Click);
+            this.addAchievementButton.Location = new System.Drawing.Point(20, 31);
+            this.addAchievementButton.Name = "addAchievementButton";
+            this.addAchievementButton.Size = new System.Drawing.Size(75, 23);
+            this.addAchievementButton.TabIndex = 4;
+            this.addAchievementButton.Text = "Добавить";
+            this.addAchievementButton.UseVisualStyleBackColor = true;
+            this.addAchievementButton.Click += new System.EventHandler(this.AchievementButtons_Click);
             // 
             // achGridView
             // 
+            this.achGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.achGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.achGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.achGridView.Location = new System.Drawing.Point(20, 60);
             this.achGridView.Name = "achGridView";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.achGridView.Size = new System.Drawing.Size(440, 450);
             this.achGridView.TabIndex = 1;
             // 
@@ -522,11 +528,20 @@
             // 
             // achRecGridView
             // 
+            this.achRecGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.achRecGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.achRecGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.achRecGridView.Location = new System.Drawing.Point(20, 60);
             this.achRecGridView.Name = "achRecGridView";
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.achRecGridView.Size = new System.Drawing.Size(440, 450);
             this.achRecGridView.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // MainForm
             // 
@@ -598,9 +613,9 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button AddAchievementButton;
+        private System.Windows.Forms.Button deleteAchievementButton;
+        private System.Windows.Forms.Button editAchievementButton;
+        private System.Windows.Forms.Button addAchievementButton;
         private System.Windows.Forms.DataGridView achGridView;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button button19;

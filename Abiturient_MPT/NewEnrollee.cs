@@ -14,15 +14,18 @@ namespace Abiturient_MPT
     {
         MainForm parent = new MainForm();
         int mode = 0; // 0 - новый абитуриент, 1 - редактирование абитуриента
+        int enrolleeId = 0;
 
-        public NewEnrollee(MainForm p, int m)
+        public NewEnrollee(MainForm p, int m, int enrollID)
         {
             mode = m;
             parent = p;
+            enrolleeId = enrollID;
+
             InitializeComponent();
         }
 
-        int enrolleeId = 0;
+        
 
         private void NewEnrollee_Load(object sender, EventArgs e)
         {
@@ -38,8 +41,10 @@ namespace Abiturient_MPT
         {
             if(((sender as TextBox).Name == "passIssuedByTextBox") || ((sender as TextBox).Name == "docIssuedByTextBox"))
             {
-                if ((e.KeyChar >= 'а') && (e.KeyChar <= 'я') || (e.KeyChar >= 'А') && (e.KeyChar <= 'Я') || (e.KeyChar == 'ё') ||
-               (e.KeyChar == 'Ё') || (e.KeyChar == (char)Keys.Back) || (e.KeyChar == '.') || (e.KeyChar == ',') || (e.KeyChar == (char)Keys.Space)) return;
+                if ((e.KeyChar >= '0') && (e.KeyChar <= '9') || (e.KeyChar >= 'а') && (e.KeyChar <= 'я') || (e.KeyChar >= 'А') && (e.KeyChar <= 'Я') || 
+                    (e.KeyChar >= 'a') && (e.KeyChar <= 'z') || (e.KeyChar >= 'A') && (e.KeyChar <= 'Z') || (e.KeyChar == 'ё') ||
+                    (e.KeyChar == 'Ё') || (e.KeyChar == (char)Keys.Back) || (e.KeyChar == '.') || (e.KeyChar == ',') || (e.KeyChar == '-') ||
+                    (e.KeyChar == '(') || (e.KeyChar == ')') || (e.KeyChar == (char)Keys.Space)) return;
                 else { e.Handled = true; }
             }
             else

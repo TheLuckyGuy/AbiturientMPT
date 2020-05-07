@@ -46,11 +46,11 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name) {
                 case "addEnrolleeButton":
-                    NewEnrollee newEnrollee = new NewEnrollee(this, 0);
+                    NewEnrollee newEnrollee = new NewEnrollee(this, 0, 0);
                     newEnrollee.Show();
                     break;
                 case "editEnrolleeButton":
-                    NewEnrollee editEnrollee = new NewEnrollee(this, 1);
+                    NewEnrollee editEnrollee = new NewEnrollee(this, 1, Convert.ToInt32(enrolleeGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                     editEnrollee.Show();
                     break;
                 case "deleteEnrolleeButton":
@@ -59,8 +59,6 @@ namespace Abiturient_MPT
                     var result = MessageBox.Show(message, caption,
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Warning);
-
-                    // If the no button was pressed ...
                     if (result == DialogResult.No)
                     {
                         return;
@@ -85,10 +83,41 @@ namespace Abiturient_MPT
             tabControl1_SelectedIndexChanged(this, e);
         }
 
-        private void AddAchievementButton_Click(object sender, EventArgs e)
+        private void AchievementButtons_Click(object sender, EventArgs e)
         {
-            NewAchievement newAchievement = new NewAchievement(this);
-            newAchievement.Show();
+            switch ((sender as Button).Name)
+            {
+                case "addAchievementButton":
+                    NewAchievement newAchievement = new NewAchievement(this, 0, 0);
+                    newAchievement.Show();
+                    break;
+                case "editAchievementButton":
+                    NewAchievement editAchievement = new NewAchievement(this, 1, Convert.ToInt32(achGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
+                    editAchievement.Show();
+                    break;
+                case "deleteAchievementButton":
+                    const string message = "Вы действительно хотите удалить запись (записи)?";
+                    const string caption = "Удаление";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
+
+                    if (achGridView.SelectedRows.Count >= 1)
+                    {
+                        for (int i = 0; i < achGridView.SelectedRows.Count; i++)
+                        {
+                            if (achGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) data.enrolleeDelete(achGridView.SelectedRows[i].Cells["ID"].Value.ToString());
+                        }
+                    }
+                    if (achGridView.SelectedCells.Count > 0) data.achievementDelete(achGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
+                    break;
+                   
+            }
         }
     }
 }

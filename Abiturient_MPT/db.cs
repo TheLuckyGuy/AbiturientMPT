@@ -63,7 +63,7 @@ namespace Abiturient_MPT
             "select * from dbo.Winned_Olympiad",
             "exec dbo.GetEnrollees",
             "exec dbo.GetRecordedAchievements",
-            "dbo.GetAchievements",
+            "exec dbo.GetAchievements",
         };
 
         static string md5(string text)
@@ -179,6 +179,32 @@ namespace Abiturient_MPT
             return enrolleeId;
         }
 
+        public DataTable getCurrentEnrollee(string enrolleeID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getCurrentEnrollee @Enrollee_ID", sql);
+
+                SqlParameter EnrolleeIDParam = new SqlParameter("@Enrollee_ID", enrolleeID);
+
+                command.Parameters.Add(EnrolleeIDParam);
+
+                
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+                
+            }
+            return tempDT;
+            //return 0;
+        }
+
         public int enrolleeDelete(string enrolleeID)
         {
             try
@@ -198,6 +224,94 @@ namespace Abiturient_MPT
                 sql.Close();
             }
             return 0;
+        }
+
+        public int achievementAdd(string name)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Achievement @Name", sql);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+
+                command.Parameters.Add(nameParam);
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int achievementUpdate(int achID, string name)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Achievement @ID_Achievement, @Name", sql);
+
+                SqlParameter idParam = new SqlParameter("@ID_Achievement", achID);
+                command.Parameters.Add(idParam);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+                command.Parameters.Add(nameParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int achievementDelete(string achievementID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Achievement @Achievement_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Achievement_ID", achievementID);
+
+                command.Parameters.Add(idParam);
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getCurrentAchievement(int achievementID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getCurrentAchievement @Enrollee_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Enrollee_ID", achievementID);
+
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
         }
     }
 }
