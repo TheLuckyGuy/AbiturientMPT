@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EnrolleePage = new System.Windows.Forms.TabPage();
             this.deleteEnrolleeButton = new System.Windows.Forms.Button();
@@ -47,23 +47,23 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.priorityDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.deleteDisciplineButton = new System.Windows.Forms.Button();
+            this.editDisciplineButton = new System.Windows.Forms.Button();
+            this.addDisciplineButton = new System.Windows.Forms.Button();
+            this.disciplineGridView = new System.Windows.Forms.DataGridView();
             this.SpecialitiesPage = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.specialityDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.specialityGroupDataGridView = new System.Windows.Forms.DataGridView();
             this.AchievementsPage = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.deleteAchievementButton = new System.Windows.Forms.Button();
@@ -82,14 +82,14 @@
             this.EnrolleeListPage.SuspendLayout();
             this.DisciplinesPage.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priorityDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineGridView)).BeginInit();
             this.SpecialitiesPage.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specialityDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specialityGroupDataGridView)).BeginInit();
             this.AchievementsPage.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.achGridView)).BeginInit();
@@ -133,7 +133,7 @@
             this.deleteEnrolleeButton.TabIndex = 3;
             this.deleteEnrolleeButton.Text = "Удалить";
             this.deleteEnrolleeButton.UseVisualStyleBackColor = true;
-            this.deleteEnrolleeButton.Click += new System.EventHandler(this.button1_Click);
+            this.deleteEnrolleeButton.Click += new System.EventHandler(this.EnrolleeButton_Click);
             // 
             // editEnrolleeButton
             // 
@@ -143,7 +143,7 @@
             this.editEnrolleeButton.TabIndex = 2;
             this.editEnrolleeButton.Text = "Изменить";
             this.editEnrolleeButton.UseVisualStyleBackColor = true;
-            this.editEnrolleeButton.Click += new System.EventHandler(this.button1_Click);
+            this.editEnrolleeButton.Click += new System.EventHandler(this.EnrolleeButton_Click);
             // 
             // addEnrolleeButton
             // 
@@ -153,7 +153,7 @@
             this.addEnrolleeButton.TabIndex = 1;
             this.addEnrolleeButton.Text = "Добавить";
             this.addEnrolleeButton.UseVisualStyleBackColor = true;
-            this.addEnrolleeButton.Click += new System.EventHandler(this.button1_Click);
+            this.addEnrolleeButton.Click += new System.EventHandler(this.EnrolleeButton_Click);
             // 
             // enrolleeGridView
             // 
@@ -161,19 +161,19 @@
             this.enrolleeGridView.AllowUserToDeleteRows = false;
             this.enrolleeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.enrolleeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.enrolleeGridView.Location = new System.Drawing.Point(15, 15);
             this.enrolleeGridView.MultiSelect = false;
             this.enrolleeGridView.Name = "enrolleeGridView";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.enrolleeGridView.Size = new System.Drawing.Size(880, 595);
             this.enrolleeGridView.TabIndex = 0;
             // 
@@ -222,8 +222,8 @@
             this.groupBox4.Controls.Add(this.button9);
             this.groupBox4.Controls.Add(this.button8);
             this.groupBox4.Controls.Add(this.button7);
-            this.groupBox4.Controls.Add(this.dataGridView5);
-            this.groupBox4.Location = new System.Drawing.Point(500, 15);
+            this.groupBox4.Controls.Add(this.priorityDataGridView);
+            this.groupBox4.Location = new System.Drawing.Point(15, 15);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(475, 580);
             this.groupBox4.TabIndex = 1;
@@ -257,61 +257,64 @@
             this.button7.Text = "Добавить";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // dataGridView5
+            // priorityDataGridView
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(20, 60);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(440, 450);
-            this.dataGridView5.TabIndex = 0;
+            this.priorityDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.priorityDataGridView.Location = new System.Drawing.Point(20, 60);
+            this.priorityDataGridView.Name = "priorityDataGridView";
+            this.priorityDataGridView.Size = new System.Drawing.Size(440, 450);
+            this.priorityDataGridView.TabIndex = 0;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.button4);
-            this.groupBox3.Controls.Add(this.dataGridView4);
-            this.groupBox3.Location = new System.Drawing.Point(15, 15);
+            this.groupBox3.Controls.Add(this.deleteDisciplineButton);
+            this.groupBox3.Controls.Add(this.editDisciplineButton);
+            this.groupBox3.Controls.Add(this.addDisciplineButton);
+            this.groupBox3.Controls.Add(this.disciplineGridView);
+            this.groupBox3.Location = new System.Drawing.Point(500, 15);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(475, 580);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Дисциаплины";
             // 
-            // button6
+            // deleteDisciplineButton
             // 
-            this.button6.Location = new System.Drawing.Point(182, 31);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Удалить";
-            this.button6.UseVisualStyleBackColor = true;
+            this.deleteDisciplineButton.Location = new System.Drawing.Point(182, 31);
+            this.deleteDisciplineButton.Name = "deleteDisciplineButton";
+            this.deleteDisciplineButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteDisciplineButton.TabIndex = 3;
+            this.deleteDisciplineButton.Text = "Удалить";
+            this.deleteDisciplineButton.UseVisualStyleBackColor = true;
+            this.deleteDisciplineButton.Click += new System.EventHandler(this.DisciplineButtons_Click);
             // 
-            // button5
+            // editDisciplineButton
             // 
-            this.button5.Location = new System.Drawing.Point(101, 31);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Изменить";
-            this.button5.UseVisualStyleBackColor = true;
+            this.editDisciplineButton.Location = new System.Drawing.Point(101, 31);
+            this.editDisciplineButton.Name = "editDisciplineButton";
+            this.editDisciplineButton.Size = new System.Drawing.Size(75, 23);
+            this.editDisciplineButton.TabIndex = 2;
+            this.editDisciplineButton.Text = "Изменить";
+            this.editDisciplineButton.UseVisualStyleBackColor = true;
+            this.editDisciplineButton.Click += new System.EventHandler(this.DisciplineButtons_Click);
             // 
-            // button4
+            // addDisciplineButton
             // 
-            this.button4.Location = new System.Drawing.Point(20, 31);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Добавить";
-            this.button4.UseVisualStyleBackColor = true;
+            this.addDisciplineButton.Location = new System.Drawing.Point(20, 31);
+            this.addDisciplineButton.Name = "addDisciplineButton";
+            this.addDisciplineButton.Size = new System.Drawing.Size(75, 23);
+            this.addDisciplineButton.TabIndex = 1;
+            this.addDisciplineButton.Text = "Добавить";
+            this.addDisciplineButton.UseVisualStyleBackColor = true;
+            this.addDisciplineButton.Click += new System.EventHandler(this.DisciplineButtons_Click);
             // 
-            // dataGridView4
+            // disciplineGridView
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(20, 60);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(440, 450);
-            this.dataGridView4.TabIndex = 0;
+            this.disciplineGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.disciplineGridView.Location = new System.Drawing.Point(20, 60);
+            this.disciplineGridView.Name = "disciplineGridView";
+            this.disciplineGridView.Size = new System.Drawing.Size(440, 450);
+            this.disciplineGridView.TabIndex = 0;
             // 
             // SpecialitiesPage
             // 
@@ -329,7 +332,7 @@
             this.groupBox2.Controls.Add(this.button13);
             this.groupBox2.Controls.Add(this.button14);
             this.groupBox2.Controls.Add(this.button15);
-            this.groupBox2.Controls.Add(this.dataGridView3);
+            this.groupBox2.Controls.Add(this.specialityDataGridView);
             this.groupBox2.Location = new System.Drawing.Point(500, 15);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(475, 580);
@@ -363,21 +366,22 @@
             this.button15.TabIndex = 4;
             this.button15.Text = "Добавить";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
-            // dataGridView3
+            // specialityDataGridView
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(20, 60);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(440, 450);
-            this.dataGridView3.TabIndex = 1;
+            this.specialityDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.specialityDataGridView.Location = new System.Drawing.Point(20, 60);
+            this.specialityDataGridView.Name = "specialityDataGridView";
+            this.specialityDataGridView.Size = new System.Drawing.Size(440, 450);
+            this.specialityDataGridView.TabIndex = 1;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button12);
-            this.groupBox1.Controls.Add(this.dataGridView2);
+            this.groupBox1.Controls.Add(this.specialityGroupDataGridView);
             this.groupBox1.Location = new System.Drawing.Point(15, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(475, 580);
@@ -412,13 +416,13 @@
             this.button12.Text = "Добавить";
             this.button12.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // specialityGroupDataGridView
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(20, 60);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(440, 450);
-            this.dataGridView2.TabIndex = 0;
+            this.specialityGroupDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.specialityGroupDataGridView.Location = new System.Drawing.Point(20, 60);
+            this.specialityGroupDataGridView.Name = "specialityGroupDataGridView";
+            this.specialityGroupDataGridView.Size = new System.Drawing.Size(440, 450);
+            this.specialityGroupDataGridView.TabIndex = 0;
             // 
             // AchievementsPage
             // 
@@ -481,8 +485,8 @@
             this.achGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.achGridView.Location = new System.Drawing.Point(20, 60);
             this.achGridView.Name = "achGridView";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.achGridView.Size = new System.Drawing.Size(440, 450);
             this.achGridView.TabIndex = 1;
             // 
@@ -533,8 +537,8 @@
             this.achRecGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.achRecGridView.Location = new System.Drawing.Point(20, 60);
             this.achRecGridView.Name = "achRecGridView";
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.achRecGridView.Size = new System.Drawing.Size(440, 450);
             this.achRecGridView.TabIndex = 0;
             // 
@@ -560,14 +564,14 @@
             this.EnrolleeListPage.PerformLayout();
             this.DisciplinesPage.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.priorityDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineGridView)).EndInit();
             this.SpecialitiesPage.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specialityDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specialityGroupDataGridView)).EndInit();
             this.AchievementsPage.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.achGridView)).EndInit();
@@ -591,21 +595,21 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView priorityDataGridView;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView disciplineGridView;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView specialityDataGridView;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView specialityGroupDataGridView;
         private System.Windows.Forms.TabPage AchievementsPage;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button deleteDisciplineButton;
+        private System.Windows.Forms.Button editDisciplineButton;
+        private System.Windows.Forms.Button addDisciplineButton;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;

@@ -30,10 +30,12 @@ namespace Abiturient_MPT
 
                     break;
                 case "DisciplinesPage":
-
+                    disciplineGridView.DataSource = data.GetData((byte)db.Tables.GetDiscipline);
+                    priorityDataGridView.DataSource = data.GetData((byte)db.Tables.Discipline_Priority);
                     break;
                 case "SpecialitiesPage":
-
+                    specialityDataGridView.DataSource = data.GetData((byte)db.Tables.Speciality);
+                    specialityGroupDataGridView.DataSource = data.GetData((byte)db.Tables.Speciality_Group);
                     break;
                 case "AchievementsPage":
                     achRecGridView.DataSource = data.GetData((byte)db.Tables.GetRecordedAchievements);
@@ -42,7 +44,7 @@ namespace Abiturient_MPT
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void EnrolleeButton_Click(object sender, EventArgs e)
         {
             switch ((sender as Button).Name) {
                 case "addEnrolleeButton":
@@ -111,12 +113,53 @@ namespace Abiturient_MPT
                     {
                         for (int i = 0; i < achGridView.SelectedRows.Count; i++)
                         {
-                            if (achGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) data.enrolleeDelete(achGridView.SelectedRows[i].Cells["ID"].Value.ToString());
+                            if (achGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) data.achievementDelete(achGridView.SelectedRows[i].Cells["ID"].Value.ToString());
                         }
                     }
                     if (achGridView.SelectedCells.Count > 0) data.achievementDelete(achGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
                     break;
                    
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DisciplineButtons_Click(object sender, EventArgs e)
+        {
+            switch ((sender as Button).Name)
+            {
+                case "addDisciplineButton":
+                    Discipline newDiscipline = new Discipline(this, 0, 0);
+                    newDiscipline.Show();
+                    break;
+                case "editDisciplineButton":
+                    Discipline editDiscipline = new Discipline(this, 1, Convert.ToInt32(disciplineGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
+                    editDiscipline.Show();
+                    break;
+                case "deleteDisciplineButton":
+                    const string message = "Вы действительно хотите удалить запись (записи)?";
+                    const string caption = "Удаление";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
+
+                    if (enrolleeGridView.SelectedRows.Count >= 1)
+                    {
+                        for (int i = 0; i < enrolleeGridView.SelectedRows.Count; i++)
+                        {
+                            if (enrolleeGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) data.disciplineDelete(enrolleeGridView.SelectedRows[i].Cells["ID"].Value.ToString());
+                        }
+                    }
+                    if (enrolleeGridView.SelectedCells.Count > 0) data.disciplineDelete(enrolleeGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
+                    break;
             }
         }
     }

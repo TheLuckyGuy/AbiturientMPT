@@ -43,7 +43,8 @@ namespace Abiturient_MPT
             Winned_Olympiad,
             GetEnrollees,
             GetRecordedAchievements,
-            GetAchievements
+            GetAchievements,
+            GetDiscipline
         }
 
         static List<string> commands = new List<string>()
@@ -64,6 +65,7 @@ namespace Abiturient_MPT
             "exec dbo.GetEnrollees",
             "exec dbo.GetRecordedAchievements",
             "exec dbo.GetAchievements",
+            "exec dbo.GetDiscipline",
         };
 
         static string md5(string text)
@@ -299,6 +301,94 @@ namespace Abiturient_MPT
                    "exec getCurrentAchievement @Enrollee_ID", sql);
 
                 SqlParameter idParam = new SqlParameter("@Enrollee_ID", achievementID);
+
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int disciplineAdd(string name)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Discipline @Name", sql);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+
+                command.Parameters.Add(nameParam);
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int disciplineUpdate(int disciplineID, string name)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Discipline @ID_Discipline, @Name", sql);
+
+                SqlParameter idParam = new SqlParameter("@ID_Discipline", disciplineID);
+                command.Parameters.Add(idParam);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+                command.Parameters.Add(nameParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int disciplineDelete(string disciplineID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Discipline @Discipline_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Discipline_ID", disciplineID);
+
+                command.Parameters.Add(idParam);
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getCurrentDiscipline(int disciplineID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getCurrentDiscipline @Discipline_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Discipline_ID", disciplineID);
 
                 command.Parameters.Add(idParam);
 

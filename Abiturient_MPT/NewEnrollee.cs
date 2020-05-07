@@ -29,6 +29,12 @@ namespace Abiturient_MPT
 
         private void NewEnrollee_Load(object sender, EventArgs e)
         {
+            if ((enrolleeId != -1) && (enrolleeId != 0))
+            {
+                achievementsGroupBox.Enabled = true;
+                marksGroupBox.Enabled = true;
+            }
+
             DataTable tbl1 = new DataTable();
             tbl1 = parent.data.GetData((byte)db.Tables.GetRecordedAchievements);
             AchievementComboBox.DataSource = tbl1;
@@ -77,9 +83,10 @@ namespace Abiturient_MPT
                 enrolleeId = parent.data.enrolleeAdd(surnameTextBox.Text, nameTextBox.Text, patronymicTextBox.Text, birthDatePicker.Text, seriesTextBox.Text, numberTextBox.Text, passIssuedByTextBox.Text, passIssuedDatePicker.Text,
                     subdivTextBox.Text, education, documentNumberTextBox.Text, docIssuedDatePicker.Text, Convert.ToString(endYearUpDown.Value), docIssuedByTextBox.Text, Targeted_Learning);
                 parent.tabControl1_SelectedIndexChanged(this, e);
-                if (enrolleeId != -1)
+                if ((enrolleeId != -1) && (enrolleeId != 0))
                 {
-
+                    achievementsGroupBox.Enabled = true;
+                    marksGroupBox.Enabled = true;
                 }
             }
             else
