@@ -162,5 +162,41 @@ namespace Abiturient_MPT
                     break;
             }
         }
+
+        private void AchRecButtons_Click(object sender, EventArgs e)
+        {
+            switch ((sender as Button).Name)
+            {
+                case "addAchRecButton":
+                    RecAchievements newRecAchievements = new RecAchievements(this, 0, 0);
+                    newRecAchievements.Show();
+                    break;
+                case "editAchRecButton":
+                    RecAchievements editRecAchievements = new RecAchievements(this, 1, Convert.ToInt32(achRecGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
+                    editRecAchievements.Show();
+                    break;
+                case "deleteAchRecButton":
+                    const string message = "Вы действительно хотите удалить запись (записи)?";
+                    const string caption = "Удаление";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
+
+                    if (achRecGridView.SelectedRows.Count >= 1)
+                    {
+                        for (int i = 0; i < achRecGridView.SelectedRows.Count; i++)
+                        {
+                            if (achRecGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) data.recAchievementDelete(achRecGridView.SelectedRows[i].Cells["ID"].Value.ToString());
+                        }
+                    }
+                    if (achRecGridView.SelectedCells.Count > 0) data.recAchievementDelete(achRecGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
+                    break;
+            }
+        }
     }
 }

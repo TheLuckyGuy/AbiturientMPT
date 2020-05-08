@@ -22,3 +22,4 @@ C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MP
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.MainForm.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.NewAchievement.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Discipline.resources
+C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.RecAchievements.resources

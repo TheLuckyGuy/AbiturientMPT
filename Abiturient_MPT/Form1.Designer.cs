@@ -71,9 +71,9 @@
             this.addAchievementButton = new System.Windows.Forms.Button();
             this.achGridView = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
+            this.deleteAchRecButton = new System.Windows.Forms.Button();
+            this.editAchRecButton = new System.Windows.Forms.Button();
+            this.addAchRecButton = new System.Windows.Forms.Button();
             this.achRecGridView = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabControl1.SuspendLayout();
@@ -498,9 +498,9 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.button19);
-            this.groupBox6.Controls.Add(this.button20);
-            this.groupBox6.Controls.Add(this.button21);
+            this.groupBox6.Controls.Add(this.deleteAchRecButton);
+            this.groupBox6.Controls.Add(this.editAchRecButton);
+            this.groupBox6.Controls.Add(this.addAchRecButton);
             this.groupBox6.Controls.Add(this.achRecGridView);
             this.groupBox6.Location = new System.Drawing.Point(21, 18);
             this.groupBox6.Name = "groupBox6";
@@ -509,32 +509,35 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Врямя учёта";
             // 
-            // button19
+            // deleteAchRecButton
             // 
-            this.button19.Location = new System.Drawing.Point(182, 31);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(75, 23);
-            this.button19.TabIndex = 6;
-            this.button19.Text = "Удалить";
-            this.button19.UseVisualStyleBackColor = true;
+            this.deleteAchRecButton.Location = new System.Drawing.Point(182, 31);
+            this.deleteAchRecButton.Name = "deleteAchRecButton";
+            this.deleteAchRecButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteAchRecButton.TabIndex = 6;
+            this.deleteAchRecButton.Text = "Удалить";
+            this.deleteAchRecButton.UseVisualStyleBackColor = true;
+            this.deleteAchRecButton.Click += new System.EventHandler(this.AchRecButtons_Click);
             // 
-            // button20
+            // editAchRecButton
             // 
-            this.button20.Location = new System.Drawing.Point(101, 31);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(75, 23);
-            this.button20.TabIndex = 5;
-            this.button20.Text = "Изменить";
-            this.button20.UseVisualStyleBackColor = true;
+            this.editAchRecButton.Location = new System.Drawing.Point(101, 31);
+            this.editAchRecButton.Name = "editAchRecButton";
+            this.editAchRecButton.Size = new System.Drawing.Size(75, 23);
+            this.editAchRecButton.TabIndex = 5;
+            this.editAchRecButton.Text = "Изменить";
+            this.editAchRecButton.UseVisualStyleBackColor = true;
+            this.editAchRecButton.Click += new System.EventHandler(this.AchRecButtons_Click);
             // 
-            // button21
+            // addAchRecButton
             // 
-            this.button21.Location = new System.Drawing.Point(20, 31);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(75, 23);
-            this.button21.TabIndex = 4;
-            this.button21.Text = "Добавить";
-            this.button21.UseVisualStyleBackColor = true;
+            this.addAchRecButton.Location = new System.Drawing.Point(20, 31);
+            this.addAchRecButton.Name = "addAchRecButton";
+            this.addAchRecButton.Size = new System.Drawing.Size(75, 23);
+            this.addAchRecButton.TabIndex = 4;
+            this.addAchRecButton.Text = "Добавить";
+            this.addAchRecButton.UseVisualStyleBackColor = true;
+            this.addAchRecButton.Click += new System.EventHandler(this.AchRecButtons_Click);
             // 
             // achRecGridView
             // 
@@ -629,9 +632,9 @@
         private System.Windows.Forms.Button addAchievementButton;
         private System.Windows.Forms.DataGridView achGridView;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button deleteAchRecButton;
+        private System.Windows.Forms.Button editAchRecButton;
+        private System.Windows.Forms.Button addAchRecButton;
         private System.Windows.Forms.DataGridView achRecGridView;
     }
 }

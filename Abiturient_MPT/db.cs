@@ -191,9 +191,7 @@ namespace Abiturient_MPT
                    "exec getCurrentEnrollee @Enrollee_ID", sql);
 
                 SqlParameter EnrolleeIDParam = new SqlParameter("@Enrollee_ID", enrolleeID);
-
                 command.Parameters.Add(EnrolleeIDParam);
-
                 
                 tempDT.Load((SqlDataReader)command.ExecuteReader());
             }
@@ -216,8 +214,8 @@ namespace Abiturient_MPT
                    "exec Delete_Enrollee @Enrollee_ID", sql);
 
                 SqlParameter EnrolleeIDParam = new SqlParameter("@Enrollee_ID", enrolleeID);
-
                 command.Parameters.Add(EnrolleeIDParam);
+
                 command.ExecuteNonQuery();
             }
             catch { return -1; }
@@ -237,8 +235,8 @@ namespace Abiturient_MPT
                    "exec Insert_Achievement @Name", sql);
 
                 SqlParameter nameParam = new SqlParameter("@Name", name);
-
                 command.Parameters.Add(nameParam);
+
                 command.ExecuteNonQuery();
             }
             catch { return -1; }
@@ -280,8 +278,8 @@ namespace Abiturient_MPT
                    "exec Delete_Achievement @Achievement_ID", sql);
 
                 SqlParameter idParam = new SqlParameter("@Achievement_ID", achievementID);
-
                 command.Parameters.Add(idParam);
+
                 command.ExecuteNonQuery();
             }
             catch { return -1; }
@@ -301,9 +299,7 @@ namespace Abiturient_MPT
                    "exec getCurrentAchievement @Enrollee_ID", sql);
 
                 SqlParameter idParam = new SqlParameter("@Enrollee_ID", achievementID);
-
                 command.Parameters.Add(idParam);
-
 
                 tempDT.Load((SqlDataReader)command.ExecuteReader());
             }
@@ -325,8 +321,8 @@ namespace Abiturient_MPT
                    "exec Insert_Discipline @Name", sql);
 
                 SqlParameter nameParam = new SqlParameter("@Name", name);
-
                 command.Parameters.Add(nameParam);
+
                 command.ExecuteNonQuery();
             }
             catch { return -1; }
@@ -368,8 +364,8 @@ namespace Abiturient_MPT
                    "exec Delete_Discipline @Discipline_ID", sql);
 
                 SqlParameter idParam = new SqlParameter("@Discipline_ID", disciplineID);
-
                 command.Parameters.Add(idParam);
+
                 command.ExecuteNonQuery();
             }
             catch { return -1; }
@@ -389,7 +385,204 @@ namespace Abiturient_MPT
                    "exec getCurrentDiscipline @Discipline_ID", sql);
 
                 SqlParameter idParam = new SqlParameter("@Discipline_ID", disciplineID);
+                command.Parameters.Add(idParam);
 
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int recAchievementAdd(string StartDate, string EndDate, string AchievementID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Recorded_Achievement @StartDate, @EndDate, @Achievement_ID", sql);
+
+                SqlParameter startDateParam = new SqlParameter("@StartDate", StartDate);
+                command.Parameters.Add(startDateParam);
+
+                SqlParameter endDateParam = new SqlParameter("@EndDate", EndDate);
+                command.Parameters.Add(endDateParam);
+
+                SqlParameter achievementIDParam = new SqlParameter("@Achievement_ID", AchievementID);
+                command.Parameters.Add(achievementIDParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int recAchievementUpdate(int recAchievementID, string StartDate, string EndDate, string AchievementID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Recorded_Achievement @RecordedAchievement_ID, @StartDate, @EndDate, @Achievement_ID", sql);
+
+                SqlParameter recAchievementIDParam = new SqlParameter("@RecordedAchievement_ID", recAchievementID);
+                command.Parameters.Add(recAchievementIDParam);
+
+                SqlParameter startDateParam = new SqlParameter("@StartDate", StartDate);
+                command.Parameters.Add(startDateParam);
+
+                SqlParameter endDateParam = new SqlParameter("@EndDate", EndDate);
+                command.Parameters.Add(endDateParam);
+
+                SqlParameter achievementIDParam = new SqlParameter("@Achievement_ID", AchievementID);
+                command.Parameters.Add(achievementIDParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int recAchievementDelete(string recAchievementID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Recorded_Achievement @RecordedAchievement_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@RecordedAchievement_ID", recAchievementID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getCurrentRecAchievement(int recAchievementID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec GetCurrentRecAchievement1 @RecordedAchievement_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@RecordedAchievement_ID", recAchievementID);
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int recOlympiadAdd(string StartDate, string EndDate, string OlympiadID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Recorded_Olympiad @StartDate, @EndDate, @Olympiad_ID", sql);
+
+                SqlParameter startDateParam = new SqlParameter("@StartDate", StartDate);
+                command.Parameters.Add(startDateParam);
+
+                SqlParameter endDateParam = new SqlParameter("@EndDate", EndDate);
+                command.Parameters.Add(endDateParam);
+
+                SqlParameter achievementIDParam = new SqlParameter("@Olympiad_ID", OlympiadID);
+                command.Parameters.Add(achievementIDParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int recOlympiadUpdate(int recOlympiadID, string StartDate, string EndDate, string AchievementID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Recorded_Olympiad @RecordedOlympiad_ID, @StartDate, @EndDate, @Olympiad_ID", sql);
+
+                SqlParameter recOlympiadIDParam = new SqlParameter("@RecordedOlympiad_ID", recOlympiadID);
+                command.Parameters.Add(recOlympiadIDParam);
+
+                SqlParameter startDateParam = new SqlParameter("@StartDate", StartDate);
+                command.Parameters.Add(startDateParam);
+
+                SqlParameter endDateParam = new SqlParameter("@EndDate", EndDate);
+                command.Parameters.Add(endDateParam);
+
+                SqlParameter OlympiadIDParam = new SqlParameter("@Olympiad_ID", AchievementID);
+                command.Parameters.Add(OlympiadIDParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int recOlympiadDelete(string recOlympiadID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Recorded_Olympiad @RecordedOlympiad_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@RecordedOlympiad_ID", recOlympiadID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getCurrentRecOlympiad(int recOlympiadID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec GetCurrentRecOlympiad @RecordedAchievement_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@RecordedAchievement_ID", recOlympiadID);
                 command.Parameters.Add(idParam);
 
 

@@ -97,6 +97,7 @@
             this.ClientSize = new System.Drawing.Size(334, 161);
             this.Controls.Add(this.disciplineGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Discipline";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Предмет";

@@ -91,6 +91,12 @@
     <Compile Include="RecAchievements.Designer.cs">
       <DependentUpon>RecAchievements.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecOlympiad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecOlympiad.Designer.cs">
+      <DependentUpon>RecOlympiad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Speciality.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RecAchievements.resx">
+      <DependentUpon>RecAchievements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecOlympiad.resx">
+      <DependentUpon>RecOlympiad.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

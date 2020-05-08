@@ -35,6 +35,7 @@ namespace Abiturient_MPT
                     else
                     {
                         MessageBox.Show("Не все необходимые поля ввода заполнены", "Незаполнены поля");
+                        return;
                     }
                     break;
                 case 1:
@@ -45,6 +46,7 @@ namespace Abiturient_MPT
                     else
                     {
                         MessageBox.Show("Не все необходимые поля ввода заполнены", "Незаполнены поля");
+                        return;
                     }
                     break;
             }

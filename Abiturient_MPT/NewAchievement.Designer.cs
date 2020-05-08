@@ -97,6 +97,7 @@
             this.ClientSize = new System.Drawing.Size(334, 311);
             this.Controls.Add(this.achievementGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "NewAchievement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Достижение";
