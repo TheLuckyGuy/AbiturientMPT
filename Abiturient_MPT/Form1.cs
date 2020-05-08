@@ -34,8 +34,8 @@ namespace Abiturient_MPT
                     priorityDataGridView.DataSource = data.GetData((byte)db.Tables.Discipline_Priority);
                     break;
                 case "SpecialitiesPage":
-                    specialityDataGridView.DataSource = data.GetData((byte)db.Tables.Speciality);
-                    specialityGroupDataGridView.DataSource = data.GetData((byte)db.Tables.Speciality_Group);
+                    specialityGridView.DataSource = data.GetData((byte)db.Tables.GetSpeciality);
+                    specialityGroupGridView.DataSource = data.GetData((byte)db.Tables.GetSpecialityGroup);
                     break;
                 case "AchievementsPage":
                     achRecGridView.DataSource = data.GetData((byte)db.Tables.GetRecordedAchievements);
@@ -125,9 +125,40 @@ namespace Abiturient_MPT
             }
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void SpecialityButtons_Click(object sender, EventArgs e)
         {
+            switch ((sender as Button).Name)
+            {
+                case "addSpecialityButton":
+                    Speciality addSpeciality = new Speciality(this, 0, 0);
+                    addSpeciality.Show();
+                    break;
+                case "editSpecialityButton":
+                    Speciality editSpeciality = new Speciality(this, 1, Convert.ToInt32(specialityGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
+                    editSpeciality.Show();
+                    break;
+                case "deleteSpecialityButton":
+                    const string message = "Вы действительно хотите удалить запись (записи)?";
+                    const string caption = "Удаление";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
 
+
+                    if (specialityGridView.SelectedRows.Count >= 1)
+                    {
+                        for (int i = 0; i < specialityGridView.SelectedRows.Count; i++)
+                        {
+                            if (specialityGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) data.specialityDelete(specialityGridView.SelectedRows[i].Cells["ID"].Value.ToString());
+                        }
+                    }
+                    if (specialityGridView.SelectedCells.Count > 0) data.specialityDelete(specialityGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
+                    break;
+            }
         }
 
         private void DisciplineButtons_Click(object sender, EventArgs e)
@@ -234,6 +265,42 @@ namespace Abiturient_MPT
                         }
                     }
                     if (olymiadGridView.SelectedCells.Count > 0) data.olympiadDelete(olymiadGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
+                    break;
+            }
+        }
+
+        private void SpecialityGroupButtons_Click(object sender, EventArgs e)
+        {
+            switch ((sender as Button).Name)
+            {
+                case "addSpecialityGroupButton":
+                    SpecialityGroup addSpecialityGroup = new SpecialityGroup(this, 0, 0);
+                    addSpecialityGroup.Show();
+                    break;
+                case "editSpecialityButton":
+                    SpecialityGroup editSpecialityGroup = new SpecialityGroup(this, 1, Convert.ToInt32(specialityGroupGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
+                    editSpecialityGroup.Show();
+                    break;
+                case "deleteSpecialityButton":
+                    const string message = "Вы действительно хотите удалить запись (записи)?";
+                    const string caption = "Удаление";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
+
+                    if (specialityGroupGridView.SelectedRows.Count >= 1)
+                    {
+                        for (int i = 0; i < specialityGroupGridView.SelectedRows.Count; i++)
+                        {
+                            if (specialityGroupGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) data.specialityDelete(specialityGroupGridView.SelectedRows[i].Cells["ID"].Value.ToString());
+                        }
+                    }
+                    if (specialityGroupGridView.SelectedCells.Count > 0) data.specialityDelete(specialityGroupGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
                     break;
             }
         }

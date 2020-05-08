@@ -45,7 +45,10 @@ namespace Abiturient_MPT
             GetRecordedAchievements,
             GetAchievements,
             GetDiscipline,
-            GetOlympiads
+            GetOlympiads,
+            GetSpecialityGroup,
+            GetSpeciality,
+            GetSpecialityGroupShort
         }
 
         static List<string> commands = new List<string>()
@@ -67,7 +70,10 @@ namespace Abiturient_MPT
             "exec dbo.GetRecordedAchievements",
             "exec dbo.GetAchievements",
             "exec dbo.GetDiscipline",
-            "exec dbo.GetOlympiads"
+            "exec dbo.GetOlympiads",
+            "exec dbo.GetSpecialityGroup",
+            "exec dbo.GetSpeciality",
+            "exec dbo.GetSpecialityGroupShort"
         };
 
         static string md5(string text)
@@ -678,6 +684,206 @@ namespace Abiturient_MPT
                    "exec getCurrentOlympiad @Olympiad_ID", sql);
 
                 SqlParameter idParam = new SqlParameter("@Olympiad_ID", olympiadID);
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int specialityGroupAdd(string code, string name)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Speciality_Group @Code, @Name", sql);
+
+                SqlParameter codeParam = new SqlParameter("@Code", code);
+                command.Parameters.Add(codeParam);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+                command.Parameters.Add(nameParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int specialityGroupUpdate(int specialityGroupID, string code, string name)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Speciality_Group @SpecialityGroupID, @Code, @Name", sql);
+
+                SqlParameter idParam = new SqlParameter("@SpecialityGroupID", specialityGroupID);
+                command.Parameters.Add(idParam);
+
+                SqlParameter codeParam = new SqlParameter("@Code", code);
+                command.Parameters.Add(codeParam);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+                command.Parameters.Add(nameParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int specialityGroupDelete(string specialityGroupID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Speciality_Group @Speciality_Group_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Speciality_Group_ID", specialityGroupID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getCurrentSpecialityGroup(int specialityGroupID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getCurrentSpecialityGroup @Speciality_Group_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Speciality_Group_ID", specialityGroupID);
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int specialityAdd(string code, string name, string specialityGroupID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Speciality @Code, @Name, @SpecialityGroupID", sql);
+
+                SqlParameter codeParam = new SqlParameter("@Code", code);
+                command.Parameters.Add(codeParam);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+                command.Parameters.Add(nameParam);
+
+                SqlParameter specGroupIDParam = new SqlParameter("@SpecialityGroupID", specialityGroupID);
+                command.Parameters.Add(specGroupIDParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int specialityUpdate(int specialityID, string code, string name, string specialityGroupID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Speciality @SpecialityID, @Code, @Name, @SpecialityGroupID", sql);
+
+                SqlParameter idParam = new SqlParameter("@SpecialityGroupID", specialityID);
+                command.Parameters.Add(idParam);
+
+                SqlParameter codeParam = new SqlParameter("@Code", code);
+                command.Parameters.Add(codeParam);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+                command.Parameters.Add(nameParam);
+
+                SqlParameter specGroupIDParam = new SqlParameter("@SpecialityGroupID", specialityGroupID);
+                command.Parameters.Add(specGroupIDParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int specialityDelete(string specialityGroupID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Speciality @Speciality__ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Speciality__ID", specialityGroupID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getCurrentSpeciality(int specialityID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getCurrentSpeciality @Speciality_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Speciality_ID", specialityID);
                 command.Parameters.Add(idParam);
 
 

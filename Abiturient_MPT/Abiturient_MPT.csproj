@@ -149,6 +149,12 @@
     <EmbeddedResource Include="RecOlympiad.resx">
       <DependentUpon>RecOlympiad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Speciality.resx">
+      <DependentUpon>Speciality.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpecialityGroup.resx">
+      <DependentUpon>SpecialityGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -32,8 +32,8 @@
             this.organizerLabel = new System.Windows.Forms.Label();
             this.organizerTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.olympiadGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,12 +49,12 @@
             this.olympiadGroupBox.Size = new System.Drawing.Size(455, 223);
             this.olympiadGroupBox.TabIndex = 2;
             this.olympiadGroupBox.TabStop = false;
-            this.olympiadGroupBox.Text = "Олимпиада";
+            this.olympiadGroupBox.Text = "Предмет";
             // 
             // organizerLabel
             // 
             this.organizerLabel.AutoSize = true;
-            this.organizerLabel.Location = new System.Drawing.Point(10, 114);
+            this.organizerLabel.Location = new System.Drawing.Point(10, 105);
             this.organizerLabel.Name = "organizerLabel";
             this.organizerLabel.Size = new System.Drawing.Size(73, 13);
             this.organizerLabel.TabIndex = 5;
@@ -63,34 +63,23 @@
             // organizerTextBox
             // 
             this.organizerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.organizerTextBox.Location = new System.Drawing.Point(93, 114);
+            this.organizerTextBox.Location = new System.Drawing.Point(93, 100);
             this.organizerTextBox.MaxLength = 500;
             this.organizerTextBox.Multiline = true;
             this.organizerTextBox.Name = "organizerTextBox";
-            this.organizerTextBox.Size = new System.Drawing.Size(350, 70);
+            this.organizerTextBox.Size = new System.Drawing.Size(337, 50);
             this.organizerTextBox.TabIndex = 4;
             this.organizerTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(368, 190);
+            this.saveButton.Location = new System.Drawing.Point(353, 176);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 2;
             this.saveButton.Text = "Сохранить";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameTextBox.Location = new System.Drawing.Point(93, 35);
-            this.nameTextBox.MaxLength = 500;
-            this.nameTextBox.Multiline = true;
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(350, 70);
-            this.nameTextBox.TabIndex = 1;
-            this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
             // nameLabel
             // 
@@ -100,6 +89,17 @@
             this.nameLabel.Size = new System.Drawing.Size(57, 13);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Название";
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameTextBox.Location = new System.Drawing.Point(93, 35);
+            this.nameTextBox.MaxLength = 500;
+            this.nameTextBox.Multiline = true;
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(335, 50);
+            this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
             // Olympiad
             // 
@@ -120,9 +120,9 @@
 
         private System.Windows.Forms.GroupBox olympiadGroupBox;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label organizerLabel;
         private System.Windows.Forms.TextBox organizerTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
     }
 }
