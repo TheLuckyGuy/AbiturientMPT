@@ -44,7 +44,8 @@ namespace Abiturient_MPT
             GetEnrollees,
             GetRecordedAchievements,
             GetAchievements,
-            GetDiscipline
+            GetDiscipline,
+            GetOlympiads
         }
 
         static List<string> commands = new List<string>()
@@ -66,6 +67,7 @@ namespace Abiturient_MPT
             "exec dbo.GetRecordedAchievements",
             "exec dbo.GetAchievements",
             "exec dbo.GetDiscipline",
+            "exec dbo.GetOlympiads"
         };
 
         static string md5(string text)
@@ -583,6 +585,99 @@ namespace Abiturient_MPT
                    "exec GetCurrentRecOlympiad @RecordedAchievement_ID", sql);
 
                 SqlParameter idParam = new SqlParameter("@RecordedAchievement_ID", recOlympiadID);
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int olympiadAdd(string name, string organizer)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Olympiad @Name, @Organizer", sql);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+                command.Parameters.Add(nameParam);
+
+                SqlParameter organizerParam = new SqlParameter("@Organizer", organizer);
+                command.Parameters.Add(organizerParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int olympiadUpdate(int olympiadID, string name, string organizer)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Olympiad @ID_Olympiad, @Name, @Organizer", sql);
+
+                SqlParameter idParam = new SqlParameter("@ID_Discipline", olympiadID);
+                command.Parameters.Add(idParam);
+
+                SqlParameter nameParam = new SqlParameter("@Name", name);
+                command.Parameters.Add(nameParam);
+
+                SqlParameter organizerParam = new SqlParameter("@Organizer", organizer);
+                command.Parameters.Add(organizerParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int olympiadDelete(string olympiadID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Olympiad @Olympiad_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Olympiad_ID", olympiadID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getCurrentOlympiad(int olympiadID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getCurrentOlympiad @Olympiad_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Olympiad_ID", olympiadID);
                 command.Parameters.Add(idParam);
 
 

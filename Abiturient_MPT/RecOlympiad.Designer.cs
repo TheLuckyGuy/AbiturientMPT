@@ -128,6 +128,7 @@
             this.startDateTimePicker.Name = "startDateTimePicker";
             this.startDateTimePicker.Size = new System.Drawing.Size(100, 20);
             this.startDateTimePicker.TabIndex = 3;
+            this.startDateTimePicker.ValueChanged += new System.EventHandler(this.startDateTimePicker_ValueChanged);
             // 
             // RecOlympiad
             // 

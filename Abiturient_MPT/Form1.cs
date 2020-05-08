@@ -41,6 +41,9 @@ namespace Abiturient_MPT
                     achRecGridView.DataSource = data.GetData((byte)db.Tables.GetRecordedAchievements);
                     achGridView.DataSource = data.GetData((byte)db.Tables.GetAchievements);
                     break;
+                case "OlympiadsPage":
+                    olymiadGridView.DataSource = data.GetData((byte)db.Tables.GetOlympiads);
+                    break;
             }
         }
 
@@ -195,6 +198,42 @@ namespace Abiturient_MPT
                         }
                     }
                     if (achRecGridView.SelectedCells.Count > 0) data.recAchievementDelete(achRecGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
+                    break;
+            }
+        }
+
+        private void OlympiadButtons_Click(object sender, EventArgs e)
+        {
+            switch ((sender as Button).Name)
+            {
+                case "addOlympiadButton":
+                    Olympiad addOlympiad = new Olympiad(this, 0, 0);
+                    addOlympiad.Show();
+                    break;
+                case "editOlympiadButton":
+                    Olympiad editOlympiad = new Olympiad(this, 1, Convert.ToInt32(olymiadGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
+                    editOlympiad.Show();
+                    break;
+                case "deleteOlympiadButton":
+                    const string message = "Вы действительно хотите удалить запись (записи)?";
+                    const string caption = "Удаление";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
+
+                    if (olymiadGridView.SelectedRows.Count >= 1)
+                    {
+                        for (int i = 0; i < olymiadGridView.SelectedRows.Count; i++)
+                        {
+                            if (olymiadGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) data.olympiadDelete(olymiadGridView.SelectedRows[i].Cells["ID"].Value.ToString());
+                        }
+                    }
+                    if (olymiadGridView.SelectedCells.Count > 0) data.olympiadDelete(olymiadGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
                     break;
             }
         }

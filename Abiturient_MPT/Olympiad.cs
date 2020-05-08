@@ -10,17 +10,37 @@ using System.Windows.Forms;
 
 namespace Abiturient_MPT
 {
-    public partial class Discipline : Form
+    public partial class Olympiad : Form
     {
+
         MainForm parent = new MainForm();
-        int mode = 0; // 0 - новый предмет, 1 - редактирование предмета
+        int mode = 0; // 0 - новая олимпиада, 1 - редактирование олимпиады
         int id = 0; // ID редактируемой записи, этот параметр используется для режима редактирования
-        public Discipline(MainForm p, int formMode, int achID)
+
+        public Olympiad(MainForm p, int formMode, int olympID)
         {
             mode = formMode;
-            id = achID;
+            id = olympID;
             parent = p;
+
             InitializeComponent();
+        }
+
+        private void Olympiad_Load(object sender, EventArgs e)
+        {
+            switch (mode)
+            {
+                case 0:
+                    olympiadGroupBox.Text = "Добавление олимпиады";
+                    break;
+                case 1:
+                    olympiadGroupBox.Text = "Редактирование олимпиады";
+                    DataTable tbl1 = new DataTable();
+                    tbl1 = parent.data.getCurrentOlympiad(id);
+                    nameTextBox.Text = tbl1.Rows[0][1].ToString();
+                    organizerTextBox.Text = tbl1.Rows[0][2].ToString();
+                    break;
+            }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -30,7 +50,7 @@ namespace Abiturient_MPT
                 case 0:
                     if (nameTextBox.Text != String.Empty)
                     {
-                        parent.data.disciplineAdd(nameTextBox.Text);
+                        parent.data.olympiadAdd(nameTextBox.Text, organizerTextBox.Text);
                     }
                     else
                     {
@@ -40,7 +60,7 @@ namespace Abiturient_MPT
                 case 1:
                     if (nameTextBox.Text != String.Empty)
                     {
-                        parent.data.disciplineUpdate(id, nameTextBox.Text);
+                        parent.data.olympiadUpdate(id, nameTextBox.Text, organizerTextBox.Text);
                     }
                     else
                     {
@@ -54,25 +74,9 @@ namespace Abiturient_MPT
 
         private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar == '+') || (e.KeyChar == '=') || (e.KeyChar == '[') || (e.KeyChar == ']') || (e.KeyChar == '<') || (e.KeyChar == '>') || (e.KeyChar == '?') || 
-                (e.KeyChar == '&') || (e.KeyChar == '^') || (e.KeyChar == '$') || (e.KeyChar == '@') || (e.KeyChar == '#') ) e.Handled = true;
+            if ((e.KeyChar == '+') || (e.KeyChar == '=') || (e.KeyChar == '[') || (e.KeyChar == ']') || (e.KeyChar == '<') || (e.KeyChar == '>') || (e.KeyChar == '?') ||
+                (e.KeyChar == '&') || (e.KeyChar == '^') || (e.KeyChar == '$') || (e.KeyChar == '@') || (e.KeyChar == '#') || (e.KeyChar == ';')) e.Handled = true;
             else { return; }
-        }
-
-        private void Discipline_Load(object sender, EventArgs e)
-        {
-            switch (mode)
-            {
-                case 0:
-                    disciplineGroupBox.Text = "Добавление предмета";
-                    break;
-                case 1:
-                    disciplineGroupBox.Text = "Редактирование предмета";
-                    DataTable tbl1 = new DataTable();
-                    tbl1 = parent.data.getCurrentDiscipline(id);
-                    nameTextBox.Text = tbl1.Rows[0][0].ToString();
-                    break;
-            }
         }
     }
 }

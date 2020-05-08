@@ -613,6 +613,7 @@
             this.Controls.Add(this.achievementsGroupBox);
             this.Controls.Add(this.certificateGroupBox);
             this.Controls.Add(this.EnrolleeGroupBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NewEnrollee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Абитуриент";

@@ -31,7 +31,7 @@ namespace Abiturient_MPT
             DataTable tbl1 = new DataTable();
             tbl1 = parent.data.GetData((byte)db.Tables.GetAchievements);
             olympiadComboBox.DataSource = tbl1;
-            olympiadComboBox.DisplayMember = "Имя";  // столбец для отображения
+            olympiadComboBox.DisplayMember = "Название";  // столбец для отображения
             olympiadComboBox.ValueMember = "ID";  //столбец с id
             //achievementComboBox.SelectedIndex = -1;
 
@@ -61,12 +61,43 @@ namespace Abiturient_MPT
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-
+            switch (mode)
+            {
+                case 0:
+                    if (olympiadComboBox.SelectedIndex != -1)
+                    {
+                        parent.data.recOlympiadAdd(startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), olympiadComboBox.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не все необходимые поля ввода заполнены", "Незаполнены поля");
+                        return;
+                    }
+                    break;
+                case 1:
+                    if (olympiadComboBox.SelectedIndex != -1)
+                    {
+                        parent.data.recOlympiadUpdate(id, startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), olympiadComboBox.SelectedValue.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не все необходимые поля ввода заполнены", "Незаполнены поля");
+                        return;
+                    }
+                    break;
+            }
+            parent.tabControl1_SelectedIndexChanged(this, e);
+            this.Close();
         }
 
         private void olympiadComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
+            textBox1.Text = olympiadComboBox.Text;
+        }
 
+        private void startDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            endDateTimePicker.MinDate = startDateTimePicker.Value;
         }
     }
 }

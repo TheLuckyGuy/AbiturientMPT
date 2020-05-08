@@ -31,7 +31,7 @@ namespace Abiturient_MPT
             DataTable tbl1 = new DataTable();
             tbl1 = parent.data.GetData((byte)db.Tables.GetAchievements);
             achievementComboBox.DataSource = tbl1;
-            achievementComboBox.DisplayMember = "Имя";  // столбец для отображения
+            achievementComboBox.DisplayMember = "Название";  // столбец для отображения
             achievementComboBox.ValueMember = "ID";  //столбец с id
             //achievementComboBox.SelectedIndex = -1;
 
