@@ -1,6 +1,6 @@
 ﻿namespace Abiturient_MPT
 {
-    partial class NewEnrollee
+    partial class Enrollee
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.patronymicTextBox = new System.Windows.Forms.TextBox();
@@ -58,7 +59,7 @@
             this.documentNumberTextBox = new System.Windows.Forms.MaskedTextBox();
             this.docIssuedDatePicker = new System.Windows.Forms.DateTimePicker();
             this.endYearUpDown = new System.Windows.Forms.NumericUpDown();
-            this.AchievementDataGridView = new System.Windows.Forms.DataGridView();
+            this.achievementGridView = new System.Windows.Forms.DataGridView();
             this.EnrolleeGroupBox = new System.Windows.Forms.GroupBox();
             this.certificateGroupBox = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -66,26 +67,31 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.achievementsGroupBox = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.AchievementComboBox = new System.Windows.Forms.ComboBox();
+            this.deleteIndAchButton = new System.Windows.Forms.Button();
+            this.addIndAchButton = new System.Windows.Forms.Button();
+            this.achievementComboBox = new System.Windows.Forms.ComboBox();
             this.marksGroupBox = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.addMarkButton = new System.Windows.Forms.Button();
+            this.deleteMarkButton = new System.Windows.Forms.Button();
+            this.markGridView = new System.Windows.Forms.DataGridView();
+            this.markUpDown = new System.Windows.Forms.NumericUpDown();
             this.disciplineComboBox = new System.Windows.Forms.ComboBox();
             this.olimpiadsGroupBox = new System.Windows.Forms.GroupBox();
+            this.olympiadComboBox = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.olympiadGridView = new System.Windows.Forms.DataGridView();
             this.saveEnrolleeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.endYearUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AchievementDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.achievementGridView)).BeginInit();
             this.EnrolleeGroupBox.SuspendLayout();
             this.certificateGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.achievementsGroupBox.SuspendLayout();
             this.marksGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.markGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.markUpDown)).BeginInit();
+            this.olimpiadsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.olympiadGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // surnameTextBox
@@ -377,13 +383,17 @@
             0,
             0});
             // 
-            // AchievementDataGridView
+            // achievementGridView
             // 
-            this.AchievementDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AchievementDataGridView.Location = new System.Drawing.Point(22, 64);
-            this.AchievementDataGridView.Name = "AchievementDataGridView";
-            this.AchievementDataGridView.Size = new System.Drawing.Size(292, 207);
-            this.AchievementDataGridView.TabIndex = 40;
+            this.achievementGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.achievementGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.achievementGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.achievementGridView.Location = new System.Drawing.Point(22, 64);
+            this.achievementGridView.Name = "achievementGridView";
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achievementGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.achievementGridView.Size = new System.Drawing.Size(300, 205);
+            this.achievementGridView.TabIndex = 40;
             // 
             // EnrolleeGroupBox
             // 
@@ -478,10 +488,10 @@
             // 
             // achievementsGroupBox
             // 
-            this.achievementsGroupBox.Controls.Add(this.button2);
-            this.achievementsGroupBox.Controls.Add(this.button1);
-            this.achievementsGroupBox.Controls.Add(this.AchievementComboBox);
-            this.achievementsGroupBox.Controls.Add(this.AchievementDataGridView);
+            this.achievementsGroupBox.Controls.Add(this.deleteIndAchButton);
+            this.achievementsGroupBox.Controls.Add(this.addIndAchButton);
+            this.achievementsGroupBox.Controls.Add(this.achievementComboBox);
+            this.achievementsGroupBox.Controls.Add(this.achievementGridView);
             this.achievementsGroupBox.Enabled = false;
             this.achievementsGroupBox.Location = new System.Drawing.Point(462, 25);
             this.achievementsGroupBox.Name = "achievementsGroupBox";
@@ -490,38 +500,41 @@
             this.achievementsGroupBox.TabStop = false;
             this.achievementsGroupBox.Text = "Индивидуальные достижения";
             // 
-            // button2
+            // deleteIndAchButton
             // 
-            this.button2.Location = new System.Drawing.Point(22, 277);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 43;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.deleteIndAchButton.Location = new System.Drawing.Point(22, 277);
+            this.deleteIndAchButton.Name = "deleteIndAchButton";
+            this.deleteIndAchButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteIndAchButton.TabIndex = 43;
+            this.deleteIndAchButton.Text = "Удалить";
+            this.deleteIndAchButton.UseVisualStyleBackColor = true;
+            this.deleteIndAchButton.Click += new System.EventHandler(this.deleteIndAchButton_Click);
             // 
-            // button1
+            // addIndAchButton
             // 
-            this.button1.Location = new System.Drawing.Point(239, 277);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addIndAchButton.Location = new System.Drawing.Point(247, 277);
+            this.addIndAchButton.Name = "addIndAchButton";
+            this.addIndAchButton.Size = new System.Drawing.Size(75, 23);
+            this.addIndAchButton.TabIndex = 42;
+            this.addIndAchButton.Text = "Добавить";
+            this.addIndAchButton.UseVisualStyleBackColor = true;
+            this.addIndAchButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // AchievementComboBox
+            // achievementComboBox
             // 
-            this.AchievementComboBox.FormattingEnabled = true;
-            this.AchievementComboBox.Location = new System.Drawing.Point(22, 25);
-            this.AchievementComboBox.Name = "AchievementComboBox";
-            this.AchievementComboBox.Size = new System.Drawing.Size(292, 21);
-            this.AchievementComboBox.TabIndex = 41;
+            this.achievementComboBox.FormattingEnabled = true;
+            this.achievementComboBox.Location = new System.Drawing.Point(22, 25);
+            this.achievementComboBox.Name = "achievementComboBox";
+            this.achievementComboBox.Size = new System.Drawing.Size(300, 21);
+            this.achievementComboBox.TabIndex = 41;
+            this.achievementComboBox.SelectedIndexChanged += new System.EventHandler(this.AchievementComboBox_SelectedIndexChanged);
             // 
             // marksGroupBox
             // 
-            this.marksGroupBox.Controls.Add(this.button4);
-            this.marksGroupBox.Controls.Add(this.button3);
-            this.marksGroupBox.Controls.Add(this.dataGridView1);
-            this.marksGroupBox.Controls.Add(this.numericUpDown1);
+            this.marksGroupBox.Controls.Add(this.addMarkButton);
+            this.marksGroupBox.Controls.Add(this.deleteMarkButton);
+            this.marksGroupBox.Controls.Add(this.markGridView);
+            this.marksGroupBox.Controls.Add(this.markUpDown);
             this.marksGroupBox.Controls.Add(this.disciplineComboBox);
             this.marksGroupBox.Enabled = false;
             this.marksGroupBox.Location = new System.Drawing.Point(462, 354);
@@ -531,44 +544,48 @@
             this.marksGroupBox.TabStop = false;
             this.marksGroupBox.Text = "Оценки";
             // 
-            // button4
+            // addMarkButton
             // 
-            this.button4.Location = new System.Drawing.Point(239, 234);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 45;
-            this.button4.Text = "Добавить";
-            this.button4.UseVisualStyleBackColor = true;
+            this.addMarkButton.Location = new System.Drawing.Point(247, 234);
+            this.addMarkButton.Name = "addMarkButton";
+            this.addMarkButton.Size = new System.Drawing.Size(75, 23);
+            this.addMarkButton.TabIndex = 45;
+            this.addMarkButton.Text = "Добавить";
+            this.addMarkButton.UseVisualStyleBackColor = true;
+            this.addMarkButton.Click += new System.EventHandler(this.addMarkButton_Click);
             // 
-            // button3
+            // deleteMarkButton
             // 
-            this.button3.Location = new System.Drawing.Point(22, 234);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 44;
-            this.button3.Text = "Удалить";
-            this.button3.UseVisualStyleBackColor = true;
+            this.deleteMarkButton.Location = new System.Drawing.Point(22, 234);
+            this.deleteMarkButton.Name = "deleteMarkButton";
+            this.deleteMarkButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteMarkButton.TabIndex = 44;
+            this.deleteMarkButton.Text = "Удалить";
+            this.deleteMarkButton.UseVisualStyleBackColor = true;
+            this.deleteMarkButton.Click += new System.EventHandler(this.deleteMarkButton_Click);
             // 
-            // dataGridView1
+            // markGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 68);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(292, 160);
-            this.dataGridView1.TabIndex = 2;
+            this.markGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.markGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.markGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.markGridView.Location = new System.Drawing.Point(22, 68);
+            this.markGridView.Name = "markGridView";
+            this.markGridView.Size = new System.Drawing.Size(300, 160);
+            this.markGridView.TabIndex = 2;
             // 
-            // numericUpDown1
+            // markUpDown
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(267, 27);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.markUpDown.Location = new System.Drawing.Point(275, 28);
+            this.markUpDown.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(47, 20);
-            this.numericUpDown1.TabIndex = 1;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.markUpDown.Name = "markUpDown";
+            this.markUpDown.Size = new System.Drawing.Size(47, 20);
+            this.markUpDown.TabIndex = 1;
+            this.markUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -579,18 +596,47 @@
             this.disciplineComboBox.FormattingEnabled = true;
             this.disciplineComboBox.Location = new System.Drawing.Point(22, 27);
             this.disciplineComboBox.Name = "disciplineComboBox";
-            this.disciplineComboBox.Size = new System.Drawing.Size(220, 21);
+            this.disciplineComboBox.Size = new System.Drawing.Size(230, 21);
             this.disciplineComboBox.TabIndex = 0;
             // 
             // olimpiadsGroupBox
             // 
+            this.olimpiadsGroupBox.Controls.Add(this.olympiadComboBox);
+            this.olimpiadsGroupBox.Controls.Add(this.textBox1);
+            this.olimpiadsGroupBox.Controls.Add(this.olympiadGridView);
             this.olimpiadsGroupBox.Enabled = false;
             this.olimpiadsGroupBox.Location = new System.Drawing.Point(851, 25);
             this.olimpiadsGroupBox.Name = "olimpiadsGroupBox";
-            this.olimpiadsGroupBox.Size = new System.Drawing.Size(318, 601);
+            this.olimpiadsGroupBox.Size = new System.Drawing.Size(339, 601);
             this.olimpiadsGroupBox.TabIndex = 45;
             this.olimpiadsGroupBox.TabStop = false;
             this.olimpiadsGroupBox.Text = "Олимпиады";
+            // 
+            // olympiadComboBox
+            // 
+            this.olympiadComboBox.FormattingEnabled = true;
+            this.olympiadComboBox.Location = new System.Drawing.Point(25, 25);
+            this.olympiadComboBox.Name = "olympiadComboBox";
+            this.olympiadComboBox.Size = new System.Drawing.Size(295, 21);
+            this.olympiadComboBox.TabIndex = 2;
+            this.olympiadComboBox.SelectedIndexChanged += new System.EventHandler(this.olympiadComboBox_SelectedIndexChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(25, 54);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(295, 93);
+            this.textBox1.TabIndex = 1;
+            // 
+            // olympiadGridView
+            // 
+            this.olympiadGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.olympiadGridView.Location = new System.Drawing.Point(25, 160);
+            this.olympiadGridView.Name = "olympiadGridView";
+            this.olympiadGridView.Size = new System.Drawing.Size(295, 397);
+            this.olympiadGridView.TabIndex = 0;
             // 
             // saveEnrolleeButton
             // 
@@ -602,7 +648,7 @@
             this.saveEnrolleeButton.UseVisualStyleBackColor = true;
             this.saveEnrolleeButton.Click += new System.EventHandler(this.saveEnrolleeButton_Click);
             // 
-            // NewEnrollee
+            // Enrollee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -614,12 +660,12 @@
             this.Controls.Add(this.certificateGroupBox);
             this.Controls.Add(this.EnrolleeGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "NewEnrollee";
+            this.Name = "Enrollee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Абитуриент";
             this.Load += new System.EventHandler(this.NewEnrollee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.endYearUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AchievementDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.achievementGridView)).EndInit();
             this.EnrolleeGroupBox.ResumeLayout(false);
             this.EnrolleeGroupBox.PerformLayout();
             this.certificateGroupBox.ResumeLayout(false);
@@ -628,8 +674,11 @@
             this.panel1.PerformLayout();
             this.achievementsGroupBox.ResumeLayout(false);
             this.marksGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.markGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.markUpDown)).EndInit();
+            this.olimpiadsGroupBox.ResumeLayout(false);
+            this.olimpiadsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.olympiadGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -666,24 +715,27 @@
         private System.Windows.Forms.MaskedTextBox documentNumberTextBox;
         private System.Windows.Forms.DateTimePicker docIssuedDatePicker;
         private System.Windows.Forms.NumericUpDown endYearUpDown;
-        private System.Windows.Forms.DataGridView AchievementDataGridView;
+        private System.Windows.Forms.DataGridView achievementGridView;
         private System.Windows.Forms.GroupBox EnrolleeGroupBox;
         private System.Windows.Forms.GroupBox certificateGroupBox;
         private System.Windows.Forms.GroupBox achievementsGroupBox;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox AchievementComboBox;
+        private System.Windows.Forms.Button deleteIndAchButton;
+        private System.Windows.Forms.Button addIndAchButton;
+        private System.Windows.Forms.ComboBox achievementComboBox;
         private System.Windows.Forms.GroupBox marksGroupBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.DataGridView markGridView;
+        private System.Windows.Forms.NumericUpDown markUpDown;
         private System.Windows.Forms.ComboBox disciplineComboBox;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button addMarkButton;
+        private System.Windows.Forms.Button deleteMarkButton;
         private System.Windows.Forms.GroupBox olimpiadsGroupBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button saveEnrolleeButton;
+        private System.Windows.Forms.DataGridView olympiadGridView;
+        private System.Windows.Forms.ComboBox olympiadComboBox;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

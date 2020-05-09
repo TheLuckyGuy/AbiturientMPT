@@ -71,17 +71,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Achievement\NewAchievement.cs">
+    <Compile Include="Achievement\Achievement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Achievement\NewAchievement.Designer.cs">
-      <DependentUpon>NewAchievement.cs</DependentUpon>
+    <Compile Include="Achievement\Achievement.Designer.cs">
+      <DependentUpon>Achievement.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewEnrollee.cs">
+    <Compile Include="Enrollee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewEnrollee.Designer.cs">
-      <DependentUpon>NewEnrollee.cs</DependentUpon>
+    <Compile Include="Enrollee.Designer.cs">
+      <DependentUpon>Enrollee.cs</DependentUpon>
     </Compile>
     <Compile Include="Olympiad\Olympiad.cs">
       <SubType>Form</SubType>
@@ -127,11 +127,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Achievement\NewAchievement.resx">
-      <DependentUpon>NewAchievement.cs</DependentUpon>
+    <EmbeddedResource Include="Achievement\Achievement.resx">
+      <DependentUpon>Achievement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewEnrollee.resx">
-      <DependentUpon>NewEnrollee.cs</DependentUpon>
+    <EmbeddedResource Include="Enrollee.resx">
+      <DependentUpon>Enrollee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Olympiad\Olympiad.resx">
       <DependentUpon>Olympiad.cs</DependentUpon>

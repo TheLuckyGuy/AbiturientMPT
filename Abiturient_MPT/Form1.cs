@@ -51,11 +51,11 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name) {
                 case "addEnrolleeButton":
-                    NewEnrollee newEnrollee = new NewEnrollee(this, 0, 0);
+                    Enrollee newEnrollee = new Enrollee(this, 0, 0);
                     newEnrollee.Show();
                     break;
                 case "editEnrolleeButton":
-                    NewEnrollee editEnrollee = new NewEnrollee(this, 1, Convert.ToInt32(enrolleeGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
+                    Enrollee editEnrollee = new Enrollee(this, 1, Convert.ToInt32(enrolleeGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                     editEnrollee.Show();
                     break;
                 case "deleteEnrolleeButton":

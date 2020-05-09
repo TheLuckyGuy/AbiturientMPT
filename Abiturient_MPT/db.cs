@@ -190,31 +190,77 @@ namespace Abiturient_MPT
             }
             return enrolleeId;
         }
-
-        public DataTable getCurrentEnrollee(string enrolleeID)
+        public int enrolleeUpdate(int enrolleeID, string surname, string name, string patronymic, string birthDate, string Pass_Series, string Pass_Number, string Pass_Issued_By, string Pass_Issue_Date,
+            string Subdiv_Code, int Education, string Certificate_Num, string Issue_Date, string End_Year, string Cert_Issued_By, int Targeted_Learning)
         {
-            DataTable tempDT = new DataTable();
+            int enrolleeId = 0;
             try
             {
                 sql.Open();
                 SqlCommand command = new SqlCommand(
-                   "exec getCurrentEnrollee @Enrollee_ID", sql);
+                   "exec Update_Enrollee @ID_Enrollee, @Surname, @Name, @Patronymic, @Birth_Date, @Pass_Series, @Pass_Number, @Pass_Issued_By, @Pass_Issue_Date, @Subdiv_Code, @Education, @Certificate_Num, @Issue_Date, @End_Year, @Cert_Issued_By, @Targeted_Learning", sql);
 
-                SqlParameter EnrolleeIDParam = new SqlParameter("@Enrollee_ID", enrolleeID);
-                command.Parameters.Add(EnrolleeIDParam);
-                
-                tempDT.Load((SqlDataReader)command.ExecuteReader());
+                SqlParameter enrolleeIdParam = new SqlParameter("@ID_Enrollee", enrolleeID);
+                command.Parameters.Add(enrolleeIdParam);
+
+                SqlParameter enrolleeSurname = new SqlParameter("@Surname", surname);
+                command.Parameters.Add(enrolleeSurname);
+
+                SqlParameter enrolleeName = new SqlParameter("@Name", name);
+                command.Parameters.Add(enrolleeName);
+
+                SqlParameter enrolleePatronymic = new SqlParameter("@Patronymic", patronymic);
+                command.Parameters.Add(enrolleePatronymic);
+
+                SqlParameter enrolleeBirthDate = new SqlParameter("@Birth_Date", birthDate);
+                command.Parameters.Add(enrolleeBirthDate);
+
+                SqlParameter enrolleePassSeries = new SqlParameter("@Pass_Series", Pass_Series);
+                command.Parameters.Add(enrolleePassSeries);
+
+                SqlParameter enrolleePassNumber = new SqlParameter("@Pass_Number", Pass_Number);
+                command.Parameters.Add(enrolleePassNumber);
+
+                SqlParameter enrolleePIssuedBy = new SqlParameter("@Pass_Issued_By", Pass_Issued_By);
+                command.Parameters.Add(enrolleePIssuedBy);
+
+                SqlParameter enrolleePassIssueDate = new SqlParameter("@Pass_Issue_Date", Pass_Issue_Date);
+                command.Parameters.Add(enrolleePassIssueDate);
+
+                SqlParameter enrolleeSubdivCode = new SqlParameter("@Subdiv_Code", Subdiv_Code);
+                command.Parameters.Add(enrolleeSubdivCode);
+
+                SqlParameter enrolleeEducation = new SqlParameter("@Education", Education);
+                command.Parameters.Add(enrolleeEducation);
+
+                SqlParameter enrolleeCertificateNum = new SqlParameter("@Certificate_Num", Certificate_Num);
+                command.Parameters.Add(enrolleeCertificateNum);
+
+                SqlParameter enrolleeCertIssueDate = new SqlParameter("@Issue_Date", Issue_Date);
+                command.Parameters.Add(enrolleeCertIssueDate);
+
+                SqlParameter enrolleeEndYear = new SqlParameter("@End_Year", End_Year);
+                command.Parameters.Add(enrolleeEndYear);
+
+                SqlParameter enrolleeCertIssuedBy = new SqlParameter("@Cert_Issued_By", Cert_Issued_By);
+                command.Parameters.Add(enrolleeCertIssuedBy);
+
+                SqlParameter enrolleeTargetedLearningIssuedBy = new SqlParameter("@Targeted_Learning", Targeted_Learning);
+                command.Parameters.Add(enrolleeTargetedLearningIssuedBy);
+
+                enrolleeId = (Int32)command.ExecuteScalar();
             }
-            catch { return null; }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
             finally
             {
                 sql.Close();
-                
             }
-            return tempDT;
-            //return 0;
+            return enrolleeId;
         }
-
         public int enrolleeDelete(string enrolleeID)
         {
             try
@@ -234,6 +280,29 @@ namespace Abiturient_MPT
                 sql.Close();
             }
             return 0;
+        }
+        public DataTable getCurrentEnrollee(int enrolleeID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getCurrentEnrollee @Enrollee_ID", sql);
+
+                SqlParameter EnrolleeIDParam = new SqlParameter("@Enrollee_ID", enrolleeID);
+                command.Parameters.Add(EnrolleeIDParam);
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+            //return 0;
         }
 
         public int achievementAdd(string name)
@@ -1003,6 +1072,218 @@ namespace Abiturient_MPT
                 tempDT.Load((SqlDataReader)command.ExecuteReader());
             }
             catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int individualAchievementAdd(int enrolleeID, int achievementID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Individual_Achievement @Enrollee_ID, @Achievement_ID", sql);
+
+                SqlParameter codeParam = new SqlParameter("@Enrollee_ID", enrolleeID);
+                command.Parameters.Add(codeParam);
+
+                SqlParameter nameParam = new SqlParameter("@Achievement_ID", achievementID);
+                command.Parameters.Add(nameParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int individualAchievementUpdate(int individualAchievementID, string enrolleeID, string achievementID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Individual_Achievement @IndividualAchievement_ID, @Enrollee_ID, @Achievement_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@IndividualAchievement_ID", individualAchievementID);
+                command.Parameters.Add(idParam);
+
+                SqlParameter codeParam = new SqlParameter("@Enrollee_ID", enrolleeID);
+                command.Parameters.Add(codeParam);
+
+                SqlParameter nameParam = new SqlParameter("@Achievement_ID", achievementID);
+                command.Parameters.Add(nameParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int individualAchievementDelete(int individualAchievementID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Individual_Achievement @IndividualAchievement_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@IndividualAchievement_ID", individualAchievementID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getIndividualAchievements(int enrolleeID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getIndividualAchievements @Enrollee_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Enrollee_ID", enrolleeID);
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int enrolleeMarkAdd(int enrolleeID, int disciplineID, int mark)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Enrollee_Mark @Enrollee_ID, @Discipline_ID, @Mark", sql);
+
+                SqlParameter enrolleeIDParam = new SqlParameter("@Enrollee_ID", enrolleeID);
+                command.Parameters.Add(enrolleeIDParam);
+
+                SqlParameter disciplineParam = new SqlParameter("@Discipline_ID", disciplineID);
+                command.Parameters.Add(disciplineParam);
+
+                SqlParameter markParam = new SqlParameter("@Mark", mark);
+                command.Parameters.Add(markParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int enrolleeMarkUpdate(int markID, int enrolleeID, int disciplineID, int mark)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Enrollee_Mark @Mark_ID, @Enrollee_ID, @Discipline_ID, @Mark", sql);
+
+                SqlParameter idParam = new SqlParameter("@Mark_ID", markID);
+                command.Parameters.Add(idParam);
+
+                SqlParameter enrolleeIDParam = new SqlParameter("@Enrollee_ID", enrolleeID);
+                command.Parameters.Add(enrolleeIDParam);
+
+                SqlParameter disciplineParam = new SqlParameter("@Discipline_ID", disciplineID);
+                command.Parameters.Add(disciplineParam);
+
+                SqlParameter markParam = new SqlParameter("@Mark", mark);
+                command.Parameters.Add(markParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int enrolleeMarkDelete(int MarkID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Enrollee_Mark @Mark_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Mark_ID", MarkID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getenrolleeMarks(int markID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getEnrolleeMarks @Mark_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@Mark_ID", markID);
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
             finally
             {
                 sql.Close();

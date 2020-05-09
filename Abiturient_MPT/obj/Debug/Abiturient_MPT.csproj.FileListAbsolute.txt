@@ -13,7 +13,6 @@ C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\bin\Debug\Abiturient_MP
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\bin\Debug\Abiturient_MPT.pdb
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csprojAssemblyReference.cache
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Auth.resources
-C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.NewEnrollee.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Properties.Resources.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.GenerateResource.cache
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.CoreCompileInputs.cache
@@ -28,3 +27,4 @@ C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MP
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Speciality.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.SpecialityGroup.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.DisciplinePriority.resources
+C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Enrollee.resources

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EnrolleePage = new System.Windows.Forms.TabPage();
             this.deleteEnrolleeButton = new System.Windows.Forms.Button();
@@ -183,20 +184,20 @@
             this.enrolleeGridView.AllowUserToDeleteRows = false;
             this.enrolleeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.enrolleeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.enrolleeGridView.Location = new System.Drawing.Point(15, 15);
             this.enrolleeGridView.MultiSelect = false;
             this.enrolleeGridView.Name = "enrolleeGridView";
             this.enrolleeGridView.ReadOnly = true;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.enrolleeGridView.Size = new System.Drawing.Size(880, 595);
             this.enrolleeGridView.TabIndex = 0;
             // 
@@ -389,10 +390,14 @@
             // 
             // disciplineGridView
             // 
+            this.disciplineGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.disciplineGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.disciplineGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.disciplineGridView.Location = new System.Drawing.Point(20, 60);
             this.disciplineGridView.Name = "disciplineGridView";
             this.disciplineGridView.ReadOnly = true;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.disciplineGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.disciplineGridView.Size = new System.Drawing.Size(440, 450);
             this.disciplineGridView.TabIndex = 0;
             // 
@@ -458,8 +463,8 @@
             this.specialityGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGridView.Name = "specialityGridView";
             this.specialityGridView.ReadOnly = true;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.specialityGridView.Size = new System.Drawing.Size(440, 450);
             this.specialityGridView.TabIndex = 1;
             // 
@@ -511,14 +516,14 @@
             this.specialityGroupGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.specialityGroupGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.specialityGroupGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle5;
             this.specialityGroupGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGroupGridView.Name = "specialityGroupGridView";
             this.specialityGroupGridView.ReadOnly = true;
@@ -587,8 +592,8 @@
             this.achGridView.Location = new System.Drawing.Point(20, 60);
             this.achGridView.Name = "achGridView";
             this.achGridView.ReadOnly = true;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.achGridView.Size = new System.Drawing.Size(440, 450);
             this.achGridView.TabIndex = 1;
             // 
@@ -643,8 +648,8 @@
             this.achRecGridView.Location = new System.Drawing.Point(20, 60);
             this.achRecGridView.Name = "achRecGridView";
             this.achRecGridView.ReadOnly = true;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.achRecGridView.Size = new System.Drawing.Size(440, 450);
             this.achRecGridView.TabIndex = 0;
             // 
@@ -710,8 +715,8 @@
             this.olymiadGridView.Location = new System.Drawing.Point(20, 60);
             this.olymiadGridView.Name = "olymiadGridView";
             this.olymiadGridView.ReadOnly = true;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.olymiadGridView.Size = new System.Drawing.Size(440, 450);
             this.olymiadGridView.TabIndex = 1;
             // 
