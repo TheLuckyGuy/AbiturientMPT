@@ -31,7 +31,7 @@ namespace Abiturient_MPT
                     break;
                 case "DisciplinesPage":
                     disciplineGridView.DataSource = data.GetData((byte)db.Tables.GetDiscipline);
-                    priorityDataGridView.DataSource = data.GetData((byte)db.Tables.Discipline_Priority);
+                    priorityGridView.DataSource = data.GetData((byte)db.Tables.GetDisciplinePriority);
                     break;
                 case "SpecialitiesPage":
                     specialityGridView.DataSource = data.GetData((byte)db.Tables.GetSpeciality);
@@ -301,6 +301,42 @@ namespace Abiturient_MPT
                         }
                     }
                     if (specialityGroupGridView.SelectedCells.Count > 0) data.specialityDelete(specialityGroupGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
+                    break;
+            }
+        }
+
+        private void priorityButtons_Click(object sender, EventArgs e)
+        {
+            switch ((sender as Button).Name)
+            {
+                case "addPriorityButton":
+                    DisciplinePriority addPriority = new DisciplinePriority(this, 0, 0);
+                    addPriority.Show();
+                    break;
+                case "editPriorityButton":
+                    DisciplinePriority editPriority = new DisciplinePriority(this, 1, Convert.ToInt32(priorityGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
+                    editPriority.Show();
+                    break;
+                case "deletePriorityButton":
+                    const string message = "Вы действительно хотите удалить запись (записи)?";
+                    const string caption = "Удаление";
+                    var result = MessageBox.Show(message, caption,
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+
+
+                    if (priorityGridView.SelectedRows.Count >= 1)
+                    {
+                        for (int i = 0; i < priorityGridView.SelectedRows.Count; i++)
+                        {
+                            if (priorityGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) data.priorityDelete(priorityGridView.SelectedRows[i].Cells["ID"].Value.ToString());
+                        }
+                    }
+                    if (priorityGridView.SelectedCells.Count > 0) data.priorityDelete(priorityGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString());
                     break;
             }
         }

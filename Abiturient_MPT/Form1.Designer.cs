@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EnrolleePage = new System.Windows.Forms.TabPage();
             this.deleteEnrolleeButton = new System.Windows.Forms.Button();
@@ -49,12 +49,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.DisciplinesPage = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.priorityDataGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.priorityGroupBox = new System.Windows.Forms.GroupBox();
+            this.deletePriorityButton = new System.Windows.Forms.Button();
+            this.editPriorityButton = new System.Windows.Forms.Button();
+            this.addPriorityButton = new System.Windows.Forms.Button();
+            this.priorityGridView = new System.Windows.Forms.DataGridView();
+            this.disciplineGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteDisciplineButton = new System.Windows.Forms.Button();
             this.editDisciplineButton = new System.Windows.Forms.Button();
             this.addDisciplineButton = new System.Windows.Forms.Button();
@@ -98,9 +98,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.DisciplinesPage.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.priorityDataGridView)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.priorityGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.priorityGridView)).BeginInit();
+            this.disciplineGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineGridView)).BeginInit();
             this.SpecialitiesPage.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -183,20 +183,20 @@
             this.enrolleeGridView.AllowUserToDeleteRows = false;
             this.enrolleeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.enrolleeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.enrolleeGridView.Location = new System.Drawing.Point(15, 15);
             this.enrolleeGridView.MultiSelect = false;
             this.enrolleeGridView.Name = "enrolleeGridView";
             this.enrolleeGridView.ReadOnly = true;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.enrolleeGridView.Size = new System.Drawing.Size(880, 595);
             this.enrolleeGridView.TabIndex = 0;
             // 
@@ -283,8 +283,8 @@
             // 
             // DisciplinesPage
             // 
-            this.DisciplinesPage.Controls.Add(this.groupBox4);
-            this.DisciplinesPage.Controls.Add(this.groupBox3);
+            this.DisciplinesPage.Controls.Add(this.priorityGroupBox);
+            this.DisciplinesPage.Controls.Add(this.disciplineGroupBox);
             this.DisciplinesPage.Location = new System.Drawing.Point(4, 22);
             this.DisciplinesPage.Name = "DisciplinesPage";
             this.DisciplinesPage.Size = new System.Drawing.Size(1003, 616);
@@ -292,67 +292,70 @@
             this.DisciplinesPage.Text = "Дисциплины";
             this.DisciplinesPage.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // priorityGroupBox
             // 
-            this.groupBox4.Controls.Add(this.button9);
-            this.groupBox4.Controls.Add(this.button8);
-            this.groupBox4.Controls.Add(this.button7);
-            this.groupBox4.Controls.Add(this.priorityDataGridView);
-            this.groupBox4.Location = new System.Drawing.Point(15, 15);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(475, 580);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Приоритеты и профили";
+            this.priorityGroupBox.Controls.Add(this.deletePriorityButton);
+            this.priorityGroupBox.Controls.Add(this.editPriorityButton);
+            this.priorityGroupBox.Controls.Add(this.addPriorityButton);
+            this.priorityGroupBox.Controls.Add(this.priorityGridView);
+            this.priorityGroupBox.Location = new System.Drawing.Point(15, 15);
+            this.priorityGroupBox.Name = "priorityGroupBox";
+            this.priorityGroupBox.Size = new System.Drawing.Size(475, 580);
+            this.priorityGroupBox.TabIndex = 1;
+            this.priorityGroupBox.TabStop = false;
+            this.priorityGroupBox.Text = "Приоритеты и профили";
             // 
-            // button9
+            // deletePriorityButton
             // 
-            this.button9.Location = new System.Drawing.Point(182, 31);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 4;
-            this.button9.Text = "Удалить";
-            this.button9.UseVisualStyleBackColor = true;
+            this.deletePriorityButton.Location = new System.Drawing.Point(182, 31);
+            this.deletePriorityButton.Name = "deletePriorityButton";
+            this.deletePriorityButton.Size = new System.Drawing.Size(75, 23);
+            this.deletePriorityButton.TabIndex = 4;
+            this.deletePriorityButton.Text = "Удалить";
+            this.deletePriorityButton.UseVisualStyleBackColor = true;
+            this.deletePriorityButton.Click += new System.EventHandler(this.priorityButtons_Click);
             // 
-            // button8
+            // editPriorityButton
             // 
-            this.button8.Location = new System.Drawing.Point(101, 31);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Изменить";
-            this.button8.UseVisualStyleBackColor = true;
+            this.editPriorityButton.Location = new System.Drawing.Point(101, 31);
+            this.editPriorityButton.Name = "editPriorityButton";
+            this.editPriorityButton.Size = new System.Drawing.Size(75, 23);
+            this.editPriorityButton.TabIndex = 3;
+            this.editPriorityButton.Text = "Изменить";
+            this.editPriorityButton.UseVisualStyleBackColor = true;
+            this.editPriorityButton.Click += new System.EventHandler(this.priorityButtons_Click);
             // 
-            // button7
+            // addPriorityButton
             // 
-            this.button7.Location = new System.Drawing.Point(20, 31);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "Добавить";
-            this.button7.UseVisualStyleBackColor = true;
+            this.addPriorityButton.Location = new System.Drawing.Point(20, 31);
+            this.addPriorityButton.Name = "addPriorityButton";
+            this.addPriorityButton.Size = new System.Drawing.Size(75, 23);
+            this.addPriorityButton.TabIndex = 2;
+            this.addPriorityButton.Text = "Добавить";
+            this.addPriorityButton.UseVisualStyleBackColor = true;
+            this.addPriorityButton.Click += new System.EventHandler(this.priorityButtons_Click);
             // 
-            // priorityDataGridView
+            // priorityGridView
             // 
-            this.priorityDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.priorityDataGridView.Location = new System.Drawing.Point(20, 60);
-            this.priorityDataGridView.Name = "priorityDataGridView";
-            this.priorityDataGridView.ReadOnly = true;
-            this.priorityDataGridView.Size = new System.Drawing.Size(440, 450);
-            this.priorityDataGridView.TabIndex = 0;
+            this.priorityGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.priorityGridView.Location = new System.Drawing.Point(20, 60);
+            this.priorityGridView.Name = "priorityGridView";
+            this.priorityGridView.ReadOnly = true;
+            this.priorityGridView.Size = new System.Drawing.Size(440, 450);
+            this.priorityGridView.TabIndex = 0;
             // 
-            // groupBox3
+            // disciplineGroupBox
             // 
-            this.groupBox3.Controls.Add(this.deleteDisciplineButton);
-            this.groupBox3.Controls.Add(this.editDisciplineButton);
-            this.groupBox3.Controls.Add(this.addDisciplineButton);
-            this.groupBox3.Controls.Add(this.disciplineGridView);
-            this.groupBox3.Location = new System.Drawing.Point(500, 15);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(475, 580);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Дисциаплины";
+            this.disciplineGroupBox.Controls.Add(this.deleteDisciplineButton);
+            this.disciplineGroupBox.Controls.Add(this.editDisciplineButton);
+            this.disciplineGroupBox.Controls.Add(this.addDisciplineButton);
+            this.disciplineGroupBox.Controls.Add(this.disciplineGridView);
+            this.disciplineGroupBox.Location = new System.Drawing.Point(500, 15);
+            this.disciplineGroupBox.Name = "disciplineGroupBox";
+            this.disciplineGroupBox.Size = new System.Drawing.Size(475, 580);
+            this.disciplineGroupBox.TabIndex = 0;
+            this.disciplineGroupBox.TabStop = false;
+            this.disciplineGroupBox.Text = "Дисциплины";
             // 
             // deleteDisciplineButton
             // 
@@ -455,8 +458,8 @@
             this.specialityGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGridView.Name = "specialityGridView";
             this.specialityGridView.ReadOnly = true;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.specialityGridView.Size = new System.Drawing.Size(440, 450);
             this.specialityGridView.TabIndex = 1;
             // 
@@ -508,14 +511,14 @@
             this.specialityGroupGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.specialityGroupGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.specialityGroupGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.specialityGroupGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGroupGridView.Name = "specialityGroupGridView";
             this.specialityGroupGridView.ReadOnly = true;
@@ -584,8 +587,8 @@
             this.achGridView.Location = new System.Drawing.Point(20, 60);
             this.achGridView.Name = "achGridView";
             this.achGridView.ReadOnly = true;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.achGridView.Size = new System.Drawing.Size(440, 450);
             this.achGridView.TabIndex = 1;
             // 
@@ -640,8 +643,8 @@
             this.achRecGridView.Location = new System.Drawing.Point(20, 60);
             this.achRecGridView.Name = "achRecGridView";
             this.achRecGridView.ReadOnly = true;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.achRecGridView.Size = new System.Drawing.Size(440, 450);
             this.achRecGridView.TabIndex = 0;
             // 
@@ -707,8 +710,8 @@
             this.olymiadGridView.Location = new System.Drawing.Point(20, 60);
             this.olymiadGridView.Name = "olymiadGridView";
             this.olymiadGridView.ReadOnly = true;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.olymiadGridView.Size = new System.Drawing.Size(440, 450);
             this.olymiadGridView.TabIndex = 1;
             // 
@@ -763,9 +766,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.DisciplinesPage.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.priorityDataGridView)).EndInit();
-            this.groupBox3.ResumeLayout(false);
+            this.priorityGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.priorityGridView)).EndInit();
+            this.disciplineGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.disciplineGridView)).EndInit();
             this.SpecialitiesPage.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -800,18 +803,18 @@
         private System.Windows.Forms.DataGridView enrolleeGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView priorityDataGridView;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox priorityGroupBox;
+        private System.Windows.Forms.DataGridView priorityGridView;
+        private System.Windows.Forms.GroupBox disciplineGroupBox;
         private System.Windows.Forms.DataGridView disciplineGridView;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView specialityGridView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView specialityGroupGridView;
         private System.Windows.Forms.TabPage AchievementsPage;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button deletePriorityButton;
+        private System.Windows.Forms.Button editPriorityButton;
+        private System.Windows.Forms.Button addPriorityButton;
         private System.Windows.Forms.Button deleteDisciplineButton;
         private System.Windows.Forms.Button editDisciplineButton;
         private System.Windows.Forms.Button addDisciplineButton;

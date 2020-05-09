@@ -48,7 +48,8 @@ namespace Abiturient_MPT
             GetOlympiads,
             GetSpecialityGroup,
             GetSpeciality,
-            GetSpecialityGroupShort
+            GetSpecialityGroupShort,
+            GetDisciplinePriority
         }
 
         static List<string> commands = new List<string>()
@@ -73,7 +74,8 @@ namespace Abiturient_MPT
             "exec dbo.GetOlympiads",
             "exec dbo.GetSpecialityGroup",
             "exec dbo.GetSpeciality",
-            "exec dbo.GetSpecialityGroupShort"
+            "exec dbo.GetSpecialityGroupShort",
+            "exec dbo.GetDisciplinePriority"
         };
 
         static string md5(string text)
@@ -884,6 +886,117 @@ namespace Abiturient_MPT
                    "exec getCurrentSpeciality @Speciality_ID", sql);
 
                 SqlParameter idParam = new SqlParameter("@Speciality_ID", specialityID);
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch { return null; }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int priorityAdd(int specialityGroupID, int disciplineID, int priority, string StartDate, string EndDate)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Priority @SpecialityGroupID, @DisciplineID, @Priority, @StartDate, @EndDate", sql);
+
+                SqlParameter specialityGroupIDParam = new SqlParameter("@SpecialityGroupID", specialityGroupID);
+                command.Parameters.Add(specialityGroupIDParam);
+
+                SqlParameter disciplineIDParam = new SqlParameter("@DisciplineID", disciplineID);
+                command.Parameters.Add(disciplineIDParam);
+
+                SqlParameter priorityParam = new SqlParameter("@Priority", priority);
+                command.Parameters.Add(priorityParam);
+
+                SqlParameter startDateParam = new SqlParameter("@StartDate", StartDate);
+                command.Parameters.Add(startDateParam);
+
+                SqlParameter endDateParam = new SqlParameter("@EndDate", EndDate);
+                command.Parameters.Add(endDateParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int priorityUpdate(int priorityID, int specialityGroupID, int disciplineID, int priority, string StartDate, string EndDate)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Priority @Priority, @SpecialityGroupID, @DisciplineID, @Priority, @StartDate, @EndDate", sql);
+
+                SqlParameter priorityIDParam = new SqlParameter("@Priority", priorityID);
+                command.Parameters.Add(priorityIDParam);
+
+                SqlParameter specialityGroupIDParam = new SqlParameter("@SpecialityGroupID", specialityGroupID);
+                command.Parameters.Add(specialityGroupIDParam);
+
+                SqlParameter disciplineIDParam = new SqlParameter("@DisciplineID", disciplineID);
+                command.Parameters.Add(disciplineIDParam);
+
+                SqlParameter priorityParam = new SqlParameter("@Priority", priority);
+                command.Parameters.Add(priorityParam);
+
+                SqlParameter startDateParam = new SqlParameter("@StartDate", StartDate);
+                command.Parameters.Add(startDateParam);
+
+                SqlParameter endDateParam = new SqlParameter("@EndDate", EndDate);
+                command.Parameters.Add(endDateParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int priorityDelete(string priorityID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Priority @Priority", sql);
+
+                SqlParameter idParam = new SqlParameter("@Priority", priorityID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getCurrentPriority(int priorityID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec GetCurrentPriority @Priority", sql);
+
+                SqlParameter idParam = new SqlParameter("@Priority", priorityID);
                 command.Parameters.Add(idParam);
 
 
