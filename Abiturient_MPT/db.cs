@@ -178,7 +178,7 @@ namespace Abiturient_MPT
                 SqlParameter enrolleeTargetedLearningIssuedBy = new SqlParameter("@Targeted_Learning", Targeted_Learning);
                 command.Parameters.Add(enrolleeTargetedLearningIssuedBy);
 
-                enrolleeId = (Int32)command.ExecuteScalar();
+                enrolleeId = int.Parse(command.ExecuteScalar().ToString());
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -1007,9 +1007,9 @@ namespace Abiturient_MPT
             {
                 sql.Open();
                 SqlCommand command = new SqlCommand(
-                   "exec Update_Priority @Priority, @SpecialityGroupID, @DisciplineID, @Priority, @StartDate, @EndDate", sql);
+                   "exec Update_Priority @PriorityID, @SpecialityGroupID, @DisciplineID, @Priority, @StartDate, @EndDate", sql);
 
-                SqlParameter priorityIDParam = new SqlParameter("@Priority", priorityID);
+                SqlParameter priorityIDParam = new SqlParameter("@PriorityID", priorityID);
                 command.Parameters.Add(priorityIDParam);
 
                 SqlParameter specialityGroupIDParam = new SqlParameter("@SpecialityGroupID", specialityGroupID);
@@ -1274,6 +1274,107 @@ namespace Abiturient_MPT
                    "exec getEnrolleeMarks @Mark_ID", sql);
 
                 SqlParameter idParam = new SqlParameter("@Mark_ID", markID);
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int enrolleeSpecialityAdd(int enrolleeID, int specialityID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Enrollee_Speciality @Enrollee_ID, @Speciality_ID", sql);
+
+                SqlParameter codeParam = new SqlParameter("@Enrollee_ID", enrolleeID);
+                command.Parameters.Add(codeParam);
+
+                SqlParameter nameParam = new SqlParameter("@Speciality_ID", specialityID);
+                command.Parameters.Add(nameParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int enrolleeSpecialityUpdate(int enrolleeSpecialityID, string enrolleeID, string specialityID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Enrollee_Speciality @ID_Enrollee_Spec, @Enrollee_ID, @Speciality_ID", sql);
+
+                SqlParameter idParam = new SqlParameter("@ID_Enrollee_Spec", enrolleeSpecialityID);
+                command.Parameters.Add(idParam);
+
+                SqlParameter enrolleeParam = new SqlParameter("@Enrollee_ID", enrolleeID);
+                command.Parameters.Add(enrolleeParam);
+
+                SqlParameter specialityParam = new SqlParameter("@Speciality_ID", specialityID);
+                command.Parameters.Add(specialityParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int enrolleeSpecialityDelete(int enrolleeSpecialityID)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Enrollee_Speciality @ID_Enrollee_Spec", sql);
+
+                SqlParameter idParam = new SqlParameter("@ID_Enrollee_Spec", enrolleeSpecialityID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getEnrolleeSpeciality(int enrolleeSpecialityID)
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getEnrolleeSpeciality @ID_Enrollee_Spec", sql);
+
+                SqlParameter idParam = new SqlParameter("@ID_Enrollee_Spec", enrolleeSpecialityID);
                 command.Parameters.Add(idParam);
 
 

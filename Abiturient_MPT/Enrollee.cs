@@ -33,6 +33,7 @@ namespace Abiturient_MPT
             {
                 achievementsGroupBox.Enabled = true;
                 marksGroupBox.Enabled = true;
+                olympiadsGroupBox.Enabled = true;
             }
 
             DataTable tbl1 = new DataTable();
@@ -43,18 +44,25 @@ namespace Abiturient_MPT
             achievementComboBox.SelectedIndex = -1;
 
             DataTable tbl2 = new DataTable();
-            tbl2 = parent.data.GetData((byte)db.Tables.GetRecordedAchievements);
+            tbl2 = parent.data.GetData((byte)db.Tables.GetOlympiads);
             olympiadComboBox.DataSource = tbl2;
             olympiadComboBox.DisplayMember = "Название";// столбец для отображения
             olympiadComboBox.ValueMember = "ID";//столбец с id
             olympiadComboBox.SelectedIndex = -1;
 
             DataTable tbl4 = new DataTable();
-            tbl2 = parent.data.GetData((byte)db.Tables.GetDiscipline);
-            disciplineComboBox.DataSource = tbl2;
+            tbl4 = parent.data.GetData((byte)db.Tables.GetDiscipline);
+            disciplineComboBox.DataSource = tbl4;
             disciplineComboBox.DisplayMember = "Название";// столбец для отображения
             disciplineComboBox.ValueMember = "ID";//столбец с id
             disciplineComboBox.SelectedIndex = -1;
+
+            DataTable tbl5 = new DataTable();
+            tbl5 = parent.data.GetData((byte)db.Tables.GetSpeciality);
+            specialityComboBox.DataSource = tbl5;
+            specialityComboBox.DisplayMember = "Название";// столбец для отображения
+            specialityComboBox.ValueMember = "ID";//столбец с id
+            specialityComboBox.SelectedIndex = -1;
 
             achievementGridView.DataSource = parent.data.getIndividualAchievements(id);
             markGridView.DataSource = parent.data.getenrolleeMarks(id);
@@ -106,7 +114,7 @@ namespace Abiturient_MPT
                         targetedLearningCheckBox.Checked = true;
                     }
 
-
+                    specialityGridView.DataSource = parent.data.getEnrolleeSpeciality(id);
 
                     break;
             }
@@ -132,11 +140,11 @@ namespace Abiturient_MPT
 
         private void saveEnrolleeButton_Click(object sender, EventArgs e)
         {
+            int education = 0;
+            int Targeted_Learning = 0;
             switch (mode)
             {
                 case 0:
-                    int education = 0;
-                    int Targeted_Learning = 0;
 
                     if (targetedLearningCheckBox.Checked == true) Targeted_Learning = 1;
                     else Targeted_Learning = 0;
@@ -160,7 +168,10 @@ namespace Abiturient_MPT
                         {
                             achievementsGroupBox.Enabled = true;
                             marksGroupBox.Enabled = true;
+                            olympiadsGroupBox.Enabled = true;
                         }
+                        mode = 1;
+                        NewEnrollee_Load(this, e);
                     }
                     else
                     {
@@ -169,6 +180,37 @@ namespace Abiturient_MPT
                     break;
                 case 1:
 
+                    if (targetedLearningCheckBox.Checked == true) Targeted_Learning = 1;
+                    else Targeted_Learning = 0;
+
+                    if (radioButton1.Checked) education = 9;
+                    if (radioButton2.Checked) education = 11;
+
+                    if (!((endYearUpDown.Value >= endYearUpDown.Minimum) && (endYearUpDown.Value <= endYearUpDown.Maximum)))
+                    {
+                        MessageBox.Show("Недопустимое значение года окончания! \nВведите значение между " + endYearUpDown.Minimum + " и " + endYearUpDown.Maximum, "Недопустимое значение");
+                        return;
+                    }
+                    if ((surnameTextBox.Text != String.Empty) && (nameTextBox.Text != String.Empty) && (patronymicTextBox.Text != String.Empty) && (birthDatePicker.Text != String.Empty) && (seriesTextBox.Text != String.Empty) &&
+                        (numberTextBox.Text != String.Empty) && (passIssuedByTextBox.Text != String.Empty) && (passIssuedDatePicker.Text != String.Empty) && (subdivTextBox.Text != String.Empty) && (documentNumberTextBox.Text != String.Empty) &&
+                        (docIssuedByTextBox.Text != String.Empty) && (docIssuedByTextBox.Text != String.Empty))
+                    {
+                        id = parent.data.enrolleeAdd(surnameTextBox.Text, nameTextBox.Text, patronymicTextBox.Text, birthDatePicker.Text, seriesTextBox.Text, numberTextBox.Text, passIssuedByTextBox.Text, passIssuedDatePicker.Text,
+                            subdivTextBox.Text, education, documentNumberTextBox.Text, docIssuedDatePicker.Text, Convert.ToString(endYearUpDown.Value), docIssuedByTextBox.Text, Targeted_Learning);
+                        parent.tabControl1_SelectedIndexChanged(this, e);
+                        if ((id != -1) && (id != 0))
+                        {
+                            achievementsGroupBox.Enabled = true;
+                            marksGroupBox.Enabled = true;
+                            olympiadsGroupBox.Enabled = true;
+                        }
+                        mode = 1;
+                        NewEnrollee_Load(this, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не все необходимые поля ввода заполнены", "Незаполнены поля");
+                    }
                     break;
             }
 
@@ -188,7 +230,11 @@ namespace Abiturient_MPT
         {
             if(achievementComboBox.SelectedIndex != 1)
             {
-                parent.data.individualAchievementAdd(id, (int)achievementComboBox.SelectedValue);
+                if(parent.data.individualAchievementAdd(id, (int)achievementComboBox.SelectedValue) == 0)
+                {
+                    NewEnrollee_Load(this, e);
+                }
+
             }
             else
             {
@@ -219,17 +265,30 @@ namespace Abiturient_MPT
             {
                 for (int i = 0; i < achievementGridView.SelectedRows.Count; i++)
                 {
-                    if (achievementGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) parent.data.individualAchievementDelete((int)achievementGridView.SelectedRows[i].Cells["ID"].Value);
+                    if (achievementGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null)
+                    {
+                        if (parent.data.individualAchievementDelete((int)achievementGridView.SelectedRows[i].Cells["ID"].Value) == 0)
+                        {
+                            NewEnrollee_Load(this, e);
+                        }
+                    }
                 }
             }
-            if (achievementGridView.SelectedCells.Count > 0) parent.data.individualAchievementDelete((int)achievementGridView.CurrentCell.OwningRow.Cells["ID"].Value);
+            if (achievementGridView.SelectedCells.Count > 0)
+            {
+                if (parent.data.individualAchievementDelete((int)achievementGridView.CurrentCell.OwningRow.Cells["ID"].Value) == 0)
+                {
+                    NewEnrollee_Load(this, e);
+                }
+
+            }
         }
 
         private void addMarkButton_Click(object sender, EventArgs e)
         {
-            if (disciplineComboBox.SelectedIndex != 1)
+            if (disciplineComboBox.SelectedIndex != -1)
             {
-                if (parent.data.enrolleeMarkAdd(id, (int)disciplineComboBox.SelectedValue, (int)markUpDown.Value) != 0)
+                if (parent.data.enrolleeMarkAdd(id, (int)disciplineComboBox.SelectedValue, (int)markUpDown.Value) == 0)
                 {
                     NewEnrollee_Load(this, e);
                 }
@@ -262,10 +321,32 @@ namespace Abiturient_MPT
             {
                 for (int i = 0; i < markGridView.SelectedRows.Count; i++)
                 {
-                    if (markGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null) parent.data.individualAchievementDelete((int)markGridView.SelectedRows[i].Cells["ID"].Value);
+                    if (markGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null)
+                    {
+                        if (parent.data.individualAchievementDelete((int)markGridView.SelectedRows[i].Cells["ID"].Value) == 0)
+                        {
+                            NewEnrollee_Load(this, e);
+                        }
+                    }
                 }
             }
             if (markGridView.SelectedCells.Count > 0) parent.data.individualAchievementDelete((int)markGridView.CurrentCell.OwningRow.Cells["ID"].Value);
+        }
+
+        private void addSpecialityButton_Click(object sender, EventArgs e)
+        {
+            if(specialityComboBox.SelectedIndex != 1)
+            {
+                if(parent.data.enrolleeSpecialityAdd(id, (int)specialityComboBox.SelectedValue) == 0)
+                {
+                    NewEnrollee_Load(this, e);
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Не все необходимые поля ввода заполнены", "Незаполнены поля");
+            }
         }
     }
 }

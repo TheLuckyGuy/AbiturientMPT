@@ -50,12 +50,12 @@ namespace Abiturient_MPT
                     DataTable tbl3 = new DataTable();
                     tbl3 = parent.data.getCurrentPriority(id);
 
-                    DateTime startDate = DateTime.Parse(tbl2.Rows[0][4].ToString());
-                    DateTime endDate = DateTime.Parse(tbl2.Rows[0][5].ToString());
+                    DateTime startDate = DateTime.Parse(tbl3.Rows[0][4].ToString());
+                    DateTime endDate = DateTime.Parse(tbl3.Rows[0][5].ToString());
 
 
-                    disciplineComboBox.SelectedIndex = disciplineComboBox.FindString(tbl3.Rows[0][1].ToString());
-                    specialityComboBox.SelectedIndex = specialityComboBox.FindString(tbl3.Rows[0][2].ToString());
+                    disciplineComboBox.SelectedIndex = disciplineComboBox.FindString(tbl3.Rows[0][2].ToString());
+                    specialityComboBox.SelectedIndex = specialityComboBox.FindString(tbl3.Rows[0][1].ToString());
                     priorityUpDown.Value = Convert.ToInt32(tbl3.Rows[0][3].ToString());
                     startDateTimePicker.Value = startDate;
                     endDateTimePicker.Value = endDate;

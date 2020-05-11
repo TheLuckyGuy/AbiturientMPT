@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.patronymicTextBox = new System.Windows.Forms.TextBox();
@@ -62,6 +63,7 @@
             this.achievementGridView = new System.Windows.Forms.DataGridView();
             this.EnrolleeGroupBox = new System.Windows.Forms.GroupBox();
             this.certificateGroupBox = new System.Windows.Forms.GroupBox();
+            this.saveEnrolleeButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -76,11 +78,17 @@
             this.markGridView = new System.Windows.Forms.DataGridView();
             this.markUpDown = new System.Windows.Forms.NumericUpDown();
             this.disciplineComboBox = new System.Windows.Forms.ComboBox();
-            this.olimpiadsGroupBox = new System.Windows.Forms.GroupBox();
+            this.olympiadsGroupBox = new System.Windows.Forms.GroupBox();
+            this.addOlympiadButton = new System.Windows.Forms.Button();
+            this.deleteOlympiadButton = new System.Windows.Forms.Button();
             this.olympiadComboBox = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.olympiadGridView = new System.Windows.Forms.DataGridView();
-            this.saveEnrolleeButton = new System.Windows.Forms.Button();
+            this.specialityGroupBox = new System.Windows.Forms.GroupBox();
+            this.deleteSpecialityButton = new System.Windows.Forms.Button();
+            this.addSpecialityButton = new System.Windows.Forms.Button();
+            this.specialityComboBox = new System.Windows.Forms.ComboBox();
+            this.specialityGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.endYearUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.achievementGridView)).BeginInit();
             this.EnrolleeGroupBox.SuspendLayout();
@@ -90,8 +98,10 @@
             this.marksGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.markGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.markUpDown)).BeginInit();
-            this.olimpiadsGroupBox.SuspendLayout();
+            this.olympiadsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olympiadGridView)).BeginInit();
+            this.specialityGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.specialityGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // surnameTextBox
@@ -390,9 +400,9 @@
             this.achievementGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.achievementGridView.Location = new System.Drawing.Point(22, 64);
             this.achievementGridView.Name = "achievementGridView";
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achievementGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.achievementGridView.Size = new System.Drawing.Size(300, 205);
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achievementGridView.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.achievementGridView.Size = new System.Drawing.Size(300, 195);
             this.achievementGridView.TabIndex = 40;
             // 
             // EnrolleeGroupBox
@@ -417,13 +427,14 @@
             this.EnrolleeGroupBox.Controls.Add(this.subdivisionLabel);
             this.EnrolleeGroupBox.Location = new System.Drawing.Point(12, 25);
             this.EnrolleeGroupBox.Name = "EnrolleeGroupBox";
-            this.EnrolleeGroupBox.Size = new System.Drawing.Size(412, 323);
+            this.EnrolleeGroupBox.Size = new System.Drawing.Size(412, 300);
             this.EnrolleeGroupBox.TabIndex = 41;
             this.EnrolleeGroupBox.TabStop = false;
             this.EnrolleeGroupBox.Text = "Абитуриент";
             // 
             // certificateGroupBox
             // 
+            this.certificateGroupBox.Controls.Add(this.saveEnrolleeButton);
             this.certificateGroupBox.Controls.Add(this.label1);
             this.certificateGroupBox.Controls.Add(this.panel1);
             this.certificateGroupBox.Controls.Add(this.docNumLabel);
@@ -438,12 +449,22 @@
             this.certificateGroupBox.Controls.Add(this.targetedLearningCheckBox);
             this.certificateGroupBox.Controls.Add(this.label15);
             this.certificateGroupBox.Controls.Add(this.oldDocumentCheckBox);
-            this.certificateGroupBox.Location = new System.Drawing.Point(12, 354);
+            this.certificateGroupBox.Location = new System.Drawing.Point(12, 331);
             this.certificateGroupBox.Name = "certificateGroupBox";
-            this.certificateGroupBox.Size = new System.Drawing.Size(412, 272);
+            this.certificateGroupBox.Size = new System.Drawing.Size(412, 301);
             this.certificateGroupBox.TabIndex = 42;
             this.certificateGroupBox.TabStop = false;
             this.certificateGroupBox.Text = "Аттестат";
+            // 
+            // saveEnrolleeButton
+            // 
+            this.saveEnrolleeButton.Location = new System.Drawing.Point(309, 257);
+            this.saveEnrolleeButton.Name = "saveEnrolleeButton";
+            this.saveEnrolleeButton.Size = new System.Drawing.Size(75, 23);
+            this.saveEnrolleeButton.TabIndex = 46;
+            this.saveEnrolleeButton.Text = "Сохранить";
+            this.saveEnrolleeButton.UseVisualStyleBackColor = true;
+            this.saveEnrolleeButton.Click += new System.EventHandler(this.saveEnrolleeButton_Click);
             // 
             // label1
             // 
@@ -495,14 +516,14 @@
             this.achievementsGroupBox.Enabled = false;
             this.achievementsGroupBox.Location = new System.Drawing.Point(462, 25);
             this.achievementsGroupBox.Name = "achievementsGroupBox";
-            this.achievementsGroupBox.Size = new System.Drawing.Size(344, 323);
+            this.achievementsGroupBox.Size = new System.Drawing.Size(344, 300);
             this.achievementsGroupBox.TabIndex = 43;
             this.achievementsGroupBox.TabStop = false;
             this.achievementsGroupBox.Text = "Индивидуальные достижения";
             // 
             // deleteIndAchButton
             // 
-            this.deleteIndAchButton.Location = new System.Drawing.Point(22, 277);
+            this.deleteIndAchButton.Location = new System.Drawing.Point(22, 264);
             this.deleteIndAchButton.Name = "deleteIndAchButton";
             this.deleteIndAchButton.Size = new System.Drawing.Size(75, 23);
             this.deleteIndAchButton.TabIndex = 43;
@@ -512,7 +533,7 @@
             // 
             // addIndAchButton
             // 
-            this.addIndAchButton.Location = new System.Drawing.Point(247, 277);
+            this.addIndAchButton.Location = new System.Drawing.Point(247, 266);
             this.addIndAchButton.Name = "addIndAchButton";
             this.addIndAchButton.Size = new System.Drawing.Size(75, 23);
             this.addIndAchButton.TabIndex = 42;
@@ -537,7 +558,7 @@
             this.marksGroupBox.Controls.Add(this.markUpDown);
             this.marksGroupBox.Controls.Add(this.disciplineComboBox);
             this.marksGroupBox.Enabled = false;
-            this.marksGroupBox.Location = new System.Drawing.Point(462, 354);
+            this.marksGroupBox.Location = new System.Drawing.Point(842, 37);
             this.marksGroupBox.Name = "marksGroupBox";
             this.marksGroupBox.Size = new System.Drawing.Size(344, 272);
             this.marksGroupBox.TabIndex = 44;
@@ -599,62 +620,124 @@
             this.disciplineComboBox.Size = new System.Drawing.Size(230, 21);
             this.disciplineComboBox.TabIndex = 0;
             // 
-            // olimpiadsGroupBox
+            // olympiadsGroupBox
             // 
-            this.olimpiadsGroupBox.Controls.Add(this.olympiadComboBox);
-            this.olimpiadsGroupBox.Controls.Add(this.textBox1);
-            this.olimpiadsGroupBox.Controls.Add(this.olympiadGridView);
-            this.olimpiadsGroupBox.Enabled = false;
-            this.olimpiadsGroupBox.Location = new System.Drawing.Point(851, 25);
-            this.olimpiadsGroupBox.Name = "olimpiadsGroupBox";
-            this.olimpiadsGroupBox.Size = new System.Drawing.Size(339, 601);
-            this.olimpiadsGroupBox.TabIndex = 45;
-            this.olimpiadsGroupBox.TabStop = false;
-            this.olimpiadsGroupBox.Text = "Олимпиады";
+            this.olympiadsGroupBox.Controls.Add(this.addOlympiadButton);
+            this.olympiadsGroupBox.Controls.Add(this.deleteOlympiadButton);
+            this.olympiadsGroupBox.Controls.Add(this.olympiadComboBox);
+            this.olympiadsGroupBox.Controls.Add(this.textBox1);
+            this.olympiadsGroupBox.Controls.Add(this.olympiadGridView);
+            this.olympiadsGroupBox.Enabled = false;
+            this.olympiadsGroupBox.Location = new System.Drawing.Point(842, 317);
+            this.olympiadsGroupBox.Name = "olympiadsGroupBox";
+            this.olympiadsGroupBox.Size = new System.Drawing.Size(344, 315);
+            this.olympiadsGroupBox.TabIndex = 45;
+            this.olympiadsGroupBox.TabStop = false;
+            this.olympiadsGroupBox.Text = "Олимпиады";
+            // 
+            // addOlympiadButton
+            // 
+            this.addOlympiadButton.Location = new System.Drawing.Point(247, 282);
+            this.addOlympiadButton.Name = "addOlympiadButton";
+            this.addOlympiadButton.Size = new System.Drawing.Size(75, 23);
+            this.addOlympiadButton.TabIndex = 47;
+            this.addOlympiadButton.Text = "Добавить";
+            this.addOlympiadButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteOlympiadButton
+            // 
+            this.deleteOlympiadButton.Location = new System.Drawing.Point(20, 282);
+            this.deleteOlympiadButton.Name = "deleteOlympiadButton";
+            this.deleteOlympiadButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteOlympiadButton.TabIndex = 46;
+            this.deleteOlympiadButton.Text = "Удалить";
+            this.deleteOlympiadButton.UseVisualStyleBackColor = true;
             // 
             // olympiadComboBox
             // 
             this.olympiadComboBox.FormattingEnabled = true;
-            this.olympiadComboBox.Location = new System.Drawing.Point(25, 25);
+            this.olympiadComboBox.Location = new System.Drawing.Point(20, 25);
             this.olympiadComboBox.Name = "olympiadComboBox";
-            this.olympiadComboBox.Size = new System.Drawing.Size(295, 21);
+            this.olympiadComboBox.Size = new System.Drawing.Size(302, 21);
             this.olympiadComboBox.TabIndex = 2;
             this.olympiadComboBox.SelectedIndexChanged += new System.EventHandler(this.olympiadComboBox_SelectedIndexChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(25, 54);
+            this.textBox1.Location = new System.Drawing.Point(20, 54);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(295, 93);
+            this.textBox1.Size = new System.Drawing.Size(302, 54);
             this.textBox1.TabIndex = 1;
             // 
             // olympiadGridView
             // 
             this.olympiadGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.olympiadGridView.Location = new System.Drawing.Point(25, 160);
+            this.olympiadGridView.Location = new System.Drawing.Point(20, 114);
             this.olympiadGridView.Name = "olympiadGridView";
-            this.olympiadGridView.Size = new System.Drawing.Size(295, 397);
+            this.olympiadGridView.Size = new System.Drawing.Size(302, 151);
             this.olympiadGridView.TabIndex = 0;
             // 
-            // saveEnrolleeButton
+            // specialityGroupBox
             // 
-            this.saveEnrolleeButton.Location = new System.Drawing.Point(348, 632);
-            this.saveEnrolleeButton.Name = "saveEnrolleeButton";
-            this.saveEnrolleeButton.Size = new System.Drawing.Size(75, 23);
-            this.saveEnrolleeButton.TabIndex = 46;
-            this.saveEnrolleeButton.Text = "Сохранить";
-            this.saveEnrolleeButton.UseVisualStyleBackColor = true;
-            this.saveEnrolleeButton.Click += new System.EventHandler(this.saveEnrolleeButton_Click);
+            this.specialityGroupBox.Controls.Add(this.deleteSpecialityButton);
+            this.specialityGroupBox.Controls.Add(this.addSpecialityButton);
+            this.specialityGroupBox.Controls.Add(this.specialityComboBox);
+            this.specialityGroupBox.Controls.Add(this.specialityGridView);
+            this.specialityGroupBox.Location = new System.Drawing.Point(462, 331);
+            this.specialityGroupBox.Name = "specialityGroupBox";
+            this.specialityGroupBox.Size = new System.Drawing.Size(344, 301);
+            this.specialityGroupBox.TabIndex = 46;
+            this.specialityGroupBox.TabStop = false;
+            this.specialityGroupBox.Text = "Специальности";
+            // 
+            // deleteSpecialityButton
+            // 
+            this.deleteSpecialityButton.Location = new System.Drawing.Point(22, 271);
+            this.deleteSpecialityButton.Name = "deleteSpecialityButton";
+            this.deleteSpecialityButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteSpecialityButton.TabIndex = 47;
+            this.deleteSpecialityButton.Text = "Удалить";
+            this.deleteSpecialityButton.UseVisualStyleBackColor = true;
+            // 
+            // addSpecialityButton
+            // 
+            this.addSpecialityButton.Location = new System.Drawing.Point(247, 271);
+            this.addSpecialityButton.Name = "addSpecialityButton";
+            this.addSpecialityButton.Size = new System.Drawing.Size(75, 23);
+            this.addSpecialityButton.TabIndex = 46;
+            this.addSpecialityButton.Text = "Добавить";
+            this.addSpecialityButton.UseVisualStyleBackColor = true;
+            this.addSpecialityButton.Click += new System.EventHandler(this.addSpecialityButton_Click);
+            // 
+            // specialityComboBox
+            // 
+            this.specialityComboBox.FormattingEnabled = true;
+            this.specialityComboBox.Location = new System.Drawing.Point(22, 19);
+            this.specialityComboBox.Name = "specialityComboBox";
+            this.specialityComboBox.Size = new System.Drawing.Size(300, 21);
+            this.specialityComboBox.TabIndex = 45;
+            // 
+            // specialityGridView
+            // 
+            this.specialityGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.specialityGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.specialityGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.specialityGridView.Location = new System.Drawing.Point(22, 58);
+            this.specialityGridView.Name = "specialityGridView";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.specialityGridView.Size = new System.Drawing.Size(300, 205);
+            this.specialityGridView.TabIndex = 44;
             // 
             // Enrollee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1202, 682);
-            this.Controls.Add(this.saveEnrolleeButton);
-            this.Controls.Add(this.olimpiadsGroupBox);
+            this.Controls.Add(this.specialityGroupBox);
+            this.Controls.Add(this.olympiadsGroupBox);
             this.Controls.Add(this.marksGroupBox);
             this.Controls.Add(this.achievementsGroupBox);
             this.Controls.Add(this.certificateGroupBox);
@@ -676,9 +759,11 @@
             this.marksGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.markGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.markUpDown)).EndInit();
-            this.olimpiadsGroupBox.ResumeLayout(false);
-            this.olimpiadsGroupBox.PerformLayout();
+            this.olympiadsGroupBox.ResumeLayout(false);
+            this.olympiadsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olympiadGridView)).EndInit();
+            this.specialityGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.specialityGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -728,7 +813,7 @@
         private System.Windows.Forms.ComboBox disciplineComboBox;
         private System.Windows.Forms.Button addMarkButton;
         private System.Windows.Forms.Button deleteMarkButton;
-        private System.Windows.Forms.GroupBox olimpiadsGroupBox;
+        private System.Windows.Forms.GroupBox olympiadsGroupBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
@@ -737,5 +822,12 @@
         private System.Windows.Forms.DataGridView olympiadGridView;
         private System.Windows.Forms.ComboBox olympiadComboBox;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button addOlympiadButton;
+        private System.Windows.Forms.Button deleteOlympiadButton;
+        private System.Windows.Forms.GroupBox specialityGroupBox;
+        private System.Windows.Forms.Button deleteSpecialityButton;
+        private System.Windows.Forms.Button addSpecialityButton;
+        private System.Windows.Forms.ComboBox specialityComboBox;
+        private System.Windows.Forms.DataGridView specialityGridView;
     }
 }

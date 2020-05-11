@@ -181,6 +181,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "DisciplinePriority";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Приоритеты и профили";
             this.Load += new System.EventHandler(this.DisciplinePriority_Load);
             this.disciplinePriorityGroupBox.ResumeLayout(false);
