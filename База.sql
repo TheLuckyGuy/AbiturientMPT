@@ -978,12 +978,36 @@ GO
 
 --SELECT DAY('2015-04-30 01:01:01.1234567');  
 
+--Create Procedure dbo.GetAcceptedEnrolleeList
+--@Amount int
+--as
+--select top (5) e.Surname, e.Name, e.Patronymic, em.[Средний балл] from Enrollee e
+--inner join (select Enrollee_ID, AVG(Mark) as 'Средний балл' from Enrollee_Mark Group By Enrollee_ID) em
+--on e.ID_Enrollee = em.Enrollee_ID
+--inner join ()
+--ORDER BY em.[Средний балл] DESC
+--go
+
+
 Create Procedure dbo.GetAcceptedEnrolleeList
-@Amount int
+@Amount int,
+@Speciality int
 as
-select top (@Amount) e.Surname, e.Name, e.Patronymic, em.[Средний балл] from Enrollee e
+select top (5) e.ID_Enrollee, e.Surname, e.Name, e.Patronymic, em.[Средний балл], sm.profSum as 'Сумма по профильным предметам' from Enrollee e
 inner join (select Enrollee_ID, AVG(Mark) as 'Средний балл' from Enrollee_Mark Group By Enrollee_ID) em
 on e.ID_Enrollee = em.Enrollee_ID
+
+inner join (select Enrollee_ID, SUM(Mark) as profSum from Enrollee_Mark em
+
+INNER JOIN Discipline_Priority dp 
+ON em.Discipline_ID = dp.Discipline_ID
+Inner Join Speciality sp
+ON dp.Speciality_Group_ID = sp.Group_ID
+where sp.ID_Speciality = 1
+GROUP BY Enrollee_ID) as sm
+on sm.Enrollee_ID = e.ID_Enrollee
+
+ORDER BY em.[Средний балл] DESC, sm.profSum ASC
 go
 
 --Go
@@ -997,3 +1021,5 @@ go
 --on e.ID_Enrollee = em.Enrollee_ID
 
 exec GetAcceptedEnrolleeList 10
+
+
