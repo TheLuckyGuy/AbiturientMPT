@@ -12,7 +12,7 @@ namespace Abiturient_MPT
 {
     public partial class RecOlympiad : Form
     {
-        MainForm parent = new MainForm();
+        MainForm parent = new MainForm(null);
         int mode = 0; // 0 - новая учитываемая олимпиада, 1 - редактирование учитываемой олимпиады
         int id = 0; // ID редактируемой записи, этот параметр используется для режима редактирования
 

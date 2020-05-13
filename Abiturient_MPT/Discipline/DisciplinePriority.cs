@@ -12,7 +12,7 @@ namespace Abiturient_MPT
 {
     public partial class DisciplinePriority : Form
     {
-        MainForm parent = new MainForm();
+        MainForm parent = new MainForm(null);
         int mode = 0; // 0 - новый приоритет, 1 - редактирование приоритета
         int id = 0; // ID редактируемой записи, этот параметр используется для режима редактирования
 

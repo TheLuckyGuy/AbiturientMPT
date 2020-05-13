@@ -12,7 +12,7 @@ namespace Abiturient_MPT
 {
     public partial class NewAchievement : Form
     {
-        MainForm parent = new MainForm();
+        MainForm parent = new MainForm(null);
         int mode = 0; // 0 - новое достижение, 1 - редактирование достижения
         int id = 0; // ID редактируемой записи, этот параметр используется для режима редактирования
         public NewAchievement(MainForm p, int formMode, int achID)

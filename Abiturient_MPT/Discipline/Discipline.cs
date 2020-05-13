@@ -12,7 +12,7 @@ namespace Abiturient_MPT
 {
     public partial class Discipline : Form
     {
-        MainForm parent = new MainForm();
+        MainForm parent = new MainForm(null);
         int mode = 0; // 0 - новый предмет, 1 - редактирование предмета
         int id = 0; // ID редактируемой записи, этот параметр используется для режима редактирования
         public Discipline(MainForm p, int formMode, int achID)

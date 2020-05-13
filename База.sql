@@ -160,37 +160,56 @@ create table [Winned_Olympiad](
 )
 GO
 
-Create Table [Roles]
+Create Table [Role]
 (
 	[ID_Role] [Int] Not NULL Identity(1, 1),
-	[Name] VarChar(50) Not NULL,
+	[Name] VarChar(100) Not NULL,
+	[Enrollee] int Not NULL,
+	[EnrolleeList] int Not NULL,
+	[Disciplines] int Not NULL,
+	[Specialities] int Not NULL,
+	[Achievements] int Not NULL,
+	[Olympiads] int Not NULL,
+	[Statistics] int Not NULL,
 	CONSTRAINT uniqueRoleName unique (Name),
 	Constraint[PK_Role] Primary Key Clustered(ID_Role),
 )
 GO
+
 Create Table [Accounts]
 (
 	[ID_Account] [Int] Not NULL Identity(1, 1),
 	[Login] VarChar(50) Not NULL,
-	[Password] Varchar(50) Not NULL,
+	[Password] Varchar(150) Not NULL,
 	[ID_Role] [Int] Not NULL, 
 	CONSTRAINT uniqueLogin unique ([Login]),
 	Constraint PK_Account Primary Key Clustered(ID_Account),
-	Constraint FK_Acc_ID_Role Foreign Key(ID_Role) References dbo.Roles(ID_Role)
+	Constraint FK_Acc_ID_Role Foreign Key(ID_Role) References dbo.Role(ID_Role) ON DELETE CASCADE ON UPDATE CASCADE
 )
 GO
-
-
 --Функция авторизации
 Create Function dbo.Auth(@Login varchar(50), @Password varchar(50)) returns int 
 as 
 begin 
 	declare @index int = 
-	(select [ID_Account] from [dbo].[Accounts] where [Login] = @Login and [Password] = @Password) 
+	(select [ID_Role] from [dbo].[Accounts] where [Login] = @Login and [Password] = @Password) 
 	return @index 
 end
 GO
 
+--SELECT [dbo].[Auth] ('Admin', 'Admin')
+
+Create Function [dbo].[GetUserRole](@ID_Role int) returns table 
+as 
+RETURN 
+( 
+	select * from dbo.Role  
+	where ID_Role = @ID_Role
+);
+
+GO
+
+select * from dbo.GetUserRole (1)
 
 --Процедура регистрации
 Create Procedure dbo.Registration(@Login varchar(50), @Password varchar(50), @Role_ID int) 
@@ -989,25 +1008,25 @@ GO
 --go
 
 
+--Получение списка поступающих
+
 Create Procedure dbo.GetAcceptedEnrolleeList
 @Amount int,
 @Speciality int
 as
-select top (5) e.ID_Enrollee, e.Surname, e.Name, e.Patronymic, em.[Средний балл], sm.profSum as 'Сумма по профильным предметам' from Enrollee e
-inner join (select Enrollee_ID, AVG(Mark) as 'Средний балл' from Enrollee_Mark Group By Enrollee_ID) em
-on e.ID_Enrollee = em.Enrollee_ID
+select top (10) e.ID_Enrollee, e.Surname, e.Name, e.Patronymic, em.avgMark as 'Средний балл', sm.profSum as 'Сумма по профильным предметам' from Enrollee e
+INNER JOIN (select Enrollee_ID, AVG(Mark) as avgMark from Enrollee_Mark Group By Enrollee_ID) em
+	ON e.ID_Enrollee = em.Enrollee_ID
+INNER JOIN (select Enrollee_ID, SUM(Mark) as profSum from Enrollee_Mark em
+	INNER JOIN Discipline_Priority dp 
+		ON em.Discipline_ID = dp.Discipline_ID
+	Inner Join Speciality sp
+		ON dp.Speciality_Group_ID = sp.Group_ID
+	where sp.ID_Speciality = 1
+	GROUP BY Enrollee_ID) as sm
 
-inner join (select Enrollee_ID, SUM(Mark) as profSum from Enrollee_Mark em
-
-INNER JOIN Discipline_Priority dp 
-ON em.Discipline_ID = dp.Discipline_ID
-Inner Join Speciality sp
-ON dp.Speciality_Group_ID = sp.Group_ID
-where sp.ID_Speciality = 1
-GROUP BY Enrollee_ID) as sm
 on sm.Enrollee_ID = e.ID_Enrollee
-
-ORDER BY em.[Средний балл] DESC, sm.profSum ASC
+ORDER BY em.avgMark DESC, sm.profSum ASC
 go
 
 --Go
@@ -1020,6 +1039,20 @@ go
 --inner join Enrollee_Mark em
 --on e.ID_Enrollee = em.Enrollee_ID
 
-exec GetAcceptedEnrolleeList 10
+exec GetAcceptedEnrolleeList 10, 1
 
+go
 
+select * from dbo.Accounts
+GO
+insert into dbo.[Role] (name, Enrollee, EnrolleeList, Disciplines, Specialities, Achievements, Olympiads, [Statistics]) values ('Администратор', 1, 1, 1, 1, 1, 1, 1)
+GO
+insert into dbo.[Role] (name, Enrollee, EnrolleeList, Disciplines, Specialities, Achievements, Olympiads, [Statistics]) values ('Оператор ПК', 1, 0, 0, 0, 0, 0, 0)
+GO
+insert into dbo.[Role] (name, Enrollee, EnrolleeList, Disciplines, Specialities, Achievements, Olympiads, [Statistics]) values ('Пустой', 0, 0, 0, 0, 0, 0, 0)
+GO
+insert into dbo.Accounts(Login, Password, ID_Role) values ('Admin', 'Admin', 1)
+GO
+insert into dbo.Accounts(Login, Password, ID_Role) values ('User-1', 'User-1', 2)
+
+select * from Accounts

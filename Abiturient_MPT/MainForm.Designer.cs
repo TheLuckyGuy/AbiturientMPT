@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EnrolleePage = new System.Windows.Forms.TabPage();
             this.deleteEnrolleeButton = new System.Windows.Forms.Button();
@@ -83,6 +85,11 @@
             this.addAchRecButton = new System.Windows.Forms.Button();
             this.achRecGridView = new System.Windows.Forms.DataGridView();
             this.OlympiadsPage = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.deleteRecOlympiadButton = new System.Windows.Forms.Button();
+            this.editRecOlympiadButton = new System.Windows.Forms.Button();
+            this.addRecOlympiadButton = new System.Windows.Forms.Button();
+            this.recOlympiadGridView = new System.Windows.Forms.DataGridView();
             this.olympiadsGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteOlympiadButton = new System.Windows.Forms.Button();
             this.editOlympiadButton = new System.Windows.Forms.Button();
@@ -92,6 +99,8 @@
             this.программаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.statisticsPage = new System.Windows.Forms.TabPage();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.EnrolleePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeGridView)).BeginInit();
@@ -114,6 +123,8 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.achRecGridView)).BeginInit();
             this.OlympiadsPage.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.recOlympiadGridView)).BeginInit();
             this.olympiadsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olymiadGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -127,6 +138,7 @@
             this.tabControl1.Controls.Add(this.SpecialitiesPage);
             this.tabControl1.Controls.Add(this.AchievementsPage);
             this.tabControl1.Controls.Add(this.OlympiadsPage);
+            this.tabControl1.Controls.Add(this.statisticsPage);
             this.tabControl1.Location = new System.Drawing.Point(12, 48);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -184,20 +196,20 @@
             this.enrolleeGridView.AllowUserToDeleteRows = false;
             this.enrolleeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.enrolleeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle31;
             this.enrolleeGridView.Location = new System.Drawing.Point(15, 15);
             this.enrolleeGridView.MultiSelect = false;
             this.enrolleeGridView.Name = "enrolleeGridView";
             this.enrolleeGridView.ReadOnly = true;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle32;
             this.enrolleeGridView.Size = new System.Drawing.Size(880, 595);
             this.enrolleeGridView.TabIndex = 0;
             // 
@@ -338,10 +350,14 @@
             // 
             // priorityGridView
             // 
+            this.priorityGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.priorityGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.priorityGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.priorityGridView.Location = new System.Drawing.Point(20, 60);
             this.priorityGridView.Name = "priorityGridView";
             this.priorityGridView.ReadOnly = true;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.priorityGridView.RowsDefaultCellStyle = dataGridViewCellStyle33;
             this.priorityGridView.Size = new System.Drawing.Size(440, 450);
             this.priorityGridView.TabIndex = 0;
             // 
@@ -396,8 +412,8 @@
             this.disciplineGridView.Location = new System.Drawing.Point(20, 60);
             this.disciplineGridView.Name = "disciplineGridView";
             this.disciplineGridView.ReadOnly = true;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.disciplineGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.disciplineGridView.RowsDefaultCellStyle = dataGridViewCellStyle34;
             this.disciplineGridView.Size = new System.Drawing.Size(440, 450);
             this.disciplineGridView.TabIndex = 0;
             // 
@@ -463,8 +479,8 @@
             this.specialityGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGridView.Name = "specialityGridView";
             this.specialityGridView.ReadOnly = true;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle35;
             this.specialityGridView.Size = new System.Drawing.Size(440, 450);
             this.specialityGridView.TabIndex = 1;
             // 
@@ -516,14 +532,14 @@
             this.specialityGroupGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.specialityGroupGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.specialityGroupGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle36;
             this.specialityGroupGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGroupGridView.Name = "specialityGroupGridView";
             this.specialityGroupGridView.ReadOnly = true;
@@ -592,8 +608,8 @@
             this.achGridView.Location = new System.Drawing.Point(20, 60);
             this.achGridView.Name = "achGridView";
             this.achGridView.ReadOnly = true;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle37;
             this.achGridView.Size = new System.Drawing.Size(440, 450);
             this.achGridView.TabIndex = 1;
             // 
@@ -648,13 +664,14 @@
             this.achRecGridView.Location = new System.Drawing.Point(20, 60);
             this.achRecGridView.Name = "achRecGridView";
             this.achRecGridView.ReadOnly = true;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle38;
             this.achRecGridView.Size = new System.Drawing.Size(440, 450);
             this.achRecGridView.TabIndex = 0;
             // 
             // OlympiadsPage
             // 
+            this.OlympiadsPage.Controls.Add(this.groupBox3);
             this.OlympiadsPage.Controls.Add(this.olympiadsGroupBox);
             this.OlympiadsPage.Location = new System.Drawing.Point(4, 22);
             this.OlympiadsPage.Name = "OlympiadsPage";
@@ -664,13 +681,66 @@
             this.OlympiadsPage.Text = "Олимпиады";
             this.OlympiadsPage.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.deleteRecOlympiadButton);
+            this.groupBox3.Controls.Add(this.editRecOlympiadButton);
+            this.groupBox3.Controls.Add(this.addRecOlympiadButton);
+            this.groupBox3.Controls.Add(this.recOlympiadGridView);
+            this.groupBox3.Location = new System.Drawing.Point(15, 15);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(475, 580);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Учитываемые олимпиады";
+            // 
+            // deleteRecOlympiadButton
+            // 
+            this.deleteRecOlympiadButton.Location = new System.Drawing.Point(182, 31);
+            this.deleteRecOlympiadButton.Name = "deleteRecOlympiadButton";
+            this.deleteRecOlympiadButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteRecOlympiadButton.TabIndex = 6;
+            this.deleteRecOlympiadButton.Text = "Удалить";
+            this.deleteRecOlympiadButton.UseVisualStyleBackColor = true;
+            // 
+            // editRecOlympiadButton
+            // 
+            this.editRecOlympiadButton.Location = new System.Drawing.Point(101, 31);
+            this.editRecOlympiadButton.Name = "editRecOlympiadButton";
+            this.editRecOlympiadButton.Size = new System.Drawing.Size(75, 23);
+            this.editRecOlympiadButton.TabIndex = 5;
+            this.editRecOlympiadButton.Text = "Изменить";
+            this.editRecOlympiadButton.UseVisualStyleBackColor = true;
+            // 
+            // addRecOlympiadButton
+            // 
+            this.addRecOlympiadButton.Location = new System.Drawing.Point(20, 31);
+            this.addRecOlympiadButton.Name = "addRecOlympiadButton";
+            this.addRecOlympiadButton.Size = new System.Drawing.Size(75, 23);
+            this.addRecOlympiadButton.TabIndex = 4;
+            this.addRecOlympiadButton.Text = "Добавить";
+            this.addRecOlympiadButton.UseVisualStyleBackColor = true;
+            // 
+            // recOlympiadGridView
+            // 
+            this.recOlympiadGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.recOlympiadGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.recOlympiadGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.recOlympiadGridView.Location = new System.Drawing.Point(20, 60);
+            this.recOlympiadGridView.Name = "recOlympiadGridView";
+            this.recOlympiadGridView.ReadOnly = true;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.recOlympiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle39;
+            this.recOlympiadGridView.Size = new System.Drawing.Size(440, 450);
+            this.recOlympiadGridView.TabIndex = 1;
+            // 
             // olympiadsGroupBox
             // 
             this.olympiadsGroupBox.Controls.Add(this.deleteOlympiadButton);
             this.olympiadsGroupBox.Controls.Add(this.editOlympiadButton);
             this.olympiadsGroupBox.Controls.Add(this.addOlympiadButton);
             this.olympiadsGroupBox.Controls.Add(this.olymiadGridView);
-            this.olympiadsGroupBox.Location = new System.Drawing.Point(15, 15);
+            this.olympiadsGroupBox.Location = new System.Drawing.Point(500, 15);
             this.olympiadsGroupBox.Name = "olympiadsGroupBox";
             this.olympiadsGroupBox.Size = new System.Drawing.Size(475, 580);
             this.olympiadsGroupBox.TabIndex = 6;
@@ -715,8 +785,8 @@
             this.olymiadGridView.Location = new System.Drawing.Point(20, 60);
             this.olymiadGridView.Name = "olymiadGridView";
             this.olymiadGridView.ReadOnly = true;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.olymiadGridView.Size = new System.Drawing.Size(440, 450);
             this.olymiadGridView.TabIndex = 1;
             // 
@@ -733,6 +803,8 @@
             // 
             // программаToolStripMenuItem
             // 
+            this.программаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.выходToolStripMenuItem});
             this.программаToolStripMenuItem.Name = "программаToolStripMenuItem";
             this.программаToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.программаToolStripMenuItem.Text = "Система";
@@ -751,6 +823,23 @@
             this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem1.Text = "О программе";
             // 
+            // statisticsPage
+            // 
+            this.statisticsPage.Location = new System.Drawing.Point(4, 22);
+            this.statisticsPage.Name = "statisticsPage";
+            this.statisticsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.statisticsPage.Size = new System.Drawing.Size(1003, 616);
+            this.statisticsPage.TabIndex = 6;
+            this.statisticsPage.Text = "Статистика";
+            this.statisticsPage.UseVisualStyleBackColor = true;
+            // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -762,6 +851,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Абитуриент МПТ";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.EnrolleePage.ResumeLayout(false);
@@ -786,6 +876,8 @@
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.achRecGridView)).EndInit();
             this.OlympiadsPage.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.recOlympiadGridView)).EndInit();
             this.olympiadsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olymiadGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -853,6 +945,13 @@
         private System.Windows.Forms.ToolStripMenuItem программаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button deleteRecOlympiadButton;
+        private System.Windows.Forms.Button editRecOlympiadButton;
+        private System.Windows.Forms.Button addRecOlympiadButton;
+        private System.Windows.Forms.DataGridView recOlympiadGridView;
+        private System.Windows.Forms.TabPage statisticsPage;
+        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
     }
 }
 

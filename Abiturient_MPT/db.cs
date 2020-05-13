@@ -8,6 +8,8 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using Liphsoft.Crypto.Argon2;
+
 
 namespace Abiturient_MPT
 {
@@ -19,6 +21,11 @@ namespace Abiturient_MPT
         public enum RoleID
         {
             superior = 1
+        }
+        
+        public class Role
+        {
+
         }
 
         public db()
@@ -78,6 +85,14 @@ namespace Abiturient_MPT
             "exec dbo.GetDisciplinePriority"
         };
 
+        public string Argon2(string text)
+        {       
+            var hasher = new PasswordHasher();
+            string myHash = hasher.Hash(text);
+            //MessageBox.Show(myHash);
+            return myHash;
+        }
+
         static string md5(string text)
         {
             using (var md5Hash = MD5.Create())
@@ -93,6 +108,7 @@ namespace Abiturient_MPT
                 return sBuilder.ToString();
             }
         }
+
 
         public DataTable GetFilledTable(byte index)
         {
@@ -114,8 +130,9 @@ namespace Abiturient_MPT
                 // Возвращаем данные
                 return ds.Tables[0];
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null;
             }
             finally
@@ -123,6 +140,117 @@ namespace Abiturient_MPT
                 sql.Close();
             }
         }
+
+        public int Authorization(string Login, string Password)
+        {
+            string result = String.Empty;
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand("SELECT [dbo].[Auth] (@Login , @Password)", sql);
+                SqlParameter usrLogin = new SqlParameter("@Login", Login);
+                command.Parameters.Add(usrLogin);
+
+                SqlParameter usrPassword = new SqlParameter("@Password", md5(Password + Login));
+                command.Parameters.Add(usrPassword);
+                result = command.ExecuteScalar().ToString();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+
+            if (result == String.Empty)
+            {
+                return 0;
+            }
+            else
+            {
+                return int.Parse(result);
+            }
+            
+        }
+
+        public int Registration(string Login, string Password, int Role_Id = 1)
+        {
+            string result = String.Empty;
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Registration @Login, @Password, @Role_ID", sql);
+
+                SqlParameter usrLogin = new SqlParameter("@Login", Login);
+                command.Parameters.Add(usrLogin);
+
+                SqlParameter usrPassword = new SqlParameter("@Password", md5(Password + Login));
+                command.Parameters.Add(usrPassword);
+
+                SqlParameter roleId = new SqlParameter("@Role_ID", Role_Id);
+                command.Parameters.Add(roleId);
+
+                result = command.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+            return Convert.ToInt32(result);
+        }
+
+        public User getUserRole(int Role_ID)
+        {
+            DataTable tempDT = new DataTable();
+            User user = new User();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "select * from dbo.GetUserRole (@ID_Role)", sql);
+
+                SqlParameter RoleIDParam = new SqlParameter("@ID_Role", Role_ID);
+                command.Parameters.Add(RoleIDParam);
+
+                
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                sql.Close();
+
+            }
+            user.Role = tempDT.Rows[0][1].ToString();
+            user.Enrollee = Convert.ToBoolean(tempDT.Rows[0][2]);
+            user.EnrolleeList = Convert.ToBoolean(tempDT.Rows[0][3]);
+            user.Disciplines = Convert.ToBoolean(tempDT.Rows[0][4]);
+            user.Specialities = Convert.ToBoolean(tempDT.Rows[0][5]);
+            user.Achievements = Convert.ToBoolean(tempDT.Rows[0][6]);
+            user.Olympiads = Convert.ToBoolean(tempDT.Rows[0][7]);
+            user.Statistics = Convert.ToBoolean(tempDT.Rows[0][8]);
+            return user;
+            //return 0;
+        }
+
+
         public int enrolleeAdd(string surname, string name, string patronymic, string birthDate, string Pass_Series, string Pass_Number, string Pass_Issued_By, string Pass_Issue_Date,
             string Subdiv_Code, int Education, string Certificate_Num, string Issue_Date, string End_Year, string Cert_Issued_By, int Targeted_Learning)
         {

@@ -12,7 +12,7 @@ namespace Abiturient_MPT
 {
     public partial class SpecialityGroup : Form
     {
-        MainForm parent = new MainForm();
+        MainForm parent = new MainForm(null);
         int mode = 0; // 0 - новая группа специальностей, 1 - редактирование группы специльностей
         int id = 0; // ID редактируемой записи, этот параметр используется для режима редактирования
 

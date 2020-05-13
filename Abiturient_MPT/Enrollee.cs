@@ -12,7 +12,7 @@ namespace Abiturient_MPT
 {
     public partial class Enrollee : Form
     {
-        MainForm parent = new MainForm();
+        MainForm parent = new MainForm(null);
         int mode = 0; // 0 - новый абитуриент, 1 - редактирование абитуриента
         int id = 0;
 

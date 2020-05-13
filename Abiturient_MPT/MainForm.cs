@@ -14,9 +14,13 @@ namespace Abiturient_MPT
     {
         public db data = new db();
 
-        public MainForm()
+        Auth parent = new Auth();
+
+        public MainForm(Auth p)
         {
+            parent = p;
             InitializeComponent();
+            data = parent.data;
         }
         
         public void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -389,6 +393,18 @@ namespace Abiturient_MPT
                     }
                     break;
             }
+        }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Show();
+            //Application.Exit();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parent.Show();
         }
     }
 }

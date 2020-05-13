@@ -28,3 +28,5 @@ C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MP
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.SpecialityGroup.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.DisciplinePriority.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Enrollee.resources
+C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\bin\Debug\Liphsoft.Crypto.Argon2.dll
+C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.CopyComplete
