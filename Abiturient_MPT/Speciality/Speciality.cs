@@ -28,7 +28,7 @@ namespace Abiturient_MPT
         private void Speciality_Load(object sender, EventArgs e)
         {
             DataTable tbl1 = new DataTable();
-            tbl1 = parent.data.GetData((byte)db.Tables.GetSpecialityGroupShort);
+            tbl1 = parent.parent.data.GetData((byte)db.Tables.GetSpecialityGroupShort);
             specialityComboBox.DataSource = tbl1;
             specialityComboBox.DisplayMember = "Название";  // столбец для отображения
             specialityComboBox.ValueMember = "ID";
@@ -42,7 +42,7 @@ namespace Abiturient_MPT
                     specialityGroupBox.Text = "Редактирование специальности";
 
                     DataTable tbl2 = new DataTable();
-                    tbl2 = parent.data.getCurrentSpeciality(id);
+                    tbl2 = parent.parent.data.getCurrentSpeciality(id);
 
                     codeMaskedTextBox.Text = tbl2.Rows[0][1].ToString();
                     nameTextBox.Text = tbl2.Rows[0][2].ToString();
@@ -66,7 +66,7 @@ namespace Abiturient_MPT
                 case 0:
                     if ((specialityComboBox.SelectedIndex != -1) && (codeMaskedTextBox.Text != String.Empty) && (nameTextBox.Text != String.Empty))
                     {
-                        parent.data.specialityAdd(codeMaskedTextBox.Text, nameTextBox.Text, specialityComboBox.SelectedValue.ToString());
+                        parent.parent.data.specialityAdd(codeMaskedTextBox.Text, nameTextBox.Text, specialityComboBox.SelectedValue.ToString());
                     }
                     else
                     {
@@ -77,7 +77,7 @@ namespace Abiturient_MPT
                 case 1:
                     if ((specialityComboBox.SelectedIndex != -1) && (codeMaskedTextBox.Text != String.Empty) && (nameTextBox.Text != String.Empty))
                     {
-                        parent.data.specialityUpdate(id, codeMaskedTextBox.Text, nameTextBox.Text, specialityComboBox.SelectedValue.ToString());
+                        parent.parent.data.specialityUpdate(id, codeMaskedTextBox.Text, nameTextBox.Text, specialityComboBox.SelectedValue.ToString());
                     }
                     else
                     {

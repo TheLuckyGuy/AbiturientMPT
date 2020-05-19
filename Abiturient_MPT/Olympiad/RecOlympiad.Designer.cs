@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.achievementGroupBox = new System.Windows.Forms.GroupBox();
+            this.recOlympiadGroupBox = new System.Windows.Forms.GroupBox();
             this.olympiadComboBox = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -37,25 +37,25 @@
             this.startDateLabel = new System.Windows.Forms.Label();
             this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.achievementGroupBox.SuspendLayout();
+            this.recOlympiadGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // achievementGroupBox
+            // recOlympiadGroupBox
             // 
-            this.achievementGroupBox.Controls.Add(this.olympiadComboBox);
-            this.achievementGroupBox.Controls.Add(this.textBox1);
-            this.achievementGroupBox.Controls.Add(this.saveButton);
-            this.achievementGroupBox.Controls.Add(this.olympiadLabel);
-            this.achievementGroupBox.Controls.Add(this.endDateLabel);
-            this.achievementGroupBox.Controls.Add(this.startDateLabel);
-            this.achievementGroupBox.Controls.Add(this.endDateTimePicker);
-            this.achievementGroupBox.Controls.Add(this.startDateTimePicker);
-            this.achievementGroupBox.Location = new System.Drawing.Point(12, 12);
-            this.achievementGroupBox.Name = "achievementGroupBox";
-            this.achievementGroupBox.Size = new System.Drawing.Size(510, 340);
-            this.achievementGroupBox.TabIndex = 8;
-            this.achievementGroupBox.TabStop = false;
-            this.achievementGroupBox.Text = "Учитываемые олимпиады";
+            this.recOlympiadGroupBox.Controls.Add(this.olympiadComboBox);
+            this.recOlympiadGroupBox.Controls.Add(this.textBox1);
+            this.recOlympiadGroupBox.Controls.Add(this.saveButton);
+            this.recOlympiadGroupBox.Controls.Add(this.olympiadLabel);
+            this.recOlympiadGroupBox.Controls.Add(this.endDateLabel);
+            this.recOlympiadGroupBox.Controls.Add(this.startDateLabel);
+            this.recOlympiadGroupBox.Controls.Add(this.endDateTimePicker);
+            this.recOlympiadGroupBox.Controls.Add(this.startDateTimePicker);
+            this.recOlympiadGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.recOlympiadGroupBox.Name = "recOlympiadGroupBox";
+            this.recOlympiadGroupBox.Size = new System.Drawing.Size(510, 340);
+            this.recOlympiadGroupBox.TabIndex = 8;
+            this.recOlympiadGroupBox.TabStop = false;
+            this.recOlympiadGroupBox.Text = "Учитываемые олимпиады";
             // 
             // olympiadComboBox
             // 
@@ -135,22 +135,22 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 361);
-            this.Controls.Add(this.achievementGroupBox);
+            this.Controls.Add(this.recOlympiadGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "RecOlympiad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RecOlympiad";
             this.Load += new System.EventHandler(this.RecOlympiad_Load);
-            this.achievementGroupBox.ResumeLayout(false);
-            this.achievementGroupBox.PerformLayout();
+            this.recOlympiadGroupBox.ResumeLayout(false);
+            this.recOlympiadGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox achievementGroupBox;
+        private System.Windows.Forms.GroupBox recOlympiadGroupBox;
         private System.Windows.Forms.ComboBox olympiadComboBox;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button saveButton;

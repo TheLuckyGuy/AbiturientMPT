@@ -12,9 +12,9 @@ namespace Abiturient_MPT
 {
     public partial class Enrollee : Form
     {
-        MainForm parent = new MainForm(null);
+        MainForm parent = new MainForm(null); // Ссылка на родительскую форму
         int mode = 0; // 0 - новый абитуриент, 1 - редактирование абитуриента
-        int id = 0;
+        int id = 0; // ID абитуриента, получаемый от родительской формы. Используется для режима редактирования
 
         public Enrollee(MainForm p, int m, int enrollID)
         {
@@ -29,43 +29,52 @@ namespace Abiturient_MPT
 
         private void NewEnrollee_Load(object sender, EventArgs e)
         {
-            if ((id != -1) && (id != 0))
+            if ((id != -1) && (id != 0)) // Если ID был полчен успешно, то есть не равен ни -1 ни 0, то активируются дополнительные блоки добавления информации
             {
                 achievementsGroupBox.Enabled = true;
                 marksGroupBox.Enabled = true;
                 olympiadsGroupBox.Enabled = true;
             }
 
+            // Получение данных для заполнения выпадающего списка учитываемых достижений
             DataTable tbl1 = new DataTable();
-            tbl1 = parent.data.GetData((byte)db.Tables.GetRecordedAchievements);
+            tbl1 = parent.parent.data.GetData((byte)db.Tables.GetRecordedAchievements);
             achievementComboBox.DataSource = tbl1;
             achievementComboBox.DisplayMember = "Название"; // столбец для отображения
             achievementComboBox.ValueMember = "ID"; //столбец с id
             achievementComboBox.SelectedIndex = -1;
 
+            // Получение данных для заполнения выпадающего списка олимпиад
             DataTable tbl2 = new DataTable();
-            tbl2 = parent.data.GetData((byte)db.Tables.GetOlympiads);
+            tbl2 = parent.parent.data.GetData((byte)db.Tables.GetOlympiads);
             olympiadComboBox.DataSource = tbl2;
             olympiadComboBox.DisplayMember = "Название";// столбец для отображения
             olympiadComboBox.ValueMember = "ID";//столбец с id
             olympiadComboBox.SelectedIndex = -1;
 
+
+            // Получение данных для заполнения форм данных абитуриента
+            DataTable tbl3 = new DataTable();
+            tbl3 = parent.parent.data.getCurrentEnrollee(id);
+
+            // Получение данных для заполнения выпадающего списка предметов
             DataTable tbl4 = new DataTable();
-            tbl4 = parent.data.GetData((byte)db.Tables.GetDiscipline);
+            tbl4 = parent.parent.data.GetData((byte)db.Tables.GetDiscipline);
             disciplineComboBox.DataSource = tbl4;
             disciplineComboBox.DisplayMember = "Название";// столбец для отображения
             disciplineComboBox.ValueMember = "ID";//столбец с id
             disciplineComboBox.SelectedIndex = -1;
 
+            // Получение данных для заполнения выпадающего списка специальностей
             DataTable tbl5 = new DataTable();
-            tbl5 = parent.data.GetData((byte)db.Tables.GetSpeciality);
+            tbl5 = parent.parent.data.GetData((byte)db.Tables.GetSpeciality);
             specialityComboBox.DataSource = tbl5;
             specialityComboBox.DisplayMember = "Название";// столбец для отображения
             specialityComboBox.ValueMember = "ID";//столбец с id
             specialityComboBox.SelectedIndex = -1;
 
-            achievementGridView.DataSource = parent.data.getIndividualAchievements(id);
-            markGridView.DataSource = parent.data.getenrolleeMarks(id);
+            achievementGridView.DataSource = parent.parent.data.getIndividualAchievements(id); // Заполнение данными таблицы индивидуальных достижений
+            markGridView.DataSource = parent.parent.data.getenrolleeMarks(id); // Заполнение данными таблицы оценок
 
             switch (mode)
             {
@@ -73,9 +82,8 @@ namespace Abiturient_MPT
 
                     break;
 
-                case 1:
-                    DataTable tbl3 = new DataTable();
-                    tbl3 = parent.data.getCurrentEnrollee(id);
+                case 1: // При режиме редактирования формы заполняются данными
+
                     DateTime birthDate = DateTime.Parse(tbl3.Rows[0][4].ToString());
                     DateTime passIssueDate = DateTime.Parse(tbl3.Rows[0][8].ToString());
                     DateTime docIssueDate = DateTime.Parse(tbl3.Rows[0][12].ToString());
@@ -114,7 +122,7 @@ namespace Abiturient_MPT
                         targetedLearningCheckBox.Checked = true;
                     }
 
-                    specialityGridView.DataSource = parent.data.getEnrolleeSpeciality(id);
+                    specialityGridView.DataSource = parent.parent.data.getEnrolleeSpeciality(id);
 
                     break;
             }
@@ -161,7 +169,7 @@ namespace Abiturient_MPT
                         (numberTextBox.Text != String.Empty) && (passIssuedByTextBox.Text != String.Empty) && (passIssuedDatePicker.Text != String.Empty) && (subdivTextBox.Text != String.Empty) && (documentNumberTextBox.Text != String.Empty) &&
                         (docIssuedByTextBox.Text != String.Empty) && (docIssuedByTextBox.Text != String.Empty))
                     {
-                        id = parent.data.enrolleeAdd(surnameTextBox.Text, nameTextBox.Text, patronymicTextBox.Text, birthDatePicker.Text, seriesTextBox.Text, numberTextBox.Text, passIssuedByTextBox.Text, passIssuedDatePicker.Text,
+                        id = parent.parent.data.enrolleeAdd(surnameTextBox.Text, nameTextBox.Text, patronymicTextBox.Text, birthDatePicker.Text, seriesTextBox.Text, numberTextBox.Text, passIssuedByTextBox.Text, passIssuedDatePicker.Text,
                             subdivTextBox.Text, education, documentNumberTextBox.Text, docIssuedDatePicker.Text, Convert.ToString(endYearUpDown.Value), docIssuedByTextBox.Text, Targeted_Learning);
                         parent.tabControl1_SelectedIndexChanged(this, e);
                         if ((id != -1) && (id != 0))
@@ -195,7 +203,7 @@ namespace Abiturient_MPT
                         (numberTextBox.Text != String.Empty) && (passIssuedByTextBox.Text != String.Empty) && (passIssuedDatePicker.Text != String.Empty) && (subdivTextBox.Text != String.Empty) && (documentNumberTextBox.Text != String.Empty) &&
                         (docIssuedByTextBox.Text != String.Empty) && (docIssuedByTextBox.Text != String.Empty))
                     {
-                        id = parent.data.enrolleeAdd(surnameTextBox.Text, nameTextBox.Text, patronymicTextBox.Text, birthDatePicker.Text, seriesTextBox.Text, numberTextBox.Text, passIssuedByTextBox.Text, passIssuedDatePicker.Text,
+                        parent.parent.data.enrolleeUpdate(id, surnameTextBox.Text, nameTextBox.Text, patronymicTextBox.Text, birthDatePicker.Text, seriesTextBox.Text, numberTextBox.Text, passIssuedByTextBox.Text, passIssuedDatePicker.Text,
                             subdivTextBox.Text, education, documentNumberTextBox.Text, docIssuedDatePicker.Text, Convert.ToString(endYearUpDown.Value), docIssuedByTextBox.Text, Targeted_Learning);
                         parent.tabControl1_SelectedIndexChanged(this, e);
                         if ((id != -1) && (id != 0))
@@ -230,7 +238,7 @@ namespace Abiturient_MPT
         {
             if(achievementComboBox.SelectedIndex != 1)
             {
-                if(parent.data.individualAchievementAdd(id, (int)achievementComboBox.SelectedValue) == 0)
+                if(parent.parent.data.individualAchievementAdd(id, (int)achievementComboBox.SelectedValue) == 0)
                 {
                     NewEnrollee_Load(this, e);
                 }
@@ -267,7 +275,7 @@ namespace Abiturient_MPT
                 {
                     if (achievementGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null)
                     {
-                        if (parent.data.individualAchievementDelete((int)achievementGridView.SelectedRows[i].Cells["ID"].Value) == 0)
+                        if (parent.parent.data.individualAchievementDelete((int)achievementGridView.SelectedRows[i].Cells["ID"].Value) == 0)
                         {
                             NewEnrollee_Load(this, e);
                         }
@@ -276,7 +284,7 @@ namespace Abiturient_MPT
             }
             if (achievementGridView.SelectedCells.Count > 0)
             {
-                if (parent.data.individualAchievementDelete((int)achievementGridView.CurrentCell.OwningRow.Cells["ID"].Value) == 0)
+                if (parent.parent.data.individualAchievementDelete((int)achievementGridView.CurrentCell.OwningRow.Cells["ID"].Value) == 0)
                 {
                     NewEnrollee_Load(this, e);
                 }
@@ -288,7 +296,7 @@ namespace Abiturient_MPT
         {
             if (disciplineComboBox.SelectedIndex != -1)
             {
-                if (parent.data.enrolleeMarkAdd(id, (int)disciplineComboBox.SelectedValue, (int)markUpDown.Value) == 0)
+                if (parent.parent.data.enrolleeMarkAdd(id, (int)disciplineComboBox.SelectedValue, (int)markUpDown.Value) == 0)
                 {
                     NewEnrollee_Load(this, e);
                 }
@@ -323,21 +331,21 @@ namespace Abiturient_MPT
                 {
                     if (markGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null)
                     {
-                        if (parent.data.individualAchievementDelete((int)markGridView.SelectedRows[i].Cells["ID"].Value) == 0)
+                        if (parent.parent.data.individualAchievementDelete((int)markGridView.SelectedRows[i].Cells["ID"].Value) == 0)
                         {
                             NewEnrollee_Load(this, e);
                         }
                     }
                 }
             }
-            if (markGridView.SelectedCells.Count > 0) parent.data.individualAchievementDelete((int)markGridView.CurrentCell.OwningRow.Cells["ID"].Value);
+            if (markGridView.SelectedCells.Count > 0) parent.parent.data.individualAchievementDelete((int)markGridView.CurrentCell.OwningRow.Cells["ID"].Value);
         }
 
         private void addSpecialityButton_Click(object sender, EventArgs e)
         {
             if(specialityComboBox.SelectedIndex != 1)
             {
-                if(parent.data.enrolleeSpecialityAdd(id, (int)specialityComboBox.SelectedValue) == 0)
+                if(parent.parent.data.enrolleeSpecialityAdd(id, (int)specialityComboBox.SelectedValue) == 0)
                 {
                     NewEnrollee_Load(this, e);
                 }

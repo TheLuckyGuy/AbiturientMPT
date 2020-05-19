@@ -11,7 +11,6 @@ C:\Users\vladg\source\repos\Abiturient_MPT\Abiturient_MPT\obj\Debug\Abiturient_M
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\bin\Debug\Abiturient_MPT.exe.config
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\bin\Debug\Abiturient_MPT.exe
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\bin\Debug\Abiturient_MPT.pdb
-C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csprojAssemblyReference.cache
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Auth.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Properties.Resources.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.GenerateResource.cache
@@ -30,3 +29,5 @@ C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MP
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.Enrollee.resources
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\bin\Debug\Liphsoft.Crypto.Argon2.dll
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.CopyComplete
+C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.ResolveComReference.cache
+C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csprojAssemblyReference.cache

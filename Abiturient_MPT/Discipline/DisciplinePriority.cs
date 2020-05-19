@@ -28,31 +28,31 @@ namespace Abiturient_MPT
         private void DisciplinePriority_Load(object sender, EventArgs e)
         {
             DataTable tbl1 = new DataTable();
-            tbl1 = parent.data.GetData((byte)db.Tables.GetSpecialityGroupShort);
+            tbl1 = parent.parent.data.GetData((byte)db.Tables.GetSpecialityGroupShort);
             specialityComboBox.DataSource = tbl1;
             specialityComboBox.DisplayMember = "Название";  // столбец для отображения
-            specialityComboBox.ValueMember = "ID";
+            specialityComboBox.ValueMember = "ID"; // столбец значений
 
             DataTable tbl2 = new DataTable();
-            tbl2 = parent.data.GetData((byte)db.Tables.GetDiscipline);
+            tbl2 = parent.parent.data.GetData((byte)db.Tables.GetDiscipline);
             disciplineComboBox.DataSource = tbl2;
             disciplineComboBox.DisplayMember = "Название";  // столбец для отображения
-            disciplineComboBox.ValueMember = "ID";
+            disciplineComboBox.ValueMember = "ID"; // столбец значений
 
             switch (mode)
             {
-                case 0:
+                case 0: // Режим добавления 
                     disciplinePriorityGroupBox.Text = "Добавление специальности";
                     break;
-                case 1:
+                case 1: // Режим редактирования
                     disciplinePriorityGroupBox.Text = "Редактирование специальности";
 
-                    DataTable tbl3 = new DataTable();
-                    tbl3 = parent.data.getCurrentPriority(id);
+                    DataTable tbl3 = new DataTable();                       // Получение записи 
+                    tbl3 = parent.parent.data.getCurrentPriority(id);       // о приоритете предмете
 
+                    // Заполнение полей данными
                     DateTime startDate = DateTime.Parse(tbl3.Rows[0][4].ToString());
                     DateTime endDate = DateTime.Parse(tbl3.Rows[0][5].ToString());
-
 
                     disciplineComboBox.SelectedIndex = disciplineComboBox.FindString(tbl3.Rows[0][2].ToString());
                     specialityComboBox.SelectedIndex = specialityComboBox.FindString(tbl3.Rows[0][1].ToString());
@@ -63,25 +63,25 @@ namespace Abiturient_MPT
             }
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e) // Действия при нажатии кнопки сохраненния
         {
             switch (mode)
             {
-                case 0:
+                case 0: // Если в режиме добавления нажата кнопка сохранить, то будет добавлена новая заись
                     if ((disciplineComboBox.SelectedIndex != -1) && (specialityComboBox.SelectedIndex != -1))
                     {
-                        parent.data.priorityAdd((int)specialityComboBox.SelectedValue, (int)disciplineComboBox.SelectedValue, (int)priorityUpDown.Value, startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString());
+                        parent.parent.data.priorityAdd((int)specialityComboBox.SelectedValue, (int)disciplineComboBox.SelectedValue, (int)priorityUpDown.Value, startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString());
                     }
-                    else
+                    else // Если не все необходимые поля заполнены, то выводится ошибка и выполнение функции останавливается
                     {
                         MessageBox.Show("Не все необходимые поля ввода заполнены", "Незаполнены поля");
                         return;
                     }
                     break;
-                case 1:
+                case 1: // если же кнопка нажата в режиме редактирования, то данные записи будут заменены новыми
                     if ((disciplineComboBox.SelectedIndex != -1) && (specialityComboBox.SelectedIndex != -1))
                     {
-                        parent.data.priorityUpdate(id, (int)specialityComboBox.SelectedValue, (int)disciplineComboBox.SelectedValue, (int)priorityUpDown.Value, startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString());
+                        parent.parent.data.priorityUpdate(id, (int)specialityComboBox.SelectedValue, (int)disciplineComboBox.SelectedValue, (int)priorityUpDown.Value, startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString());
                     }
                     else
                     {
@@ -90,13 +90,18 @@ namespace Abiturient_MPT
                     }
                     break;
             }
-            parent.tabControl1_SelectedIndexChanged(this, e);
+            parent.tabControl1_SelectedIndexChanged(this, e); // Происходит обновление данных на родительской форме
             this.Close();
         }
 
         private void specialityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.Text = specialityComboBox.Text;
+        }
+
+        private void startDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            endDateTimePicker.MinDate = startDateTimePicker.Value;
         }
     }
 }

@@ -35,7 +35,7 @@ namespace Abiturient_MPT
                 case 1:
                     specialityGroupBox.Text = "Редактирование группы специальностей";
                     DataTable tbl1 = new DataTable();
-                    tbl1 = parent.data.getCurrentSpecialityGroup(id);
+                    tbl1 = parent.parent.data.getCurrentSpecialityGroup(id);
                     codeMaskedTextBox.Text = tbl1.Rows[0][1].ToString();
                     nameTextBox.Text = tbl1.Rows[0][2].ToString();
                     break;
@@ -49,7 +49,7 @@ namespace Abiturient_MPT
                 case 0:
                     if (nameTextBox.Text != String.Empty)
                     {
-                        parent.data.specialityGroupAdd(codeMaskedTextBox.Text, nameTextBox.Text);
+                        parent.parent.data.specialityGroupAdd(codeMaskedTextBox.Text, nameTextBox.Text);
                     }
                     else
                     {
@@ -59,7 +59,7 @@ namespace Abiturient_MPT
                 case 1:
                     if (nameTextBox.Text != String.Empty)
                     {
-                        parent.data.specialityGroupUpdate(id, codeMaskedTextBox.Text, nameTextBox.Text);
+                        parent.parent.data.specialityGroupUpdate(id, codeMaskedTextBox.Text, nameTextBox.Text);
                     }
                     else
                     {

@@ -30,7 +30,7 @@ namespace Abiturient_MPT
                 case 0:
                     if(nameTextBox.Text != String.Empty)
                     {
-                        parent.data.achievementAdd(nameTextBox.Text);
+                        parent.parent.data.achievementAdd(nameTextBox.Text);
                     }
                     else
                     {
@@ -41,7 +41,7 @@ namespace Abiturient_MPT
                 case 1:
                     if (nameTextBox.Text != String.Empty)
                     {
-                        parent.data.achievementUpdate(id, nameTextBox.Text);
+                        parent.parent.data.achievementUpdate(id, nameTextBox.Text);
                     }
                     else
                     {
@@ -64,7 +64,7 @@ namespace Abiturient_MPT
                 case 1:
                     achievementGroupBox.Text = "Редактирование достижения";
                     DataTable tbl1 = new DataTable();
-                    tbl1 = parent.data.getCurrentAchievement(id);
+                    tbl1 = parent.parent.data.getCurrentAchievement(id);
                     nameTextBox.Text = tbl1.Rows[0][0].ToString();
                     break;
             }

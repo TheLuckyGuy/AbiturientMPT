@@ -29,7 +29,7 @@ namespace Abiturient_MPT
             endDateTimePicker.MinDate = startDateTimePicker.Value;
 
             DataTable tbl1 = new DataTable();
-            tbl1 = parent.data.GetData((byte)db.Tables.GetAchievements);
+            tbl1 = parent.parent.data.GetData((byte)db.Tables.GetAchievements);
             achievementComboBox.DataSource = tbl1;
             achievementComboBox.DisplayMember = "Название";  // столбец для отображения
             achievementComboBox.ValueMember = "ID";  //столбец с id
@@ -41,11 +41,10 @@ namespace Abiturient_MPT
                     achievementGroupBox.Text = "Добавить учитываемое достижение";
                     break;
                 case 1:
-                    achievementGroupBox.Text = "Редактирование учитываемого достижения";
-                    
+                    achievementGroupBox.Text = "Редактирование учитываемого достижения";               
 
                     DataTable tbl2 = new DataTable();
-                    tbl2 = parent.data.getCurrentRecAchievement(id);
+                    tbl2 = parent.parent.data.getCurrentRecAchievement(id);
 
                     DateTime startDate = DateTime.Parse(tbl2.Rows[0][2].ToString());
                     DateTime endDate = DateTime.Parse(tbl2.Rows[0][3].ToString());
@@ -87,7 +86,7 @@ namespace Abiturient_MPT
                 case 0:
                     if (achievementComboBox.SelectedIndex != -1)
                     {
-                        parent.data.recAchievementAdd(startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), achievementComboBox.SelectedValue.ToString());
+                        parent.parent.data.recAchievementAdd(startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), achievementComboBox.SelectedValue.ToString());
                     }
                     else
                     {
@@ -98,7 +97,7 @@ namespace Abiturient_MPT
                 case 1:
                     if (achievementComboBox.SelectedIndex != -1)
                     {
-                        parent.data.recAchievementUpdate(id, startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), achievementComboBox.SelectedValue.ToString());
+                        parent.parent.data.recAchievementUpdate(id, startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), achievementComboBox.SelectedValue.ToString());
                     }
                     else
                     {

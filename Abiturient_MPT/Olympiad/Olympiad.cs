@@ -36,7 +36,7 @@ namespace Abiturient_MPT
                 case 1:
                     olympiadGroupBox.Text = "Редактирование олимпиады";
                     DataTable tbl1 = new DataTable();
-                    tbl1 = parent.data.getCurrentOlympiad(id);
+                    tbl1 = parent.parent.data.getCurrentOlympiad(id);
                     nameTextBox.Text = tbl1.Rows[0][1].ToString();
                     organizerTextBox.Text = tbl1.Rows[0][2].ToString();
                     break;
@@ -50,7 +50,7 @@ namespace Abiturient_MPT
                 case 0:
                     if (nameTextBox.Text != String.Empty)
                     {
-                        parent.data.olympiadAdd(nameTextBox.Text, organizerTextBox.Text);
+                        parent.parent.data.olympiadAdd(nameTextBox.Text, organizerTextBox.Text);
                     }
                     else
                     {
@@ -60,7 +60,7 @@ namespace Abiturient_MPT
                 case 1:
                     if (nameTextBox.Text != String.Empty)
                     {
-                        parent.data.olympiadUpdate(id, nameTextBox.Text, organizerTextBox.Text);
+                        parent.parent.data.olympiadUpdate(id, nameTextBox.Text, organizerTextBox.Text);
                     }
                     else
                     {

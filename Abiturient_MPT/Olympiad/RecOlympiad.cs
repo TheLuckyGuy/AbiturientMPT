@@ -29,23 +29,22 @@ namespace Abiturient_MPT
             endDateTimePicker.MinDate = startDateTimePicker.Value;
 
             DataTable tbl1 = new DataTable();
-            tbl1 = parent.data.GetData((byte)db.Tables.GetAchievements);
+            tbl1 = parent.parent.data.GetData((byte)db.Tables.GetOlympiads);
             olympiadComboBox.DataSource = tbl1;
             olympiadComboBox.DisplayMember = "Название";  // столбец для отображения
             olympiadComboBox.ValueMember = "ID";  //столбец с id
-            //achievementComboBox.SelectedIndex = -1;
 
             switch (mode)
             {
                 case 0:
-                    achievementGroupBox.Text = "Добавить учитываемое достижение";
+                    recOlympiadGroupBox.Text = "Добавить учитываемум олимпиаду";
                     break;
                 case 1:
-                    achievementGroupBox.Text = "Редактирование учитываемого достижения";
+                    recOlympiadGroupBox.Text = "Редактирование учитываемой олипиады";
 
 
                     DataTable tbl2 = new DataTable();
-                    tbl2 = parent.data.getCurrentRecAchievement(id);
+                    tbl2 = parent.parent.data.getCurrentRecOlympiad(id);
 
                     DateTime startDate = DateTime.Parse(tbl2.Rows[0][2].ToString());
                     DateTime endDate = DateTime.Parse(tbl2.Rows[0][3].ToString());
@@ -54,7 +53,6 @@ namespace Abiturient_MPT
                     endDateTimePicker.Value = endDate;
                     int index = olympiadComboBox.FindString(tbl2.Rows[0][1].ToString());
                     olympiadComboBox.SelectedIndex = index;
-                    // achievementComboBox_SelectedValueChanged(this, e);
                     break;
             }
         }
@@ -66,7 +64,7 @@ namespace Abiturient_MPT
                 case 0:
                     if (olympiadComboBox.SelectedIndex != -1)
                     {
-                        parent.data.recOlympiadAdd(startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), olympiadComboBox.SelectedValue.ToString());
+                        parent.parent.data.recOlympiadAdd(startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), olympiadComboBox.SelectedValue.ToString());
                     }
                     else
                     {
@@ -77,7 +75,7 @@ namespace Abiturient_MPT
                 case 1:
                     if (olympiadComboBox.SelectedIndex != -1)
                     {
-                        parent.data.recOlympiadUpdate(id, startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), olympiadComboBox.SelectedValue.ToString());
+                        parent.parent.data.recOlympiadUpdate(id, startDateTimePicker.Value.ToShortDateString(), endDateTimePicker.Value.ToShortDateString(), olympiadComboBox.SelectedValue.ToString());
                     }
                     else
                     {

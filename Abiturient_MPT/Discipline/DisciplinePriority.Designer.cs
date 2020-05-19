@@ -101,6 +101,7 @@
             this.startDateTimePicker.Size = new System.Drawing.Size(100, 20);
             this.startDateTimePicker.TabIndex = 9;
             this.startDateTimePicker.Value = new System.DateTime(2020, 5, 9, 0, 0, 0, 0);
+            this.startDateTimePicker.ValueChanged += new System.EventHandler(this.startDateTimePicker_ValueChanged);
             // 
             // saveButton
             // 
@@ -124,9 +125,24 @@
             // priorityUpDown
             // 
             this.priorityUpDown.Location = new System.Drawing.Point(156, 200);
+            this.priorityUpDown.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.priorityUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.priorityUpDown.Name = "priorityUpDown";
             this.priorityUpDown.Size = new System.Drawing.Size(120, 20);
             this.priorityUpDown.TabIndex = 5;
+            this.priorityUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // specialityComboBox
             // 
@@ -178,7 +194,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 361);
             this.Controls.Add(this.disciplinePriorityGroupBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "DisciplinePriority";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

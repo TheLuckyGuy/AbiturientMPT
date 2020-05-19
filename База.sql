@@ -188,7 +188,7 @@ Create Table [Accounts]
 )
 GO
 --Функция авторизации
-Create Function dbo.Auth(@Login varchar(50), @Password varchar(50)) returns int 
+Create Function dbo.Auth(@Login varchar(50), @Password varchar(150)) returns int 
 as 
 begin 
 	declare @index int = 
@@ -212,7 +212,7 @@ GO
 select * from dbo.GetUserRole (1)
 
 --Процедура регистрации
-Create Procedure dbo.Registration(@Login varchar(50), @Password varchar(50), @Role_ID int) 
+Create Procedure dbo.Registration(@Login varchar(50), @Password varchar(150), @Role_ID int) 
 as 
 begin 
 if ((select count([Login]) from [dbo].[Accounts] where [Login] = @Login) > 0) 
@@ -1010,11 +1010,11 @@ GO
 
 --Получение списка поступающих
 
-Create Procedure dbo.GetAcceptedEnrolleeList
-@Amount int,
+Alter Procedure dbo.GetAcceptedEnrolleeList
+--@Amount int,
 @Speciality int
 as
-select top (10) e.ID_Enrollee, e.Surname, e.Name, e.Patronymic, em.avgMark as 'Средний балл', sm.profSum as 'Сумма по профильным предметам' from Enrollee e
+select e.ID_Enrollee, e.Surname as 'Фамилия', e.Name as 'Имя', e.Patronymic as 'Отчество', em.avgMark as 'Средний балл', sm.profSum as 'Сумма по профильным предметам' from Enrollee e
 INNER JOIN (select Enrollee_ID, AVG(Mark) as avgMark from Enrollee_Mark Group By Enrollee_ID) em
 	ON e.ID_Enrollee = em.Enrollee_ID
 INNER JOIN (select Enrollee_ID, SUM(Mark) as profSum from Enrollee_Mark em
@@ -1022,12 +1022,26 @@ INNER JOIN (select Enrollee_ID, SUM(Mark) as profSum from Enrollee_Mark em
 		ON em.Discipline_ID = dp.Discipline_ID
 	Inner Join Speciality sp
 		ON dp.Speciality_Group_ID = sp.Group_ID
-	where sp.ID_Speciality = 1
+	where sp.ID_Speciality = @Speciality
 	GROUP BY Enrollee_ID) as sm
 
 on sm.Enrollee_ID = e.ID_Enrollee
 ORDER BY em.avgMark DESC, sm.profSum ASC
 go
+
+--exec GetAcceptedEnrolleeList 1
+
+Create Procedure GetSpecialityStats
+@ID_Speciality int
+as
+select COUNT(DISTINCT em.Enrollee_ID) as 'Число абитуриентов на специальности', AVG(Mark) as 'Средний балл по специальности' from Enrollee_Mark em
+INNER JOIN Enrollee_Speciality es
+	on em.Enrollee_ID = es.Enrollee_ID
+	where es.Speciality_ID = @ID_Speciality
+
+go
+
+exec GetSpecialityStats 1
 
 --Go
 --select AVG(Mark) as 'Средний балл' from Enrollee_Mark
@@ -1039,7 +1053,7 @@ go
 --inner join Enrollee_Mark em
 --on e.ID_Enrollee = em.Enrollee_ID
 
-exec GetAcceptedEnrolleeList 10, 1
+--exec GetAcceptedEnrolleeList 10, 1
 
 go
 
@@ -1055,4 +1069,13 @@ insert into dbo.Accounts(Login, Password, ID_Role) values ('Admin', 'Admin', 1)
 GO
 insert into dbo.Accounts(Login, Password, ID_Role) values ('User-1', 'User-1', 2)
 
-select * from Accounts
+--select dbo.Auth ('Admin', 'Admin')
+--select * from Accounts
+
+--SELECT * FROM INFORMATION_SCHEMA.TABLES
+
+--exec dbo.GetSpeciality
+
+alter table Olympiad alter column Organizer Varchar(500) Not Null
+
+exec Insert_Olympiad 'Большой всероссийский фестиваль детского и юношеского художественного творчества, в том числе для детей с ограниченными возможностями здоровья (с международным участием)', 'Федеральное государственное бюджетное учреждение культуры «Всероссийский центр развития художественного творчества и гуманитарных технологий»'

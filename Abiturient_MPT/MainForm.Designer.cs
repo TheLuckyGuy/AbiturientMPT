@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EnrolleePage = new System.Windows.Forms.TabPage();
             this.deleteEnrolleeButton = new System.Windows.Forms.Button();
@@ -45,12 +45,11 @@
             this.addEnrolleeButton = new System.Windows.Forms.Button();
             this.enrolleeGridView = new System.Windows.Forms.DataGridView();
             this.EnrolleeListPage = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.enroleeAmountLabel = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.exportListButton = new System.Windows.Forms.Button();
+            this.enrolleeListGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.specialityComboBox = new System.Windows.Forms.ComboBox();
             this.DisciplinesPage = new System.Windows.Forms.TabPage();
             this.priorityGroupBox = new System.Windows.Forms.GroupBox();
             this.deletePriorityButton = new System.Windows.Forms.Button();
@@ -63,29 +62,29 @@
             this.addDisciplineButton = new System.Windows.Forms.Button();
             this.disciplineGridView = new System.Windows.Forms.DataGridView();
             this.SpecialitiesPage = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.specialityGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteSpecialityButton = new System.Windows.Forms.Button();
             this.editSpecialityButton = new System.Windows.Forms.Button();
             this.addSpecialityButton = new System.Windows.Forms.Button();
             this.specialityGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.specialityGroupGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteSpecialityGroupButton = new System.Windows.Forms.Button();
             this.editSpecialityGroupButton = new System.Windows.Forms.Button();
             this.addSpecialityGroupButton = new System.Windows.Forms.Button();
             this.specialityGroupGridView = new System.Windows.Forms.DataGridView();
             this.AchievementsPage = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.achievementsGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteAchievementButton = new System.Windows.Forms.Button();
             this.editAchievementButton = new System.Windows.Forms.Button();
             this.addAchievementButton = new System.Windows.Forms.Button();
             this.achGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.recAchievementsGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteAchRecButton = new System.Windows.Forms.Button();
             this.editAchRecButton = new System.Windows.Forms.Button();
             this.addAchRecButton = new System.Windows.Forms.Button();
             this.achRecGridView = new System.Windows.Forms.DataGridView();
             this.OlympiadsPage = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.recOlympiadsGroupBox = new System.Windows.Forms.GroupBox();
             this.deleteRecOlympiadButton = new System.Windows.Forms.Button();
             this.editRecOlympiadButton = new System.Windows.Forms.Button();
             this.addRecOlympiadButton = new System.Windows.Forms.Button();
@@ -95,39 +94,52 @@
             this.editOlympiadButton = new System.Windows.Forms.Button();
             this.addOlympiadButton = new System.Windows.Forms.Button();
             this.olymiadGridView = new System.Windows.Forms.DataGridView();
+            this.StatisticsPage = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.statsGridView = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.specStatComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.программаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.statisticsPage = new System.Windows.Forms.TabPage();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roleLabel = new System.Windows.Forms.Label();
+            this.enrolleeGroupBox = new System.Windows.Forms.GroupBox();
+            this.listGroupBox = new System.Windows.Forms.GroupBox();
+            this.statsGroupBox = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.EnrolleePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeGridView)).BeginInit();
             this.EnrolleeListPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enrolleeListGridView)).BeginInit();
             this.DisciplinesPage.SuspendLayout();
             this.priorityGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.priorityGridView)).BeginInit();
             this.disciplineGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineGridView)).BeginInit();
             this.SpecialitiesPage.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.specialityGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.specialityGridView)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.specialityGroupGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.specialityGroupGridView)).BeginInit();
             this.AchievementsPage.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.achievementsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.achGridView)).BeginInit();
-            this.groupBox6.SuspendLayout();
+            this.recAchievementsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.achRecGridView)).BeginInit();
             this.OlympiadsPage.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.recOlympiadsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recOlympiadGridView)).BeginInit();
             this.olympiadsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olymiadGridView)).BeginInit();
+            this.StatisticsPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statsGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.enrolleeGroupBox.SuspendLayout();
+            this.listGroupBox.SuspendLayout();
+            this.statsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -138,7 +150,7 @@
             this.tabControl1.Controls.Add(this.SpecialitiesPage);
             this.tabControl1.Controls.Add(this.AchievementsPage);
             this.tabControl1.Controls.Add(this.OlympiadsPage);
-            this.tabControl1.Controls.Add(this.statisticsPage);
+            this.tabControl1.Controls.Add(this.StatisticsPage);
             this.tabControl1.Location = new System.Drawing.Point(12, 48);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -148,10 +160,7 @@
             // 
             // EnrolleePage
             // 
-            this.EnrolleePage.Controls.Add(this.deleteEnrolleeButton);
-            this.EnrolleePage.Controls.Add(this.editEnrolleeButton);
-            this.EnrolleePage.Controls.Add(this.addEnrolleeButton);
-            this.EnrolleePage.Controls.Add(this.enrolleeGridView);
+            this.EnrolleePage.Controls.Add(this.enrolleeGroupBox);
             this.EnrolleePage.Location = new System.Drawing.Point(4, 22);
             this.EnrolleePage.Name = "EnrolleePage";
             this.EnrolleePage.Padding = new System.Windows.Forms.Padding(3);
@@ -162,7 +171,7 @@
             // 
             // deleteEnrolleeButton
             // 
-            this.deleteEnrolleeButton.Location = new System.Drawing.Point(909, 115);
+            this.deleteEnrolleeButton.Location = new System.Drawing.Point(870, 77);
             this.deleteEnrolleeButton.Name = "deleteEnrolleeButton";
             this.deleteEnrolleeButton.Size = new System.Drawing.Size(75, 23);
             this.deleteEnrolleeButton.TabIndex = 3;
@@ -172,7 +181,7 @@
             // 
             // editEnrolleeButton
             // 
-            this.editEnrolleeButton.Location = new System.Drawing.Point(909, 67);
+            this.editEnrolleeButton.Location = new System.Drawing.Point(870, 48);
             this.editEnrolleeButton.Name = "editEnrolleeButton";
             this.editEnrolleeButton.Size = new System.Drawing.Size(75, 23);
             this.editEnrolleeButton.TabIndex = 2;
@@ -182,7 +191,7 @@
             // 
             // addEnrolleeButton
             // 
-            this.addEnrolleeButton.Location = new System.Drawing.Point(909, 24);
+            this.addEnrolleeButton.Location = new System.Drawing.Point(870, 19);
             this.addEnrolleeButton.Name = "addEnrolleeButton";
             this.addEnrolleeButton.Size = new System.Drawing.Size(75, 23);
             this.addEnrolleeButton.TabIndex = 1;
@@ -196,31 +205,26 @@
             this.enrolleeGridView.AllowUserToDeleteRows = false;
             this.enrolleeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.enrolleeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle31;
-            this.enrolleeGridView.Location = new System.Drawing.Point(15, 15);
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle12;
+            this.enrolleeGridView.Location = new System.Drawing.Point(16, 19);
             this.enrolleeGridView.MultiSelect = false;
             this.enrolleeGridView.Name = "enrolleeGridView";
             this.enrolleeGridView.ReadOnly = true;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle32;
-            this.enrolleeGridView.Size = new System.Drawing.Size(880, 595);
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.enrolleeGridView.Size = new System.Drawing.Size(826, 543);
             this.enrolleeGridView.TabIndex = 0;
             // 
             // EnrolleeListPage
             // 
-            this.EnrolleeListPage.Controls.Add(this.button4);
-            this.EnrolleeListPage.Controls.Add(this.numericUpDown1);
-            this.EnrolleeListPage.Controls.Add(this.enroleeAmountLabel);
-            this.EnrolleeListPage.Controls.Add(this.dataGridView2);
-            this.EnrolleeListPage.Controls.Add(this.label1);
-            this.EnrolleeListPage.Controls.Add(this.comboBox1);
+            this.EnrolleeListPage.Controls.Add(this.listGroupBox);
             this.EnrolleeListPage.Location = new System.Drawing.Point(4, 22);
             this.EnrolleeListPage.Name = "EnrolleeListPage";
             this.EnrolleeListPage.Padding = new System.Windows.Forms.Padding(3);
@@ -229,70 +233,52 @@
             this.EnrolleeListPage.Text = "Формирование списков на поступление";
             this.EnrolleeListPage.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // button1
             // 
-            this.button4.Location = new System.Drawing.Point(871, 16);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(106, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Экспортировать";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(484, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Сформировать";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // numericUpDown1
+            // exportListButton
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(648, 16);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.exportListButton.Location = new System.Drawing.Point(853, 18);
+            this.exportListButton.Name = "exportListButton";
+            this.exportListButton.Size = new System.Drawing.Size(106, 23);
+            this.exportListButton.TabIndex = 5;
+            this.exportListButton.Text = "Экспортировать";
+            this.exportListButton.UseVisualStyleBackColor = true;
+            this.exportListButton.Click += new System.EventHandler(this.exportListButton_Click);
             // 
-            // enroleeAmountLabel
+            // enrolleeListGridView
             // 
-            this.enroleeAmountLabel.AutoSize = true;
-            this.enroleeAmountLabel.Location = new System.Drawing.Point(550, 21);
-            this.enroleeAmountLabel.Name = "enroleeAmountLabel";
-            this.enroleeAmountLabel.Size = new System.Drawing.Size(66, 13);
-            this.enroleeAmountLabel.TabIndex = 3;
-            this.enroleeAmountLabel.Text = "Количество";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(24, 58);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(953, 533);
-            this.dataGridView2.TabIndex = 2;
+            this.enrolleeListGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.enrolleeListGridView.Location = new System.Drawing.Point(6, 47);
+            this.enrolleeListGridView.Name = "enrolleeListGridView";
+            this.enrolleeListGridView.Size = new System.Drawing.Size(953, 533);
+            this.enrolleeListGridView.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 21);
+            this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Специальность";
             // 
-            // comboBox1
+            // specialityComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(137, 15);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(346, 21);
-            this.comboBox1.TabIndex = 0;
+            this.specialityComboBox.FormattingEnabled = true;
+            this.specialityComboBox.Location = new System.Drawing.Point(122, 17);
+            this.specialityComboBox.Name = "specialityComboBox";
+            this.specialityComboBox.Size = new System.Drawing.Size(346, 21);
+            this.specialityComboBox.TabIndex = 0;
+            this.specialityComboBox.SelectedIndexChanged += new System.EventHandler(this.specialityComboBox_SelectedIndexChanged);
+            this.specialityComboBox.SelectedValueChanged += new System.EventHandler(this.specialityComboBox_SelectedValueChanged);
             // 
             // DisciplinesPage
             // 
@@ -356,8 +342,8 @@
             this.priorityGridView.Location = new System.Drawing.Point(20, 60);
             this.priorityGridView.Name = "priorityGridView";
             this.priorityGridView.ReadOnly = true;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.priorityGridView.RowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.priorityGridView.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.priorityGridView.Size = new System.Drawing.Size(440, 450);
             this.priorityGridView.TabIndex = 0;
             // 
@@ -412,15 +398,15 @@
             this.disciplineGridView.Location = new System.Drawing.Point(20, 60);
             this.disciplineGridView.Name = "disciplineGridView";
             this.disciplineGridView.ReadOnly = true;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.disciplineGridView.RowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.disciplineGridView.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.disciplineGridView.Size = new System.Drawing.Size(440, 450);
             this.disciplineGridView.TabIndex = 0;
             // 
             // SpecialitiesPage
             // 
-            this.SpecialitiesPage.Controls.Add(this.groupBox2);
-            this.SpecialitiesPage.Controls.Add(this.groupBox1);
+            this.SpecialitiesPage.Controls.Add(this.specialityGroupBox);
+            this.SpecialitiesPage.Controls.Add(this.specialityGroupGroupBox);
             this.SpecialitiesPage.Location = new System.Drawing.Point(4, 22);
             this.SpecialitiesPage.Name = "SpecialitiesPage";
             this.SpecialitiesPage.Size = new System.Drawing.Size(1003, 616);
@@ -428,18 +414,18 @@
             this.SpecialitiesPage.Text = "Специальности";
             this.SpecialitiesPage.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // specialityGroupBox
             // 
-            this.groupBox2.Controls.Add(this.deleteSpecialityButton);
-            this.groupBox2.Controls.Add(this.editSpecialityButton);
-            this.groupBox2.Controls.Add(this.addSpecialityButton);
-            this.groupBox2.Controls.Add(this.specialityGridView);
-            this.groupBox2.Location = new System.Drawing.Point(500, 15);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(475, 580);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Специальности";
+            this.specialityGroupBox.Controls.Add(this.deleteSpecialityButton);
+            this.specialityGroupBox.Controls.Add(this.editSpecialityButton);
+            this.specialityGroupBox.Controls.Add(this.addSpecialityButton);
+            this.specialityGroupBox.Controls.Add(this.specialityGridView);
+            this.specialityGroupBox.Location = new System.Drawing.Point(500, 15);
+            this.specialityGroupBox.Name = "specialityGroupBox";
+            this.specialityGroupBox.Size = new System.Drawing.Size(475, 580);
+            this.specialityGroupBox.TabIndex = 3;
+            this.specialityGroupBox.TabStop = false;
+            this.specialityGroupBox.Text = "Специальности";
             // 
             // deleteSpecialityButton
             // 
@@ -479,23 +465,23 @@
             this.specialityGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGridView.Name = "specialityGridView";
             this.specialityGridView.ReadOnly = true;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.specialityGridView.Size = new System.Drawing.Size(440, 450);
             this.specialityGridView.TabIndex = 1;
             // 
-            // groupBox1
+            // specialityGroupGroupBox
             // 
-            this.groupBox1.Controls.Add(this.deleteSpecialityGroupButton);
-            this.groupBox1.Controls.Add(this.editSpecialityGroupButton);
-            this.groupBox1.Controls.Add(this.addSpecialityGroupButton);
-            this.groupBox1.Controls.Add(this.specialityGroupGridView);
-            this.groupBox1.Location = new System.Drawing.Point(15, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(475, 580);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Группы специальностей";
+            this.specialityGroupGroupBox.Controls.Add(this.deleteSpecialityGroupButton);
+            this.specialityGroupGroupBox.Controls.Add(this.editSpecialityGroupButton);
+            this.specialityGroupGroupBox.Controls.Add(this.addSpecialityGroupButton);
+            this.specialityGroupGroupBox.Controls.Add(this.specialityGroupGridView);
+            this.specialityGroupGroupBox.Location = new System.Drawing.Point(15, 15);
+            this.specialityGroupGroupBox.Name = "specialityGroupGroupBox";
+            this.specialityGroupGroupBox.Size = new System.Drawing.Size(475, 580);
+            this.specialityGroupGroupBox.TabIndex = 2;
+            this.specialityGroupGroupBox.TabStop = false;
+            this.specialityGroupGroupBox.Text = "Группы специальностей";
             // 
             // deleteSpecialityGroupButton
             // 
@@ -532,14 +518,14 @@
             this.specialityGroupGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.specialityGroupGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.specialityGroupGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle17;
             this.specialityGroupGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGroupGridView.Name = "specialityGroupGridView";
             this.specialityGroupGridView.ReadOnly = true;
@@ -548,8 +534,8 @@
             // 
             // AchievementsPage
             // 
-            this.AchievementsPage.Controls.Add(this.groupBox5);
-            this.AchievementsPage.Controls.Add(this.groupBox6);
+            this.AchievementsPage.Controls.Add(this.achievementsGroupBox);
+            this.AchievementsPage.Controls.Add(this.recAchievementsGroupBox);
             this.AchievementsPage.Location = new System.Drawing.Point(4, 22);
             this.AchievementsPage.Name = "AchievementsPage";
             this.AchievementsPage.Size = new System.Drawing.Size(1003, 616);
@@ -557,18 +543,18 @@
             this.AchievementsPage.Text = "Достижения";
             this.AchievementsPage.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // achievementsGroupBox
             // 
-            this.groupBox5.Controls.Add(this.deleteAchievementButton);
-            this.groupBox5.Controls.Add(this.editAchievementButton);
-            this.groupBox5.Controls.Add(this.addAchievementButton);
-            this.groupBox5.Controls.Add(this.achGridView);
-            this.groupBox5.Location = new System.Drawing.Point(500, 15);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(475, 580);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Словарь достижений";
+            this.achievementsGroupBox.Controls.Add(this.deleteAchievementButton);
+            this.achievementsGroupBox.Controls.Add(this.editAchievementButton);
+            this.achievementsGroupBox.Controls.Add(this.addAchievementButton);
+            this.achievementsGroupBox.Controls.Add(this.achGridView);
+            this.achievementsGroupBox.Location = new System.Drawing.Point(500, 15);
+            this.achievementsGroupBox.Name = "achievementsGroupBox";
+            this.achievementsGroupBox.Size = new System.Drawing.Size(475, 580);
+            this.achievementsGroupBox.TabIndex = 5;
+            this.achievementsGroupBox.TabStop = false;
+            this.achievementsGroupBox.Text = "Словарь достижений";
             // 
             // deleteAchievementButton
             // 
@@ -608,23 +594,23 @@
             this.achGridView.Location = new System.Drawing.Point(20, 60);
             this.achGridView.Name = "achGridView";
             this.achGridView.ReadOnly = true;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.achGridView.Size = new System.Drawing.Size(440, 450);
             this.achGridView.TabIndex = 1;
             // 
-            // groupBox6
+            // recAchievementsGroupBox
             // 
-            this.groupBox6.Controls.Add(this.deleteAchRecButton);
-            this.groupBox6.Controls.Add(this.editAchRecButton);
-            this.groupBox6.Controls.Add(this.addAchRecButton);
-            this.groupBox6.Controls.Add(this.achRecGridView);
-            this.groupBox6.Location = new System.Drawing.Point(15, 15);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(475, 580);
-            this.groupBox6.TabIndex = 4;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Врямя учёта";
+            this.recAchievementsGroupBox.Controls.Add(this.deleteAchRecButton);
+            this.recAchievementsGroupBox.Controls.Add(this.editAchRecButton);
+            this.recAchievementsGroupBox.Controls.Add(this.addAchRecButton);
+            this.recAchievementsGroupBox.Controls.Add(this.achRecGridView);
+            this.recAchievementsGroupBox.Location = new System.Drawing.Point(15, 15);
+            this.recAchievementsGroupBox.Name = "recAchievementsGroupBox";
+            this.recAchievementsGroupBox.Size = new System.Drawing.Size(475, 580);
+            this.recAchievementsGroupBox.TabIndex = 4;
+            this.recAchievementsGroupBox.TabStop = false;
+            this.recAchievementsGroupBox.Text = "Врямя учёта";
             // 
             // deleteAchRecButton
             // 
@@ -664,14 +650,14 @@
             this.achRecGridView.Location = new System.Drawing.Point(20, 60);
             this.achRecGridView.Name = "achRecGridView";
             this.achRecGridView.ReadOnly = true;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle19;
             this.achRecGridView.Size = new System.Drawing.Size(440, 450);
             this.achRecGridView.TabIndex = 0;
             // 
             // OlympiadsPage
             // 
-            this.OlympiadsPage.Controls.Add(this.groupBox3);
+            this.OlympiadsPage.Controls.Add(this.recOlympiadsGroupBox);
             this.OlympiadsPage.Controls.Add(this.olympiadsGroupBox);
             this.OlympiadsPage.Location = new System.Drawing.Point(4, 22);
             this.OlympiadsPage.Name = "OlympiadsPage";
@@ -681,18 +667,18 @@
             this.OlympiadsPage.Text = "Олимпиады";
             this.OlympiadsPage.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // recOlympiadsGroupBox
             // 
-            this.groupBox3.Controls.Add(this.deleteRecOlympiadButton);
-            this.groupBox3.Controls.Add(this.editRecOlympiadButton);
-            this.groupBox3.Controls.Add(this.addRecOlympiadButton);
-            this.groupBox3.Controls.Add(this.recOlympiadGridView);
-            this.groupBox3.Location = new System.Drawing.Point(15, 15);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(475, 580);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Учитываемые олимпиады";
+            this.recOlympiadsGroupBox.Controls.Add(this.deleteRecOlympiadButton);
+            this.recOlympiadsGroupBox.Controls.Add(this.editRecOlympiadButton);
+            this.recOlympiadsGroupBox.Controls.Add(this.addRecOlympiadButton);
+            this.recOlympiadsGroupBox.Controls.Add(this.recOlympiadGridView);
+            this.recOlympiadsGroupBox.Location = new System.Drawing.Point(15, 15);
+            this.recOlympiadsGroupBox.Name = "recOlympiadsGroupBox";
+            this.recOlympiadsGroupBox.Size = new System.Drawing.Size(475, 580);
+            this.recOlympiadsGroupBox.TabIndex = 7;
+            this.recOlympiadsGroupBox.TabStop = false;
+            this.recOlympiadsGroupBox.Text = "Учитываемые олимпиады";
             // 
             // deleteRecOlympiadButton
             // 
@@ -702,6 +688,7 @@
             this.deleteRecOlympiadButton.TabIndex = 6;
             this.deleteRecOlympiadButton.Text = "Удалить";
             this.deleteRecOlympiadButton.UseVisualStyleBackColor = true;
+            this.deleteRecOlympiadButton.Click += new System.EventHandler(this.recOlympiadButtons_Click);
             // 
             // editRecOlympiadButton
             // 
@@ -711,6 +698,7 @@
             this.editRecOlympiadButton.TabIndex = 5;
             this.editRecOlympiadButton.Text = "Изменить";
             this.editRecOlympiadButton.UseVisualStyleBackColor = true;
+            this.editRecOlympiadButton.Click += new System.EventHandler(this.recOlympiadButtons_Click);
             // 
             // addRecOlympiadButton
             // 
@@ -720,6 +708,7 @@
             this.addRecOlympiadButton.TabIndex = 4;
             this.addRecOlympiadButton.Text = "Добавить";
             this.addRecOlympiadButton.UseVisualStyleBackColor = true;
+            this.addRecOlympiadButton.Click += new System.EventHandler(this.recOlympiadButtons_Click);
             // 
             // recOlympiadGridView
             // 
@@ -729,8 +718,8 @@
             this.recOlympiadGridView.Location = new System.Drawing.Point(20, 60);
             this.recOlympiadGridView.Name = "recOlympiadGridView";
             this.recOlympiadGridView.ReadOnly = true;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.recOlympiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.recOlympiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.recOlympiadGridView.Size = new System.Drawing.Size(440, 450);
             this.recOlympiadGridView.TabIndex = 1;
             // 
@@ -785,10 +774,66 @@
             this.olymiadGridView.Location = new System.Drawing.Point(20, 60);
             this.olymiadGridView.Name = "olymiadGridView";
             this.olymiadGridView.ReadOnly = true;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.olymiadGridView.Size = new System.Drawing.Size(440, 450);
             this.olymiadGridView.TabIndex = 1;
+            // 
+            // StatisticsPage
+            // 
+            this.StatisticsPage.Controls.Add(this.statsGroupBox);
+            this.StatisticsPage.Location = new System.Drawing.Point(4, 22);
+            this.StatisticsPage.Name = "StatisticsPage";
+            this.StatisticsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.StatisticsPage.Size = new System.Drawing.Size(1003, 616);
+            this.StatisticsPage.TabIndex = 6;
+            this.StatisticsPage.Text = "Статистика";
+            this.StatisticsPage.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(484, 19);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(98, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Подготовить";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(856, 20);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(106, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Экспортировать";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // statsGridView
+            // 
+            this.statsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.statsGridView.Location = new System.Drawing.Point(8, 55);
+            this.statsGridView.Name = "statsGridView";
+            this.statsGridView.Size = new System.Drawing.Size(953, 533);
+            this.statsGridView.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Специальность";
+            // 
+            // specStatComboBox
+            // 
+            this.specStatComboBox.FormattingEnabled = true;
+            this.specStatComboBox.Location = new System.Drawing.Point(122, 19);
+            this.specStatComboBox.Name = "specStatComboBox";
+            this.specStatComboBox.Size = new System.Drawing.Size(346, 21);
+            this.specStatComboBox.TabIndex = 7;
             // 
             // menuStrip1
             // 
@@ -809,6 +854,13 @@
             this.программаToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.программаToolStripMenuItem.Text = "Система";
             // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -823,28 +875,62 @@
             this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem1.Text = "О программе";
             // 
-            // statisticsPage
+            // roleLabel
             // 
-            this.statisticsPage.Location = new System.Drawing.Point(4, 22);
-            this.statisticsPage.Name = "statisticsPage";
-            this.statisticsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.statisticsPage.Size = new System.Drawing.Size(1003, 616);
-            this.statisticsPage.TabIndex = 6;
-            this.statisticsPage.Text = "Статистика";
-            this.statisticsPage.UseVisualStyleBackColor = true;
+            this.roleLabel.AutoSize = true;
+            this.roleLabel.Location = new System.Drawing.Point(12, 32);
+            this.roleLabel.Name = "roleLabel";
+            this.roleLabel.Size = new System.Drawing.Size(35, 13);
+            this.roleLabel.TabIndex = 2;
+            this.roleLabel.Text = "Роль:";
             // 
-            // выходToolStripMenuItem
+            // enrolleeGroupBox
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            this.enrolleeGroupBox.Controls.Add(this.addEnrolleeButton);
+            this.enrolleeGroupBox.Controls.Add(this.enrolleeGridView);
+            this.enrolleeGroupBox.Controls.Add(this.deleteEnrolleeButton);
+            this.enrolleeGroupBox.Controls.Add(this.editEnrolleeButton);
+            this.enrolleeGroupBox.Location = new System.Drawing.Point(20, 6);
+            this.enrolleeGroupBox.Name = "enrolleeGroupBox";
+            this.enrolleeGroupBox.Size = new System.Drawing.Size(965, 586);
+            this.enrolleeGroupBox.TabIndex = 4;
+            this.enrolleeGroupBox.TabStop = false;
+            this.enrolleeGroupBox.Text = "Абитуриенты";
+            // 
+            // listGroupBox
+            // 
+            this.listGroupBox.Controls.Add(this.enrolleeListGridView);
+            this.listGroupBox.Controls.Add(this.button1);
+            this.listGroupBox.Controls.Add(this.exportListButton);
+            this.listGroupBox.Controls.Add(this.label1);
+            this.listGroupBox.Controls.Add(this.specialityComboBox);
+            this.listGroupBox.Location = new System.Drawing.Point(15, 6);
+            this.listGroupBox.Name = "listGroupBox";
+            this.listGroupBox.Size = new System.Drawing.Size(982, 604);
+            this.listGroupBox.TabIndex = 7;
+            this.listGroupBox.TabStop = false;
+            this.listGroupBox.Text = "Список поступающих";
+            // 
+            // statsGroupBox
+            // 
+            this.statsGroupBox.Controls.Add(this.statsGridView);
+            this.statsGroupBox.Controls.Add(this.button2);
+            this.statsGroupBox.Controls.Add(this.label2);
+            this.statsGroupBox.Controls.Add(this.button3);
+            this.statsGroupBox.Controls.Add(this.specStatComboBox);
+            this.statsGroupBox.Location = new System.Drawing.Point(9, 6);
+            this.statsGroupBox.Name = "statsGroupBox";
+            this.statsGroupBox.Size = new System.Drawing.Size(988, 604);
+            this.statsGroupBox.TabIndex = 12;
+            this.statsGroupBox.TabStop = false;
+            this.statsGroupBox.Text = "Статистика";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 702);
+            this.Controls.Add(this.roleLabel);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -857,31 +943,36 @@
             this.EnrolleePage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeGridView)).EndInit();
             this.EnrolleeListPage.ResumeLayout(false);
-            this.EnrolleeListPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enrolleeListGridView)).EndInit();
             this.DisciplinesPage.ResumeLayout(false);
             this.priorityGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.priorityGridView)).EndInit();
             this.disciplineGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.disciplineGridView)).EndInit();
             this.SpecialitiesPage.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.specialityGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.specialityGridView)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.specialityGroupGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.specialityGroupGridView)).EndInit();
             this.AchievementsPage.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
+            this.achievementsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.achGridView)).EndInit();
-            this.groupBox6.ResumeLayout(false);
+            this.recAchievementsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.achRecGridView)).EndInit();
             this.OlympiadsPage.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.recOlympiadsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.recOlympiadGridView)).EndInit();
             this.olympiadsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olymiadGridView)).EndInit();
+            this.StatisticsPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.statsGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.enrolleeGroupBox.ResumeLayout(false);
+            this.listGroupBox.ResumeLayout(false);
+            this.listGroupBox.PerformLayout();
+            this.statsGroupBox.ResumeLayout(false);
+            this.statsGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -899,14 +990,14 @@
         private System.Windows.Forms.Button addEnrolleeButton;
         private System.Windows.Forms.DataGridView enrolleeGridView;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox specialityComboBox;
         private System.Windows.Forms.GroupBox priorityGroupBox;
         private System.Windows.Forms.DataGridView priorityGridView;
         private System.Windows.Forms.GroupBox disciplineGroupBox;
         private System.Windows.Forms.DataGridView disciplineGridView;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox specialityGroupBox;
         private System.Windows.Forms.DataGridView specialityGridView;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox specialityGroupGroupBox;
         private System.Windows.Forms.DataGridView specialityGroupGridView;
         private System.Windows.Forms.TabPage AchievementsPage;
         private System.Windows.Forms.Button deletePriorityButton;
@@ -921,37 +1012,45 @@
         private System.Windows.Forms.Button deleteSpecialityGroupButton;
         private System.Windows.Forms.Button editSpecialityGroupButton;
         private System.Windows.Forms.Button addSpecialityGroupButton;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox achievementsGroupBox;
         private System.Windows.Forms.Button deleteAchievementButton;
         private System.Windows.Forms.Button editAchievementButton;
         private System.Windows.Forms.Button addAchievementButton;
         private System.Windows.Forms.DataGridView achGridView;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox recAchievementsGroupBox;
         private System.Windows.Forms.Button deleteAchRecButton;
         private System.Windows.Forms.Button editAchRecButton;
         private System.Windows.Forms.Button addAchRecButton;
         private System.Windows.Forms.DataGridView achRecGridView;
         private System.Windows.Forms.TabPage OlympiadsPage;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView enrolleeListGridView;
         private System.Windows.Forms.GroupBox olympiadsGroupBox;
         private System.Windows.Forms.Button deleteOlympiadButton;
         private System.Windows.Forms.Button editOlympiadButton;
         private System.Windows.Forms.Button addOlympiadButton;
         private System.Windows.Forms.DataGridView olymiadGridView;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label enroleeAmountLabel;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button exportListButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem программаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox recOlympiadsGroupBox;
         private System.Windows.Forms.Button deleteRecOlympiadButton;
         private System.Windows.Forms.Button editRecOlympiadButton;
         private System.Windows.Forms.Button addRecOlympiadButton;
         private System.Windows.Forms.DataGridView recOlympiadGridView;
-        private System.Windows.Forms.TabPage statisticsPage;
+        private System.Windows.Forms.TabPage StatisticsPage;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.Label roleLabel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView statsGridView;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox specStatComboBox;
+        private System.Windows.Forms.GroupBox enrolleeGroupBox;
+        private System.Windows.Forms.GroupBox listGroupBox;
+        private System.Windows.Forms.GroupBox statsGroupBox;
     }
 }
 

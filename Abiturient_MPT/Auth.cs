@@ -75,25 +75,25 @@ namespace Abiturient_MPT
             else { return; }
         }
 
-        private void authEnterButton_Click(object sender, EventArgs e)
+        private void authEnterButton_Click(object sender, EventArgs e) // Действие при нажатии кнопки авторизации
         {
-            int roleID = 0;
-            roleID = data.Authorization(authLoginTextBox.Text, authPassTextBox.Text);
+            int roleID = 0; // Переменная для хранения роли
+            roleID = data.Authorization(authLoginTextBox.Text, authPassTextBox.Text); // Выполнение функции авторизации, результатом которой будет получение ID роли
 
             switch (roleID)
             {
-                case 1:
+                default: // Если значение не 0 и не -1, то пользователь авторизован
                     currentUser = data.getUserRole(roleID);
                     currentUser.Name = authLoginTextBox.Text;
-                    MainForm mainForm = new MainForm(this);
-                    //mainForm.Parent = this;
-                    this.Hide();
-                    mainForm.Show();
+                    MainForm mainForm = new MainForm(this); // Создание дочерней формы, которая будет открыта далее, в качестве параметра передаётся ссылка на родителя
+                    this.Hide(); // Форма авторизации скрывается
+                    authPassTextBox.Text = String.Empty; // Форма пароля очищается
+                    mainForm.Show(); // На экран выводится новая форма
                     break;
-                case 0:
+                case 0: // Если значение роли равно 0, то была введена неправильная комбинация логина и пароля, выводится сообщение об ошибке
                     MessageBox.Show("Ошибка авторизации. Неправильные логин или пароль", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     break;
-                case -1:
+                case -1: // Если значение роли равно -1, то это означает, что программа не смогла подключиться к бд, выводится сообщение об ошибке
                     MessageBox.Show("Ошибка авторизации. Проблемы при подключении к базе данных", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
                     break;
             }
@@ -110,6 +110,10 @@ namespace Abiturient_MPT
                     {
                         case 1:
                             MessageBox.Show("Вы успешно зарегистрированы", "Успех!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            authPassTextBox.Text = String.Empty;
+                            authLoginTextBox.Text = String.Empty;
+                            regPass2TextBox.Text = String.Empty;
+                            regEnterButton_Click(this, e);
                             break;
                         case 0:
                             MessageBox.Show("Ошибка регистрации. Пользователь с таким логином уже существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);

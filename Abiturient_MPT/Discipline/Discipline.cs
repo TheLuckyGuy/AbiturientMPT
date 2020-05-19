@@ -30,7 +30,7 @@ namespace Abiturient_MPT
                 case 0:
                     if (nameTextBox.Text != String.Empty)
                     {
-                        parent.data.disciplineAdd(nameTextBox.Text);
+                        parent.parent.data.disciplineAdd(nameTextBox.Text);
                     }
                     else
                     {
@@ -40,7 +40,7 @@ namespace Abiturient_MPT
                 case 1:
                     if (nameTextBox.Text != String.Empty)
                     {
-                        parent.data.disciplineUpdate(id, nameTextBox.Text);
+                        parent.parent.data.disciplineUpdate(id, nameTextBox.Text);
                     }
                     else
                     {
@@ -69,7 +69,7 @@ namespace Abiturient_MPT
                 case 1:
                     disciplineGroupBox.Text = "Редактирование предмета";
                     DataTable tbl1 = new DataTable();
-                    tbl1 = parent.data.getCurrentDiscipline(id);
+                    tbl1 = parent.parent.data.getCurrentDiscipline(id);
                     nameTextBox.Text = tbl1.Rows[0][0].ToString();
                     break;
             }

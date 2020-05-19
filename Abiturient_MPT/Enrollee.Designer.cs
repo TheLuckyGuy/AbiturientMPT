@@ -558,16 +558,16 @@
             this.marksGroupBox.Controls.Add(this.markUpDown);
             this.marksGroupBox.Controls.Add(this.disciplineComboBox);
             this.marksGroupBox.Enabled = false;
-            this.marksGroupBox.Location = new System.Drawing.Point(842, 37);
+            this.marksGroupBox.Location = new System.Drawing.Point(842, 25);
             this.marksGroupBox.Name = "marksGroupBox";
-            this.marksGroupBox.Size = new System.Drawing.Size(344, 272);
+            this.marksGroupBox.Size = new System.Drawing.Size(344, 284);
             this.marksGroupBox.TabIndex = 44;
             this.marksGroupBox.TabStop = false;
             this.marksGroupBox.Text = "Оценки";
             // 
             // addMarkButton
             // 
-            this.addMarkButton.Location = new System.Drawing.Point(247, 234);
+            this.addMarkButton.Location = new System.Drawing.Point(247, 246);
             this.addMarkButton.Name = "addMarkButton";
             this.addMarkButton.Size = new System.Drawing.Size(75, 23);
             this.addMarkButton.TabIndex = 45;
@@ -577,7 +577,7 @@
             // 
             // deleteMarkButton
             // 
-            this.deleteMarkButton.Location = new System.Drawing.Point(22, 234);
+            this.deleteMarkButton.Location = new System.Drawing.Point(20, 246);
             this.deleteMarkButton.Name = "deleteMarkButton";
             this.deleteMarkButton.Size = new System.Drawing.Size(75, 23);
             this.deleteMarkButton.TabIndex = 44;
@@ -592,7 +592,7 @@
             this.markGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.markGridView.Location = new System.Drawing.Point(22, 68);
             this.markGridView.Name = "markGridView";
-            this.markGridView.Size = new System.Drawing.Size(300, 160);
+            this.markGridView.Size = new System.Drawing.Size(300, 172);
             this.markGridView.TabIndex = 2;
             // 
             // markUpDown
