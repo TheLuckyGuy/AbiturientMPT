@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<DBData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <controlString>ControlString</controlString>
+  <isLocal>true</isLocal>
+  <dataSource>LAPTOP-KPGPB2J6</dataSource>
+  <dataBase>Abiturient_MPT</dataBase>
+  <user>sa</user>
+  <pass>17455688</pass>
+</DBData>

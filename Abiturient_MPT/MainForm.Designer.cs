@@ -28,26 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.EnrolleePage = new System.Windows.Forms.TabPage();
-            this.deleteEnrolleeButton = new System.Windows.Forms.Button();
-            this.editEnrolleeButton = new System.Windows.Forms.Button();
+            this.enrolleeGroupBox = new System.Windows.Forms.GroupBox();
             this.addEnrolleeButton = new System.Windows.Forms.Button();
             this.enrolleeGridView = new System.Windows.Forms.DataGridView();
+            this.deleteEnrolleeButton = new System.Windows.Forms.Button();
+            this.editEnrolleeButton = new System.Windows.Forms.Button();
             this.EnrolleeListPage = new System.Windows.Forms.TabPage();
+            this.listGroupBox = new System.Windows.Forms.GroupBox();
+            this.enrolleeListGridView = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.exportListButton = new System.Windows.Forms.Button();
-            this.enrolleeListGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.specialityComboBox = new System.Windows.Forms.ComboBox();
             this.DisciplinesPage = new System.Windows.Forms.TabPage();
@@ -95,10 +98,11 @@
             this.addOlympiadButton = new System.Windows.Forms.Button();
             this.olymiadGridView = new System.Windows.Forms.DataGridView();
             this.StatisticsPage = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.statsGroupBox = new System.Windows.Forms.GroupBox();
             this.statsGridView = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.specStatComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.программаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,13 +110,12 @@
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.roleLabel = new System.Windows.Forms.Label();
-            this.enrolleeGroupBox = new System.Windows.Forms.GroupBox();
-            this.listGroupBox = new System.Windows.Forms.GroupBox();
-            this.statsGroupBox = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.EnrolleePage.SuspendLayout();
+            this.enrolleeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeGridView)).BeginInit();
             this.EnrolleeListPage.SuspendLayout();
+            this.listGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeListGridView)).BeginInit();
             this.DisciplinesPage.SuspendLayout();
             this.priorityGroupBox.SuspendLayout();
@@ -135,11 +138,9 @@
             this.olympiadsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.olymiadGridView)).BeginInit();
             this.StatisticsPage.SuspendLayout();
+            this.statsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statsGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.enrolleeGroupBox.SuspendLayout();
-            this.listGroupBox.SuspendLayout();
-            this.statsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -169,6 +170,52 @@
             this.EnrolleePage.Text = "Абитуриенты";
             this.EnrolleePage.UseVisualStyleBackColor = true;
             // 
+            // enrolleeGroupBox
+            // 
+            this.enrolleeGroupBox.Controls.Add(this.addEnrolleeButton);
+            this.enrolleeGroupBox.Controls.Add(this.enrolleeGridView);
+            this.enrolleeGroupBox.Controls.Add(this.deleteEnrolleeButton);
+            this.enrolleeGroupBox.Controls.Add(this.editEnrolleeButton);
+            this.enrolleeGroupBox.Location = new System.Drawing.Point(20, 6);
+            this.enrolleeGroupBox.Name = "enrolleeGroupBox";
+            this.enrolleeGroupBox.Size = new System.Drawing.Size(965, 586);
+            this.enrolleeGroupBox.TabIndex = 4;
+            this.enrolleeGroupBox.TabStop = false;
+            this.enrolleeGroupBox.Text = "Абитуриенты";
+            // 
+            // addEnrolleeButton
+            // 
+            this.addEnrolleeButton.Location = new System.Drawing.Point(870, 19);
+            this.addEnrolleeButton.Name = "addEnrolleeButton";
+            this.addEnrolleeButton.Size = new System.Drawing.Size(75, 23);
+            this.addEnrolleeButton.TabIndex = 1;
+            this.addEnrolleeButton.Text = "Добавить";
+            this.addEnrolleeButton.UseVisualStyleBackColor = true;
+            this.addEnrolleeButton.Click += new System.EventHandler(this.EnrolleeButton_Click);
+            // 
+            // enrolleeGridView
+            // 
+            this.enrolleeGridView.AllowUserToAddRows = false;
+            this.enrolleeGridView.AllowUserToDeleteRows = false;
+            this.enrolleeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.enrolleeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle1;
+            this.enrolleeGridView.Location = new System.Drawing.Point(16, 19);
+            this.enrolleeGridView.MultiSelect = false;
+            this.enrolleeGridView.Name = "enrolleeGridView";
+            this.enrolleeGridView.ReadOnly = true;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.enrolleeGridView.Size = new System.Drawing.Size(826, 543);
+            this.enrolleeGridView.TabIndex = 0;
+            // 
             // deleteEnrolleeButton
             // 
             this.deleteEnrolleeButton.Location = new System.Drawing.Point(870, 77);
@@ -189,39 +236,6 @@
             this.editEnrolleeButton.UseVisualStyleBackColor = true;
             this.editEnrolleeButton.Click += new System.EventHandler(this.EnrolleeButton_Click);
             // 
-            // addEnrolleeButton
-            // 
-            this.addEnrolleeButton.Location = new System.Drawing.Point(870, 19);
-            this.addEnrolleeButton.Name = "addEnrolleeButton";
-            this.addEnrolleeButton.Size = new System.Drawing.Size(75, 23);
-            this.addEnrolleeButton.TabIndex = 1;
-            this.addEnrolleeButton.Text = "Добавить";
-            this.addEnrolleeButton.UseVisualStyleBackColor = true;
-            this.addEnrolleeButton.Click += new System.EventHandler(this.EnrolleeButton_Click);
-            // 
-            // enrolleeGridView
-            // 
-            this.enrolleeGridView.AllowUserToAddRows = false;
-            this.enrolleeGridView.AllowUserToDeleteRows = false;
-            this.enrolleeGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.enrolleeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.DefaultCellStyle = dataGridViewCellStyle12;
-            this.enrolleeGridView.Location = new System.Drawing.Point(16, 19);
-            this.enrolleeGridView.MultiSelect = false;
-            this.enrolleeGridView.Name = "enrolleeGridView";
-            this.enrolleeGridView.ReadOnly = true;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.enrolleeGridView.RowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.enrolleeGridView.Size = new System.Drawing.Size(826, 543);
-            this.enrolleeGridView.TabIndex = 0;
-            // 
             // EnrolleeListPage
             // 
             this.EnrolleeListPage.Controls.Add(this.listGroupBox);
@@ -232,6 +246,28 @@
             this.EnrolleeListPage.TabIndex = 1;
             this.EnrolleeListPage.Text = "Формирование списков на поступление";
             this.EnrolleeListPage.UseVisualStyleBackColor = true;
+            // 
+            // listGroupBox
+            // 
+            this.listGroupBox.Controls.Add(this.enrolleeListGridView);
+            this.listGroupBox.Controls.Add(this.button1);
+            this.listGroupBox.Controls.Add(this.exportListButton);
+            this.listGroupBox.Controls.Add(this.label1);
+            this.listGroupBox.Controls.Add(this.specialityComboBox);
+            this.listGroupBox.Location = new System.Drawing.Point(15, 6);
+            this.listGroupBox.Name = "listGroupBox";
+            this.listGroupBox.Size = new System.Drawing.Size(982, 604);
+            this.listGroupBox.TabIndex = 7;
+            this.listGroupBox.TabStop = false;
+            this.listGroupBox.Text = "Список поступающих";
+            // 
+            // enrolleeListGridView
+            // 
+            this.enrolleeListGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.enrolleeListGridView.Location = new System.Drawing.Point(6, 47);
+            this.enrolleeListGridView.Name = "enrolleeListGridView";
+            this.enrolleeListGridView.Size = new System.Drawing.Size(953, 533);
+            this.enrolleeListGridView.TabIndex = 2;
             // 
             // button1
             // 
@@ -252,14 +288,6 @@
             this.exportListButton.Text = "Экспортировать";
             this.exportListButton.UseVisualStyleBackColor = true;
             this.exportListButton.Click += new System.EventHandler(this.exportListButton_Click);
-            // 
-            // enrolleeListGridView
-            // 
-            this.enrolleeListGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.enrolleeListGridView.Location = new System.Drawing.Point(6, 47);
-            this.enrolleeListGridView.Name = "enrolleeListGridView";
-            this.enrolleeListGridView.Size = new System.Drawing.Size(953, 533);
-            this.enrolleeListGridView.TabIndex = 2;
             // 
             // label1
             // 
@@ -342,8 +370,8 @@
             this.priorityGridView.Location = new System.Drawing.Point(20, 60);
             this.priorityGridView.Name = "priorityGridView";
             this.priorityGridView.ReadOnly = true;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.priorityGridView.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.priorityGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.priorityGridView.Size = new System.Drawing.Size(440, 450);
             this.priorityGridView.TabIndex = 0;
             // 
@@ -398,8 +426,8 @@
             this.disciplineGridView.Location = new System.Drawing.Point(20, 60);
             this.disciplineGridView.Name = "disciplineGridView";
             this.disciplineGridView.ReadOnly = true;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.disciplineGridView.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.disciplineGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.disciplineGridView.Size = new System.Drawing.Size(440, 450);
             this.disciplineGridView.TabIndex = 0;
             // 
@@ -465,8 +493,8 @@
             this.specialityGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGridView.Name = "specialityGridView";
             this.specialityGridView.ReadOnly = true;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.specialityGridView.Size = new System.Drawing.Size(440, 450);
             this.specialityGridView.TabIndex = 1;
             // 
@@ -518,14 +546,14 @@
             this.specialityGroupGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.specialityGroupGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.specialityGroupGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGroupGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.specialityGroupGridView.Location = new System.Drawing.Point(20, 60);
             this.specialityGroupGridView.Name = "specialityGroupGridView";
             this.specialityGroupGridView.ReadOnly = true;
@@ -594,8 +622,8 @@
             this.achGridView.Location = new System.Drawing.Point(20, 60);
             this.achGridView.Name = "achGridView";
             this.achGridView.ReadOnly = true;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.achGridView.Size = new System.Drawing.Size(440, 450);
             this.achGridView.TabIndex = 1;
             // 
@@ -650,8 +678,8 @@
             this.achRecGridView.Location = new System.Drawing.Point(20, 60);
             this.achRecGridView.Name = "achRecGridView";
             this.achRecGridView.ReadOnly = true;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.achRecGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.achRecGridView.Size = new System.Drawing.Size(440, 450);
             this.achRecGridView.TabIndex = 0;
             // 
@@ -718,8 +746,8 @@
             this.recOlympiadGridView.Location = new System.Drawing.Point(20, 60);
             this.recOlympiadGridView.Name = "recOlympiadGridView";
             this.recOlympiadGridView.ReadOnly = true;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.recOlympiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.recOlympiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.recOlympiadGridView.Size = new System.Drawing.Size(440, 450);
             this.recOlympiadGridView.TabIndex = 1;
             // 
@@ -774,8 +802,8 @@
             this.olymiadGridView.Location = new System.Drawing.Point(20, 60);
             this.olymiadGridView.Name = "olymiadGridView";
             this.olymiadGridView.ReadOnly = true;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.olymiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.olymiadGridView.Size = new System.Drawing.Size(440, 450);
             this.olymiadGridView.TabIndex = 1;
             // 
@@ -790,6 +818,28 @@
             this.StatisticsPage.Text = "Статистика";
             this.StatisticsPage.UseVisualStyleBackColor = true;
             // 
+            // statsGroupBox
+            // 
+            this.statsGroupBox.Controls.Add(this.statsGridView);
+            this.statsGroupBox.Controls.Add(this.button2);
+            this.statsGroupBox.Controls.Add(this.label2);
+            this.statsGroupBox.Controls.Add(this.button3);
+            this.statsGroupBox.Controls.Add(this.specStatComboBox);
+            this.statsGroupBox.Location = new System.Drawing.Point(9, 6);
+            this.statsGroupBox.Name = "statsGroupBox";
+            this.statsGroupBox.Size = new System.Drawing.Size(988, 604);
+            this.statsGroupBox.TabIndex = 12;
+            this.statsGroupBox.TabStop = false;
+            this.statsGroupBox.Text = "Статистика";
+            // 
+            // statsGridView
+            // 
+            this.statsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.statsGridView.Location = new System.Drawing.Point(8, 55);
+            this.statsGridView.Name = "statsGridView";
+            this.statsGridView.Size = new System.Drawing.Size(953, 533);
+            this.statsGridView.TabIndex = 9;
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(484, 19);
@@ -800,6 +850,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Специальность";
+            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(856, 20);
@@ -809,23 +868,6 @@
             this.button3.Text = "Экспортировать";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // statsGridView
-            // 
-            this.statsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.statsGridView.Location = new System.Drawing.Point(8, 55);
-            this.statsGridView.Name = "statsGridView";
-            this.statsGridView.Size = new System.Drawing.Size(953, 533);
-            this.statsGridView.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Специальность";
             // 
             // specStatComboBox
             // 
@@ -884,47 +926,6 @@
             this.roleLabel.TabIndex = 2;
             this.roleLabel.Text = "Роль:";
             // 
-            // enrolleeGroupBox
-            // 
-            this.enrolleeGroupBox.Controls.Add(this.addEnrolleeButton);
-            this.enrolleeGroupBox.Controls.Add(this.enrolleeGridView);
-            this.enrolleeGroupBox.Controls.Add(this.deleteEnrolleeButton);
-            this.enrolleeGroupBox.Controls.Add(this.editEnrolleeButton);
-            this.enrolleeGroupBox.Location = new System.Drawing.Point(20, 6);
-            this.enrolleeGroupBox.Name = "enrolleeGroupBox";
-            this.enrolleeGroupBox.Size = new System.Drawing.Size(965, 586);
-            this.enrolleeGroupBox.TabIndex = 4;
-            this.enrolleeGroupBox.TabStop = false;
-            this.enrolleeGroupBox.Text = "Абитуриенты";
-            // 
-            // listGroupBox
-            // 
-            this.listGroupBox.Controls.Add(this.enrolleeListGridView);
-            this.listGroupBox.Controls.Add(this.button1);
-            this.listGroupBox.Controls.Add(this.exportListButton);
-            this.listGroupBox.Controls.Add(this.label1);
-            this.listGroupBox.Controls.Add(this.specialityComboBox);
-            this.listGroupBox.Location = new System.Drawing.Point(15, 6);
-            this.listGroupBox.Name = "listGroupBox";
-            this.listGroupBox.Size = new System.Drawing.Size(982, 604);
-            this.listGroupBox.TabIndex = 7;
-            this.listGroupBox.TabStop = false;
-            this.listGroupBox.Text = "Список поступающих";
-            // 
-            // statsGroupBox
-            // 
-            this.statsGroupBox.Controls.Add(this.statsGridView);
-            this.statsGroupBox.Controls.Add(this.button2);
-            this.statsGroupBox.Controls.Add(this.label2);
-            this.statsGroupBox.Controls.Add(this.button3);
-            this.statsGroupBox.Controls.Add(this.specStatComboBox);
-            this.statsGroupBox.Location = new System.Drawing.Point(9, 6);
-            this.statsGroupBox.Name = "statsGroupBox";
-            this.statsGroupBox.Size = new System.Drawing.Size(988, 604);
-            this.statsGroupBox.TabIndex = 12;
-            this.statsGroupBox.TabStop = false;
-            this.statsGroupBox.Text = "Статистика";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -933,6 +934,7 @@
             this.Controls.Add(this.roleLabel);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -941,8 +943,11 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.EnrolleePage.ResumeLayout(false);
+            this.enrolleeGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeGridView)).EndInit();
             this.EnrolleeListPage.ResumeLayout(false);
+            this.listGroupBox.ResumeLayout(false);
+            this.listGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.enrolleeListGridView)).EndInit();
             this.DisciplinesPage.ResumeLayout(false);
             this.priorityGroupBox.ResumeLayout(false);
@@ -965,14 +970,11 @@
             this.olympiadsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.olymiadGridView)).EndInit();
             this.StatisticsPage.ResumeLayout(false);
+            this.statsGroupBox.ResumeLayout(false);
+            this.statsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statsGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.enrolleeGroupBox.ResumeLayout(false);
-            this.listGroupBox.ResumeLayout(false);
-            this.listGroupBox.PerformLayout();
-            this.statsGroupBox.ResumeLayout(false);
-            this.statsGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

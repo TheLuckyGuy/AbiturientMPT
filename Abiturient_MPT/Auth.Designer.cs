@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Auth));
             this.authRegisterButton = new System.Windows.Forms.Button();
             this.authEnterButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.authLoginTextBox = new System.Windows.Forms.TextBox();
             this.authPassTextBox = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.regPass2TextBox = new System.Windows.Forms.TextBox();
             this.regEnterButton = new System.Windows.Forms.Button();
             this.registerButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,16 +105,6 @@
             this.authPassTextBox.UseSystemPasswordChar = true;
             this.authPassTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.authLoginTextBox_KeyPress);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Abiturient_MPT.Properties.Resources.logoq;
-            this.pictureBox1.Location = new System.Drawing.Point(110, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(160, 135);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -170,6 +161,16 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Вход";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Abiturient_MPT.Properties.Resources.logoq;
+            this.pictureBox1.Location = new System.Drawing.Point(110, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(160, 135);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // Auth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,6 +189,7 @@
             this.Controls.Add(this.authEnterButton);
             this.Controls.Add(this.authRegisterButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Auth";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

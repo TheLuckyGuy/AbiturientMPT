@@ -15,20 +15,27 @@ namespace Abiturient_MPT
 {
     public class db
     {
-        public string dataSource = "";
-        public string initialCatalog = "";
 
-        public string user = "";
-        public string password = "";
 
+        //public SqlConnection sql = new SqlConnection("Data Source = LAPTOP-KPGPB2J6; " +
+        //    "initial Catalog = Abiturient_MPT; Persist Security Info = true; User ID = sa; Password = \"17455688\""); // Строка подключения к БД
 
         public SqlConnection sql = new SqlConnection("Data Source = LAPTOP-KPGPB2J6; " +
             "initial Catalog = Abiturient_MPT; Persist Security Info = true; User ID = sa; Password = \"17455688\""); // Строка подключения к БД
+        public DBData data = new DBData();
 
-
-        public db()
+        public db(DBData _data)
         {
+            data = _data;
             //sql.Open();
+            if (data.isLocal == true)
+            {
+                sql.ConnectionString = "Data Source=" + data.dataSource + ";Initial Catalog=" + data.dataBase + ";Persist Security Info=True;User ID=" + data.user + ";Password=" + data.pass;
+            }
+            else
+            {
+                sql.ConnectionString = "Data Source=" + data.dataSource + ";Initial Catalog=" + data.dataBase + ";User ID=" + data.user + ";Password=" + data.pass;
+            }
         }
 
         public enum Tables // Перечисление используемых таблиц
@@ -85,6 +92,20 @@ namespace Abiturient_MPT
             "exec dbo.GetDisciplinePriority"
         };
 
+        public void connectionStringUpdate(DBData _data)
+        {
+            data = _data;
+
+            if (data.isLocal == true)
+            {
+                sql.ConnectionString = "Data Source=" + data.dataSource + ";Initial Catalog=" + data.dataBase + ";Persist Security Info=True;User ID=" + data.user + ";Password=" + data.pass;
+            }
+            else
+            {
+                sql.ConnectionString = "Data Source=" + data.dataSource + ";Initial Catalog=" + data.dataBase + ";User ID=" + data.user + ";Password=" + data.pass;
+            }
+        } 
+
         static string md5(string text) // Функция хеширования в MD5
         {
             using (var md5Hash = MD5.Create())
@@ -127,6 +148,7 @@ namespace Abiturient_MPT
 
         public int Authorization(string Login, string Password) // Функция авторизации
         {
+
             string result = String.Empty; // Строка, хранящая код результата (результат - ID роли)
             try
             {
