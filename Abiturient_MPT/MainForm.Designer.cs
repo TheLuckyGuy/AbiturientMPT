@@ -108,7 +108,7 @@
             this.программаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.roleLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.EnrolleePage.SuspendLayout();
@@ -638,7 +638,7 @@
             this.recAchievementsGroupBox.Size = new System.Drawing.Size(475, 580);
             this.recAchievementsGroupBox.TabIndex = 4;
             this.recAchievementsGroupBox.TabStop = false;
-            this.recAchievementsGroupBox.Text = "Врямя учёта";
+            this.recAchievementsGroupBox.Text = "Учитываемые достижения";
             // 
             // deleteAchRecButton
             // 
@@ -899,23 +899,24 @@
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.оПрограммеToolStripMenuItem1});
+            this.aboutToolStripMenuItem1});
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.оПрограммеToolStripMenuItem.Text = "Справка";
             // 
-            // оПрограммеToolStripMenuItem1
+            // aboutToolStripMenuItem1
             // 
-            this.оПрограммеToolStripMenuItem1.Name = "оПрограммеToolStripMenuItem1";
-            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(149, 22);
-            this.оПрограммеToolStripMenuItem1.Text = "О программе";
+            this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Text = "О программе";
+            this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
             // roleLabel
             // 
@@ -1035,7 +1036,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem программаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.GroupBox recOlympiadsGroupBox;
         private System.Windows.Forms.Button deleteRecOlympiadButton;
         private System.Windows.Forms.Button editRecOlympiadButton;

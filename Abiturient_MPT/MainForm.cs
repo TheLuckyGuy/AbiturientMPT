@@ -15,17 +15,18 @@ namespace Abiturient_MPT
     {
         //public db data = new db();
 
-        public Auth parent = new Auth();
+        public Auth parent = new Auth(); // Ссылка на форму-родителя
 
         public MainForm(Auth p)
         {
-            parent = p;
+            parent = p; 
             InitializeComponent();
             //data = p.data;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // Включение разделов в зависимости от роли
             enrolleeGroupBox.Enabled = parent.currentUser.Enrollee;
             listGroupBox.Enabled = parent.currentUser.EnrolleeList;
             disciplineGroupBox.Enabled = parent.currentUser.Disciplines;
@@ -38,7 +39,9 @@ namespace Abiturient_MPT
             recOlympiadsGroupBox.Enabled = parent.currentUser.Olympiads;
             statsGroupBox.Enabled = parent.currentUser.Statistics;
 
-            roleLabel.Text = parent.currentUser.Role;
+            // Заполнение названия роли
+            roleLabel.Text = "Роль: " + parent.currentUser.Role;
+            // Зарузка данных на вкладках
             tabControl1_SelectedIndexChanged(this, e);
         }
 
@@ -48,13 +51,13 @@ namespace Abiturient_MPT
         {
             switch (tabControl1.SelectedTab.Name)
             {
-                case "EnrolleePage":
+                case "EnrolleePage": // Загрузка данных во вкладке абитуриентов
                     if (parent.currentUser.Enrollee)
                     {
                         enrolleeGridView.DataSource = parent.data.GetData((byte)db.Tables.GetEnrollees);
                     }                  
                     break;
-                case "EnrolleeListPage":
+                case "EnrolleeListPage": // Загрузка данных во вкладке списка абитуриентов
                     if (parent.currentUser.EnrolleeList)
                     {
                         DataTable tbl5 = new DataTable();
@@ -65,7 +68,7 @@ namespace Abiturient_MPT
                         specialityComboBox.SelectedIndex = -1;
                     }
                     break;
-                case "DisciplinesPage":
+                case "DisciplinesPage": // Загрузка данных во вкладке дисциплин
                     if (parent.currentUser.Disciplines)
                     {
                         disciplineGridView.DataSource = parent.data.GetData((byte)db.Tables.GetDiscipline);
@@ -73,7 +76,7 @@ namespace Abiturient_MPT
                     }
 
                     break;
-                case "SpecialitiesPage":
+                case "SpecialitiesPage": // Загрузка данных во вкладке специальностей
                     if (parent.currentUser.Specialities)
                     {
                         specialityGridView.DataSource = parent.data.GetData((byte)db.Tables.GetSpeciality);
@@ -81,7 +84,7 @@ namespace Abiturient_MPT
                     }
 
                     break;
-                case "AchievementsPage":
+                case "AchievementsPage": // Загрузка данных во вкладке достижений
                     if (parent.currentUser.Achievements)
                     {
                         achRecGridView.DataSource = parent.data.GetData((byte)db.Tables.GetRecordedAchievements);
@@ -89,7 +92,7 @@ namespace Abiturient_MPT
                     }
                     
                     break;
-                case "OlympiadsPage":
+                case "OlympiadsPage": // Загрузка данных во вкладке олимпиад
                     if (parent.currentUser.Olympiads)
                     {
                         olymiadGridView.DataSource = parent.data.GetData((byte)db.Tables.GetOlympiads);
@@ -97,7 +100,7 @@ namespace Abiturient_MPT
                     }
                     
                     break;
-                case "StatisticsPage":
+                case "StatisticsPage": // Загрузка данных во вкладке статистики
                     if (parent.currentUser.Statistics)
                     {
                         DataTable tbl6 = new DataTable();
@@ -115,32 +118,32 @@ namespace Abiturient_MPT
         private void EnrolleeButton_Click(object sender, EventArgs e)
         {
             switch ((sender as Button).Name) {
-                case "addEnrolleeButton":
+                case "addEnrolleeButton": // Добавление абитуриентов
                     Enrollee newEnrollee = new Enrollee(this, 0, 0);
                     newEnrollee.Show();
                     break;
-                case "editEnrolleeButton":
+                case "editEnrolleeButton": // Изменение абитуриентов
                     if(enrolleeGridView.CurrentCell != null)
                     {
                     Enrollee editEnrollee = new Enrollee(this, 1, Convert.ToInt32(enrolleeGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                     editEnrollee.Show();
                     }
                     break;
-                case "deleteEnrolleeButton":
+                case "deleteEnrolleeButton": // Удаление абитуриентов
                     if (enrolleeGridView.CurrentCell != null)
                     {
                         const string message = "Вы действительно хотите удалить запись (записи)?";
                         const string caption = "Удаление";
                         var result = MessageBox.Show(message, caption,
                                                      MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Warning);
+                                                     MessageBoxIcon.Warning); // Отображение сообщения
                         if (result == DialogResult.No)
                         {
                             return;
                         }
 
 
-                        if (enrolleeGridView.SelectedRows.Count >= 1)
+                        if (enrolleeGridView.SelectedRows.Count >= 1) // Удаление только, если есть выделенные строки
                         {
                             for (int i = 0; i < enrolleeGridView.SelectedRows.Count; i++)
                             {
@@ -158,32 +161,32 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name)
             {
-                case "addAchievementButton":
+                case "addAchievementButton": // Добавление достижения
                     NewAchievement newAchievement = new NewAchievement(this, 0, 0);
                     newAchievement.Show();
                     break;
-                case "editAchievementButton":
+                case "editAchievementButton": // Редактирование достижения
                     if(achRecGridView.CurrentCell != null)
                     {
                     NewAchievement editAchievement = new NewAchievement(this, 1, Convert.ToInt32(achGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                     editAchievement.Show();
                     }
                     break;
-                case "deleteAchievementButton":
+                case "deleteAchievementButton": // Удаление достижения
                     if (achRecGridView.CurrentCell != null)
                     {
                         const string message = "Вы действительно хотите удалить запись (записи)?";
                         const string caption = "Удаление";
                         var result = MessageBox.Show(message, caption,
                                                      MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Warning);
-                        if (result == DialogResult.No)
+                                                     MessageBoxIcon.Warning);  // Отображение сообщения
+                        if (result == DialogResult.No) 
                         {
                             return;
                         }
 
 
-                        if (achGridView.SelectedRows.Count >= 1)
+                        if (achGridView.SelectedRows.Count >= 1) // Удаление только, если есть выделенные строки
                         {
                             for (int i = 0; i < achGridView.SelectedRows.Count; i++)
                             {
@@ -201,32 +204,32 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name)
             {
-                case "addSpecialityButton":
+                case "addSpecialityButton": // Добавление специальности
                     Speciality addSpeciality = new Speciality(this, 0, 0);
                     addSpeciality.Show();
                     break;
-                case "editSpecialityButton":
+                case "editSpecialityButton": // Изменение специальности
                     if(specialityGridView.CurrentCell != null)
                     {
                     Speciality editSpeciality = new Speciality(this, 1, Convert.ToInt32(specialityGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                     editSpeciality.Show();
                     }
                     break;
-                case "deleteSpecialityButton":
+                case "deleteSpecialityButton": // Удаление специальности
                     if (specialityGridView.CurrentCell != null)
                     {
                         const string message = "Вы действительно хотите удалить запись (записи)?";
                         const string caption = "Удаление";
                         var result = MessageBox.Show(message, caption,
                                                      MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Warning);
+                                                     MessageBoxIcon.Warning);  // Отображение сообщения
                         if (result == DialogResult.No)
                         {
                             return;
                         }
 
 
-                        if (specialityGridView.SelectedRows.Count >= 1)
+                        if (specialityGridView.SelectedRows.Count >= 1) // Удаление только, если есть выделенные строки
                         {
                             for (int i = 0; i < specialityGridView.SelectedRows.Count; i++)
                             {
@@ -243,11 +246,11 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name)
             {
-                case "addDisciplineButton":
+                case "addDisciplineButton": // Добавление дисациплины
                     Discipline newDiscipline = new Discipline(this, 0, 0);
                     newDiscipline.Show();
                     break;
-                case "editDisciplineButton":
+                case "editDisciplineButton": // Изменение дисциплины
                     if(disciplineGridView.CurrentCell != null)
                     {
                     Discipline editDiscipline = new Discipline(this, 1, Convert.ToInt32(disciplineGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
@@ -255,21 +258,21 @@ namespace Abiturient_MPT
                     }
 
                     break;
-                case "deleteDisciplineButton":
+                case "deleteDisciplineButton": // Удаление дисциплины
                     if (disciplineGridView.CurrentCell != null)
                     {
                         const string message = "Вы действительно хотите удалить запись (записи)?";
                         const string caption = "Удаление";
                         var result = MessageBox.Show(message, caption,
                                                      MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Warning);
+                                                     MessageBoxIcon.Warning);  // Отображение сообщения
                         if (result == DialogResult.No)
                         {
                             return;
                         }
 
 
-                        if (enrolleeGridView.SelectedRows.Count >= 1)
+                        if (enrolleeGridView.SelectedRows.Count >= 1) // Удаление только, если есть выделенные строки
                         {
                             for (int i = 0; i < enrolleeGridView.SelectedRows.Count; i++)
                             {
@@ -286,32 +289,32 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name)
             {
-                case "addAchRecButton":
+                case "addAchRecButton": // Добавление учитываемого достижения
                     RecAchievements newRecAchievements = new RecAchievements(this, 0, 0);
                     newRecAchievements.Show();
                     break;
-                case "editAchRecButton":
-                    if(achRecGridView.CurrentCell != null)
+                case "editAchRecButton": // Изменение учитываемого достижения
+                    if (achRecGridView.CurrentCell != null)
                     {
                     RecAchievements editRecAchievements = new RecAchievements(this, 1, Convert.ToInt32(achRecGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                     editRecAchievements.Show();
                     }
                     break;
-                case "deleteAchRecButton":
+                case "deleteAchRecButton": // Удаление учитываемого достижения
                     if (achRecGridView.CurrentCell != null)
                     {
                         const string message = "Вы действительно хотите удалить запись (записи)?";
                         const string caption = "Удаление";
                         var result = MessageBox.Show(message, caption,
                                                      MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Warning);
+                                                     MessageBoxIcon.Warning);  // Отображение сообщения
                         if (result == DialogResult.No)
                         {
                             return;
                         }
 
 
-                        if (achRecGridView.SelectedRows.Count >= 1)
+                        if (achRecGridView.SelectedRows.Count >= 1) // Удаление только, если есть выделенные строки
                         {
                             for (int i = 0; i < achRecGridView.SelectedRows.Count; i++)
                             {
@@ -328,32 +331,32 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name)
             {
-                case "addOlympiadButton":
+                case "addOlympiadButton": // Добавление олимпиады
                     Olympiad addOlympiad = new Olympiad(this, 0, 0);
                     addOlympiad.Show();
                     break;
-                case "editOlympiadButton":
-                    if(olymiadGridView.CurrentCell != null)
+                case "editOlympiadButton": // Изменение олимпиады
+                    if (olymiadGridView.CurrentCell != null)
                     {
                         Olympiad editOlympiad = new Olympiad(this, 1, Convert.ToInt32(olymiadGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                         editOlympiad.Show();
                     }
                     break;
-                case "deleteOlympiadButton":
+                case "deleteOlympiadButton": // Удаление олимпиады
                     if (olymiadGridView.CurrentCell != null)
                     {
                         const string message = "Вы действительно хотите удалить запись (записи)?";
                         const string caption = "Удаление";
                         var result = MessageBox.Show(message, caption,
                                                      MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Warning);
+                                                     MessageBoxIcon.Warning); // Отображение сообщения
                         if (result == DialogResult.No)
                         {
                             return;
                         }
 
 
-                        if (olymiadGridView.SelectedRows.Count >= 1)
+                        if (olymiadGridView.SelectedRows.Count >= 1) // Удаление только, если есть выделенные строки
                         {
                             for (int i = 0; i < olymiadGridView.SelectedRows.Count; i++)
                             {
@@ -370,32 +373,32 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name)
             {
-                case "addSpecialityGroupButton":
+                case "addSpecialityGroupButton": // Добавление группы специальностей
                     SpecialityGroup addSpecialityGroup = new SpecialityGroup(this, 0, 0);
                     addSpecialityGroup.Show();
                     break;
-                case "editSpecialityGroupButton":
-                    if(specialityGridView.CurrentCell != null)
+                case "editSpecialityGroupButton": // Изменение группы специальностей
+                    if (specialityGridView.CurrentCell != null)
                     {
                     SpecialityGroup editSpecialityGroup = new SpecialityGroup(this, 1, Convert.ToInt32(specialityGroupGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                     editSpecialityGroup.Show();
                     }
                     break;
-                case "deleteSpecialityGroupButton":
+                case "deleteSpecialityGroupButton": // Удаление группы специальностей
                     if (specialityGridView.CurrentCell != null)
                     {
                         const string message = "Вы действительно хотите удалить запись (записи)?";
                         const string caption = "Удаление";
                         var result = MessageBox.Show(message, caption,
                                                      MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Warning);
+                                                     MessageBoxIcon.Warning); // Отображение сообщения
                         if (result == DialogResult.No)
                         {
                             return;
                         }
 
 
-                        if (specialityGroupGridView.SelectedRows.Count >= 1)
+                        if (specialityGroupGridView.SelectedRows.Count >= 1) // Удаление только, если есть выделенные строки
                         {
                             for (int i = 0; i < specialityGroupGridView.SelectedRows.Count; i++)
                             {
@@ -412,33 +415,33 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name)
             {
-                case "addPriorityButton":
+                case "addPriorityButton": // Добавление приоритета и профиля специальности
                     DisciplinePriority addPriority = new DisciplinePriority(this, 0, 0);
                     addPriority.Show();
                     break;
-                case "editPriorityButton":
-                    if(priorityGridView.CurrentCell != null)
+                case "editPriorityButton": // Изменение приоритета и профиля специальности
+                    if (priorityGridView.CurrentCell != null)
                     {
                     DisciplinePriority editPriority = new DisciplinePriority(this, 1, Convert.ToInt32(priorityGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                     editPriority.Show();
                     }
 
                     break;
-                case "deletePriorityButton":
+                case "deletePriorityButton": // Удаление приоритета и профиля специальности
                     if (priorityGridView.CurrentCell != null)
                     {
                         const string message = "Вы действительно хотите удалить запись (записи)?";
                         const string caption = "Удаление";
                         var result = MessageBox.Show(message, caption,
                                                      MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Warning);
+                                                     MessageBoxIcon.Warning); // Отображение сообщения
                         if (result == DialogResult.No)
                         {
                             return;
                         }
 
 
-                        if (priorityGridView.SelectedRows.Count >= 1)
+                        if (priorityGridView.SelectedRows.Count >= 1) // Удаление только, если есть выделенные строки
                         {
                             for (int i = 0; i < priorityGridView.SelectedRows.Count; i++)
                             {
@@ -488,32 +491,32 @@ namespace Abiturient_MPT
         {
             switch ((sender as Button).Name)
             {
-                case "addRecOlympiadButton":
+                case "addRecOlympiadButton": // Добавление учитываемой олимпиады
                     RecOlympiad newRecOlympiad = new RecOlympiad(this, 0, 0);
                     newRecOlympiad.Show();
                     break;
-                case "editRecOlympiadButton":
+                case "editRecOlympiadButton": // Изменение учитываемой олимпиады
                     if (recOlympiadGridView.CurrentCell != null)
                     {
                         RecOlympiad editRecOlympiad = new RecOlympiad(this, 1, Convert.ToInt32(recOlympiadGridView.CurrentCell.OwningRow.Cells["ID"].Value.ToString()));
                         editRecOlympiad.Show();
                     }
                     break;
-                case "deleteRecOlympiadButton":
-                    if (recOlympiadGridView.CurrentCell != null)
+                case "deleteRecOlympiadButton": // Удаление учитываемой олимпиады
+                    if (recOlympiadGridView.CurrentCell != null) 
                     {
                         const string message = "Вы действительно хотите удалить запись (записи)?";
                         const string caption = "Удаление";
                         var result = MessageBox.Show(message, caption,
                                                      MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Warning);
+                                                     MessageBoxIcon.Warning); // Отображение сообщения
                         if (result == DialogResult.No)
                         {
                             return;
                         }
 
 
-                        if (recOlympiadGridView.SelectedRows.Count >= 1)
+                        if (recOlympiadGridView.SelectedRows.Count >= 1) // Удаление только, если есть выделенные строки
                         {
                             for (int i = 0; i < recOlympiadGridView.SelectedRows.Count; i++)
                             {
@@ -528,6 +531,7 @@ namespace Abiturient_MPT
 
         private void exportListButton_Click(object sender, EventArgs e)
         {
+            // Экспорт списка абитуриентов
             Excel.Application exApp = new Excel.Application();
             exApp.Visible = true;
             exApp.SheetsInNewWorkbook = 1;
@@ -570,6 +574,7 @@ namespace Abiturient_MPT
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Экспорт статистики
             Excel.Application exApp = new Excel.Application();
             exApp.Visible = true;
             exApp.SheetsInNewWorkbook = 1;
@@ -599,6 +604,12 @@ namespace Abiturient_MPT
             //string pathToXmlFile;
             //pathToXmlFile = Environment.CurrentDirectory + "\\" + "MyFile.xls";
             exApp.Quit();
+        }
+
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.Show();
         }
     }
 }

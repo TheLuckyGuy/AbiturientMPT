@@ -8,17 +8,12 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Windows.Forms;
-using Liphsoft.Crypto.Argon2;
 
 
 namespace Abiturient_MPT
 {
     public class db
     {
-
-
-        //public SqlConnection sql = new SqlConnection("Data Source = LAPTOP-KPGPB2J6; " +
-        //    "initial Catalog = Abiturient_MPT; Persist Security Info = true; User ID = sa; Password = \"17455688\""); // Строка подключения к БД
 
         public SqlConnection sql = new SqlConnection("Data Source = LAPTOP-KPGPB2J6; " +
             "initial Catalog = Abiturient_MPT; Persist Security Info = true; User ID = sa; Password = \"17455688\""); // Строка подключения к БД
@@ -186,7 +181,7 @@ namespace Abiturient_MPT
             }
             
         }
-        public int Registration(string Login, string Password, int Role_Id = 1) // Функция регистрации
+        public int Registration(string Login, string Password, int Role_Id = 2) // Функция регистрации
         {
             string result = String.Empty;
             try
@@ -1617,6 +1612,115 @@ namespace Abiturient_MPT
 
                 // Добавление параметров SQL запроса
                 SqlParameter idParam = new SqlParameter("@ID_Spec", specialityID);
+                command.Parameters.Add(idParam);
+
+
+                tempDT.Load((SqlDataReader)command.ExecuteReader());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+            finally
+            {
+                sql.Close();
+
+            }
+            return tempDT;
+        }
+
+        public int winnedOlympiadAdd(int Individual_Achievement_ID, int Olympiad_Rec_ID) // Добавление индивидуального достижения
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Insert_Winned_Olympiad @Individual_Achievement_ID, @Olympiad_Rec_ID", sql);
+
+                // Добавление параметров SQL запроса
+                SqlParameter indAchID = new SqlParameter("@Individual_Achievement_ID", Individual_Achievement_ID);
+                command.Parameters.Add(indAchID);
+
+                SqlParameter olympRecID = new SqlParameter("@Olympiad_Rec_ID", Olympiad_Rec_ID);
+                command.Parameters.Add(olympRecID);
+
+                command.ExecuteNonQuery();
+            }
+            catch { return -1; }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int winnedOlympiadUpdate(int Winned_Olympiad, int Individual_Achievement_ID, int Olympiad_Rec_ID) // Изменение индивидуального достижения
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Update_Winned_Olympiad @Winned_Olympiad_ID, @Enrollee_ID, @Achievement_ID", sql);
+
+                // Добавление параметров SQL запроса
+                SqlParameter idParam = new SqlParameter("@Winned_Olympiad_ID", Winned_Olympiad);
+                command.Parameters.Add(idParam);
+
+                SqlParameter indAchID = new SqlParameter("@Enrollee_ID", Individual_Achievement_ID);
+                command.Parameters.Add(indAchID);
+
+                SqlParameter olympRecID = new SqlParameter("@Achievement_ID", Olympiad_Rec_ID);
+                command.Parameters.Add(olympRecID);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public int winnedOlympiadDelete(int Winned_Olympiad_ID) // Удаление индивидуального достижения
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec Delete_Winned_Olympiad @Winned_Olympiad_ID", sql);
+
+                // Добавление параметров SQL запроса
+                SqlParameter idParam = new SqlParameter("@Winned_Olympiad_ID", Winned_Olympiad_ID);
+                command.Parameters.Add(idParam);
+
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                sql.Close();
+            }
+            return 0;
+        }
+        public DataTable getWinnedOlympiads(int enrolleeID) // Получение индивидуальных достижений
+        {
+            DataTable tempDT = new DataTable();
+            try
+            {
+                sql.Open();
+                SqlCommand command = new SqlCommand(
+                   "exec getWinnedOlympiads @Enrollee_ID", sql);
+
+                // Добавление параметров SQL запроса
+                SqlParameter idParam = new SqlParameter("@Enrollee_ID", enrolleeID);
                 command.Parameters.Add(idParam);
 
 

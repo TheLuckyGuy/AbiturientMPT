@@ -31,3 +31,4 @@ C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\bin\Debug\Liphsoft.Cryp
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.CopyComplete
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csproj.ResolveComReference.cache
 C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.csprojAssemblyReference.cache
+C:\Users\vladg\source\repos\AbiturientMPT\Abiturient_MPT\obj\Debug\Abiturient_MPT.About.resources

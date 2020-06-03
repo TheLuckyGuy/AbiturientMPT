@@ -30,6 +30,8 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Enrollee));
             this.surnameTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
@@ -80,6 +82,7 @@
             this.markUpDown = new System.Windows.Forms.NumericUpDown();
             this.disciplineComboBox = new System.Windows.Forms.ComboBox();
             this.olympiadsGroupBox = new System.Windows.Forms.GroupBox();
+            this.indAchComboBox = new System.Windows.Forms.ComboBox();
             this.addOlympiadButton = new System.Windows.Forms.Button();
             this.deleteOlympiadButton = new System.Windows.Forms.Button();
             this.olympiadComboBox = new System.Windows.Forms.ComboBox();
@@ -90,6 +93,7 @@
             this.addSpecialityButton = new System.Windows.Forms.Button();
             this.specialityComboBox = new System.Windows.Forms.ComboBox();
             this.specialityGridView = new System.Windows.Forms.DataGridView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.endYearUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.achievementGridView)).BeginInit();
             this.EnrolleeGroupBox.SuspendLayout();
@@ -397,7 +401,7 @@
             // achievementGridView
             // 
             this.achievementGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.achievementGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.achievementGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.achievementGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.achievementGridView.Location = new System.Drawing.Point(22, 64);
             this.achievementGridView.Name = "achievementGridView";
@@ -452,7 +456,7 @@
             this.certificateGroupBox.Controls.Add(this.oldDocumentCheckBox);
             this.certificateGroupBox.Location = new System.Drawing.Point(12, 331);
             this.certificateGroupBox.Name = "certificateGroupBox";
-            this.certificateGroupBox.Size = new System.Drawing.Size(412, 301);
+            this.certificateGroupBox.Size = new System.Drawing.Size(412, 339);
             this.certificateGroupBox.TabIndex = 42;
             this.certificateGroupBox.TabStop = false;
             this.certificateGroupBox.Text = "Аттестат";
@@ -561,14 +565,14 @@
             this.marksGroupBox.Enabled = false;
             this.marksGroupBox.Location = new System.Drawing.Point(842, 25);
             this.marksGroupBox.Name = "marksGroupBox";
-            this.marksGroupBox.Size = new System.Drawing.Size(344, 284);
+            this.marksGroupBox.Size = new System.Drawing.Size(344, 246);
             this.marksGroupBox.TabIndex = 44;
             this.marksGroupBox.TabStop = false;
             this.marksGroupBox.Text = "Оценки";
             // 
             // addMarkButton
             // 
-            this.addMarkButton.Location = new System.Drawing.Point(247, 246);
+            this.addMarkButton.Location = new System.Drawing.Point(247, 214);
             this.addMarkButton.Name = "addMarkButton";
             this.addMarkButton.Size = new System.Drawing.Size(75, 23);
             this.addMarkButton.TabIndex = 45;
@@ -578,7 +582,7 @@
             // 
             // deleteMarkButton
             // 
-            this.deleteMarkButton.Location = new System.Drawing.Point(20, 246);
+            this.deleteMarkButton.Location = new System.Drawing.Point(22, 214);
             this.deleteMarkButton.Name = "deleteMarkButton";
             this.deleteMarkButton.Size = new System.Drawing.Size(75, 23);
             this.deleteMarkButton.TabIndex = 44;
@@ -593,7 +597,9 @@
             this.markGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.markGridView.Location = new System.Drawing.Point(22, 68);
             this.markGridView.Name = "markGridView";
-            this.markGridView.Size = new System.Drawing.Size(300, 172);
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.markGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.markGridView.Size = new System.Drawing.Size(300, 140);
             this.markGridView.TabIndex = 2;
             // 
             // markUpDown
@@ -623,41 +629,54 @@
             // 
             // olympiadsGroupBox
             // 
+            this.olympiadsGroupBox.Controls.Add(this.textBox2);
+            this.olympiadsGroupBox.Controls.Add(this.indAchComboBox);
             this.olympiadsGroupBox.Controls.Add(this.addOlympiadButton);
             this.olympiadsGroupBox.Controls.Add(this.deleteOlympiadButton);
             this.olympiadsGroupBox.Controls.Add(this.olympiadComboBox);
             this.olympiadsGroupBox.Controls.Add(this.textBox1);
             this.olympiadsGroupBox.Controls.Add(this.olympiadGridView);
             this.olympiadsGroupBox.Enabled = false;
-            this.olympiadsGroupBox.Location = new System.Drawing.Point(842, 317);
+            this.olympiadsGroupBox.Location = new System.Drawing.Point(842, 277);
             this.olympiadsGroupBox.Name = "olympiadsGroupBox";
-            this.olympiadsGroupBox.Size = new System.Drawing.Size(344, 315);
+            this.olympiadsGroupBox.Size = new System.Drawing.Size(344, 393);
             this.olympiadsGroupBox.TabIndex = 45;
             this.olympiadsGroupBox.TabStop = false;
             this.olympiadsGroupBox.Text = "Олимпиады";
             // 
+            // indAchComboBox
+            // 
+            this.indAchComboBox.FormattingEnabled = true;
+            this.indAchComboBox.Location = new System.Drawing.Point(20, 27);
+            this.indAchComboBox.Name = "indAchComboBox";
+            this.indAchComboBox.Size = new System.Drawing.Size(302, 21);
+            this.indAchComboBox.TabIndex = 48;
+            this.indAchComboBox.SelectedIndexChanged += new System.EventHandler(this.indAchComboBox_SelectedIndexChanged);
+            // 
             // addOlympiadButton
             // 
-            this.addOlympiadButton.Location = new System.Drawing.Point(247, 282);
+            this.addOlympiadButton.Location = new System.Drawing.Point(247, 360);
             this.addOlympiadButton.Name = "addOlympiadButton";
             this.addOlympiadButton.Size = new System.Drawing.Size(75, 23);
             this.addOlympiadButton.TabIndex = 47;
             this.addOlympiadButton.Text = "Добавить";
             this.addOlympiadButton.UseVisualStyleBackColor = true;
+            this.addOlympiadButton.Click += new System.EventHandler(this.addOlympiadButton_Click);
             // 
             // deleteOlympiadButton
             // 
-            this.deleteOlympiadButton.Location = new System.Drawing.Point(20, 282);
+            this.deleteOlympiadButton.Location = new System.Drawing.Point(20, 360);
             this.deleteOlympiadButton.Name = "deleteOlympiadButton";
             this.deleteOlympiadButton.Size = new System.Drawing.Size(75, 23);
             this.deleteOlympiadButton.TabIndex = 46;
             this.deleteOlympiadButton.Text = "Удалить";
             this.deleteOlympiadButton.UseVisualStyleBackColor = true;
+            this.deleteOlympiadButton.Click += new System.EventHandler(this.deleteOlympiadButton_Click);
             // 
             // olympiadComboBox
             // 
             this.olympiadComboBox.FormattingEnabled = true;
-            this.olympiadComboBox.Location = new System.Drawing.Point(20, 25);
+            this.olympiadComboBox.Location = new System.Drawing.Point(20, 104);
             this.olympiadComboBox.Name = "olympiadComboBox";
             this.olympiadComboBox.Size = new System.Drawing.Size(302, 21);
             this.olympiadComboBox.TabIndex = 2;
@@ -665,19 +684,23 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(20, 54);
+            this.textBox1.Location = new System.Drawing.Point(20, 131);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(302, 54);
+            this.textBox1.Size = new System.Drawing.Size(302, 43);
             this.textBox1.TabIndex = 1;
             // 
             // olympiadGridView
             // 
+            this.olympiadGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.olympiadGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.olympiadGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.olympiadGridView.Location = new System.Drawing.Point(20, 114);
+            this.olympiadGridView.Location = new System.Drawing.Point(20, 180);
             this.olympiadGridView.Name = "olympiadGridView";
-            this.olympiadGridView.Size = new System.Drawing.Size(302, 151);
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.olympiadGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.olympiadGridView.Size = new System.Drawing.Size(302, 177);
             this.olympiadGridView.TabIndex = 0;
             // 
             // specialityGroupBox
@@ -688,7 +711,7 @@
             this.specialityGroupBox.Controls.Add(this.specialityGridView);
             this.specialityGroupBox.Location = new System.Drawing.Point(462, 331);
             this.specialityGroupBox.Name = "specialityGroupBox";
-            this.specialityGroupBox.Size = new System.Drawing.Size(344, 301);
+            this.specialityGroupBox.Size = new System.Drawing.Size(344, 339);
             this.specialityGroupBox.TabIndex = 46;
             this.specialityGroupBox.TabStop = false;
             this.specialityGroupBox.Text = "Специальности";
@@ -727,10 +750,19 @@
             this.specialityGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.specialityGridView.Location = new System.Drawing.Point(22, 58);
             this.specialityGridView.Name = "specialityGridView";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.specialityGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.specialityGridView.Size = new System.Drawing.Size(300, 205);
             this.specialityGridView.TabIndex = 44;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(20, 53);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(302, 44);
+            this.textBox2.TabIndex = 49;
             // 
             // Enrollee
             // 
@@ -745,6 +777,7 @@
             this.Controls.Add(this.EnrolleeGroupBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Enrollee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Абитуриент";
@@ -831,5 +864,7 @@
         private System.Windows.Forms.Button addSpecialityButton;
         private System.Windows.Forms.ComboBox specialityComboBox;
         private System.Windows.Forms.DataGridView specialityGridView;
+        private System.Windows.Forms.ComboBox indAchComboBox;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

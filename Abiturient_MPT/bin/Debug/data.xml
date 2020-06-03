@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <DBData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <controlString>ControlString</controlString>
-  <isLocal>true</isLocal>
   <dataSource>LAPTOP-KPGPB2J6</dataSource>
   <dataBase>Abiturient_MPT</dataBase>
   <user>sa</user>
-  <pass>17455688</pass>
+  <pass>ZXQdHS+LOiAjWpQO3T/nUIyec18iRKG52vxPc6kyscMyH5xJfCbq4TL1bTnYSrc128OH+8caFfla2QgUUF6087OsTaEza5PrY+fX1BDiwSaNZACm02jbXwNBJSQlHyso</pass>
+  <isLocal>true</isLocal>
 </DBData>

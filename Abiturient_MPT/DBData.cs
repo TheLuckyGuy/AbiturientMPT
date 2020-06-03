@@ -16,6 +16,7 @@ namespace Abiturient_MPT
         public string dataBase { get; set; }
         public string user { get; set; }
         public string pass { get; set; }
+        //public string iv { get; set; }
         //public DBData (string _dataSource, string _dataBase, string _user, string _pass)
         //{
         //    dataSource = _dataSource;
@@ -24,7 +25,7 @@ namespace Abiturient_MPT
         //    pass = _pass;
         //}
 
-        public int update(string _dataSource, string _dataBase, string _user, string _pass, bool _isLocal)
+        public int update(string _dataSource, string _dataBase, string _user, string _pass, bool _isLocal, string iv)
         {
             isLocal = _isLocal;
             dataSource = _dataSource;

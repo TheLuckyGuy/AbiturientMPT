@@ -46,7 +46,7 @@ namespace Abiturient_MPT
 
             // Получение данных для заполнения выпадающего списка олимпиад
             DataTable tbl2 = new DataTable();
-            tbl2 = parent.parent.data.GetData((byte)db.Tables.GetOlympiads);
+            tbl2 = parent.parent.data.GetData((byte)db.Tables.GetRecordedOlympiad);
             olympiadComboBox.DataSource = tbl2;
             olympiadComboBox.DisplayMember = "Название";// столбец для отображения
             olympiadComboBox.ValueMember = "ID";//столбец с id
@@ -73,8 +73,17 @@ namespace Abiturient_MPT
             specialityComboBox.ValueMember = "ID";//столбец с id
             specialityComboBox.SelectedIndex = -1;
 
+            // Получение данных для заполнения выпадающего списка индивидуальных достижений
+            DataTable tbl6 = new DataTable();
+            tbl6 = parent.parent.data.getIndividualAchievements(id);
+            indAchComboBox.DataSource = tbl6;
+            indAchComboBox.DisplayMember = "Название";// столбец для отображения
+            indAchComboBox.ValueMember = "ID";//столбец с id
+            indAchComboBox.SelectedIndex = -1;
+
             achievementGridView.DataSource = parent.parent.data.getIndividualAchievements(id); // Заполнение данными таблицы индивидуальных достижений
             markGridView.DataSource = parent.parent.data.getenrolleeMarks(id); // Заполнение данными таблицы оценок
+            olympiadGridView.DataSource = parent.parent.data.getWinnedOlympiads(id);
 
             switch (mode)
             {
@@ -343,7 +352,7 @@ namespace Abiturient_MPT
 
         private void addSpecialityButton_Click(object sender, EventArgs e)
         {
-            if(specialityComboBox.SelectedIndex != 1)
+            if(specialityComboBox.SelectedIndex != -1)
             {
                 if(parent.parent.data.enrolleeSpecialityAdd(id, (int)specialityComboBox.SelectedValue) == 0)
                 {
@@ -354,6 +363,64 @@ namespace Abiturient_MPT
             else
             {
                 MessageBox.Show("Не все необходимые поля ввода заполнены", "Незаполнены поля");
+            }
+        }
+
+        private void addOlympiadButton_Click(object sender, EventArgs e)
+        {
+            if ((olympiadComboBox.SelectedIndex != -1) & (indAchComboBox.SelectedIndex != -1))
+            {
+                if (parent.parent.data.winnedOlympiadAdd((int)indAchComboBox.SelectedValue, (int)olympiadComboBox.SelectedValue) == 0)
+                {
+                    NewEnrollee_Load(this, e);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Не все необходимые поля ввода заполнены", "Незаполнены поля");
+            }
+            ;
+        }
+
+        private void indAchComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox2.Text = indAchComboBox.Text;
+        }
+
+        private void deleteOlympiadButton_Click(object sender, EventArgs e)
+        {
+            const string message = "Вы действительно хотите удалить запись (записи)?";
+            const string caption = "Удаление";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Warning);
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+
+            if (olympiadGridView.SelectedRows.Count >= 1)
+            {
+                for (int i = 0; i < olympiadGridView.SelectedRows.Count; i++)
+                {
+                    if (olympiadGridView.SelectedRows[i].Cells["ID"].Value.ToString() != null)
+                    {
+                        if (parent.parent.data.winnedOlympiadDelete((int)olympiadGridView.SelectedRows[i].Cells["ID"].Value) == 0)
+                        {
+                            NewEnrollee_Load(this, e);
+                        }
+                    }
+                }
+            }
+            if (olympiadGridView.SelectedCells.Count > 0)
+            {
+                if (parent.parent.data.winnedOlympiadDelete((int)olympiadGridView.CurrentCell.OwningRow.Cells["ID"].Value) == 0)
+                {
+                    NewEnrollee_Load(this, e);
+                }
+
             }
         }
     }
